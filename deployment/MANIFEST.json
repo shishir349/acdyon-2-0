@@ -1,0 +1,73 @@
+{
+  "project": "AcdyOn 2.0",
+  "version": "1.0.0",
+  "deploymentDate": "2026-05-29",
+  "buildInfo": {
+    "framework": "Next.js 15.5.18",
+    "typescript": true,
+    "buildCommand": "next build && next export",
+    "outputDirectory": "out",
+    "exportType": "static"
+  },
+  "pages": 19,
+  "routes": [
+    "/",
+    "/about",
+    "/universities",
+    "/success-stories",
+    "/programs",
+    "/programs/agentic-ai-automation-mastery",
+    "/programs/agentic-ai-cybersecurity-mastery",
+    "/doctoral-programs",
+    "/honorary-recognition",
+    "/ai-courses",
+    "/ai-courses/agentic-ai",
+    "/resources/brochures",
+    "/resources/events",
+    "/blogs",
+    "/contact",
+    "/book-consultation",
+    "/_not-found"
+  ],
+  "hostingInfo": {
+    "provider": "Hostinger",
+    "service": "Premium Web Hosting",
+    "domain": "your-acdyon-domain.io",
+    "uploadPath": "/public_html/",
+    "ssl": "Let's Encrypt (Free)",
+    "dns": [
+      "ns1.hostinger.com",
+      "ns2.hostinger.com",
+      "ns3.hostinger.com",
+      "ns4.hostinger.com"
+    ]
+  },
+  "performance": {
+    "homepageSize": "42.9 kB",
+    "firstLoadJS": "172 kB",
+    "gzipEnabled": true,
+    "cacheEnabled": true
+  },
+  "features": [
+    "19 fully optimized pages",
+    "Responsive design (mobile-first)",
+    "Dark mode support",
+    "SEO optimized",
+    "Static export (no server required)",
+    "Fast page load times",
+    "Zero TypeScript errors",
+    "Production ready"
+  ],
+  "files": {
+    "htmlPages": 17,
+    "nextChunks": 2,
+    "staticAssets": "images, fonts, CSS"
+  },
+  "deployment": {
+    "method": "File Upload via hPanel",
+    "estimatedSize": "~50 MB with all assets",
+    "uploadTime": "5-15 minutes",
+    "dnsTime": "24-48 hours",
+    "certificateTime": "5-10 minutes"
+  }
+}
