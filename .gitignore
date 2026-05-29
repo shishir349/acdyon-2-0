@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# next
+.next/
+out/
+
+# logs
+*.log
+.pnpm-debug.log*
+
+# local environment and private MCP config
+.env
+.env.local
+.env.*.local
+mcp/hostinger/.env
+mcp/hostinger/.env.local
+mcp/hostinger/codex-mcp.local.json
+
+# system
+.DS_Store
+Thumbs.db

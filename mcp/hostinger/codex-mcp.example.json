@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "hostinger": {
+      "command": "node",
+      "args": [
+        "C:/Users/advdi/OneDrive/Documents/AcdyOn 2.0/mcp/hostinger/dist/index.js"
+      ],
+      "env": {
+        "HOSTINGER_API_TOKEN": "paste_your_hostinger_api_token_here",
+        "HOSTINGER_API_BASE_URL": "https://developers.hostinger.com"
+      }
+    }
+  }
+}
