@@ -1,25 +1,22 @@
-# AcdyOn Hostinger MCP
+# AcdyOn Hostinger MCP Configuration
 
-Small MCP server for connecting Codex or another MCP client to the Hostinger API using your own Hostinger API token.
+This directory contains configuration files for the Hostinger API MCP integration.
 
-Hostinger's API currently documents bearer-token authentication, JSON requests, and the production server at `https://developers.hostinger.com`. Hostinger also publishes official SDKs and an official MCP server; this local server is intentionally small and AcdyOn-focused so you can inspect and adjust it.
+**The application now uses the published `hostinger-api-mcp@latest` npm package instead of the local implementation.**
+
+The local source code in the `src/` directory is retained for reference but is no longer used in the active application.
 
 ## Setup
 
-```powershell
-cd "C:\Users\advdi\OneDrive\Documents\AcdyOn 2.0\mcp\hostinger"
-pnpm install
-pnpm build
-```
+The Hostinger MCP is configured in `.claude/settings.json` at the project root.
 
-Create a Hostinger API token from hPanel, then set:
+To use the Hostinger API integration:
 
-```powershell
-$env:HOSTINGER_API_TOKEN="your_token"
-$env:HOSTINGER_API_BASE_URL="https://developers.hostinger.com"
-```
+1. Generate a Hostinger API token from hPanel
+2. When prompted by Claude Code, enter your API token in the `api_token` input
+3. The MCP server will automatically load with your credentials
 
-For Codex or another MCP client, use `codex-mcp.example.json` as the starting config and paste your token into the `env` block.
+Environment variables are managed through the input prompt system.
 
 ## Tools
 
