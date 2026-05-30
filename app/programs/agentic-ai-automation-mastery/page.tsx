@@ -6,6 +6,8 @@ import { FinalCTA } from "@/components/sections/final-cta";
 import { PageHero } from "@/components/sections/page-hero";
 import { CTAButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { PricingDisplay } from "@/components/PricingDisplay";
+import { AccreditationShowcase } from "@/components/AccreditationShowcase";
 import {
   agenticAiAudience,
   agenticAiCurriculum,
@@ -218,6 +220,26 @@ export default function AgenticAIAutomationPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="bg-slate-950 py-24">
+        <div className="container-premium">
+          <PricingDisplay
+            programmeId="ai-automation"
+            title="Flexible Pricing & Payment Plans"
+          />
+        </div>
+      </section>
+
+      {/* Trust & Accreditations */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <AccreditationShowcase
+            programmeId="ai-automation"
+            title="AcdyOn Certification & Recognition"
+          />
         </div>
       </section>
 

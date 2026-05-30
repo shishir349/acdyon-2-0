@@ -1,0 +1,250 @@
+import type { Metadata } from "next";
+import * as Accordion from "@radix-ui/react-accordion";
+import { CheckCircle2, ChevronDown } from "lucide-react";
+import { ConsultationNudge } from "@/components/sections/consultation-nudge";
+import { FinalCTA } from "@/components/sections/final-cta";
+import { PageHero } from "@/components/sections/page-hero";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { UniversityComparison } from "@/components/UniversityComparison";
+import { PricingDisplay } from "@/components/PricingDisplay";
+import { AccreditationShowcase } from "@/components/AccreditationShowcase";
+import { doctoralEligibility, doctoralFAQs, doctoralTracks, processSteps } from "@/lib/data/site";
+
+const phdTrack = doctoralTracks.find((t) => t.degree === "PhD")!;
+
+export const metadata: Metadata = {
+  title: "Doctor of Philosophy (PhD)",
+  description: "Research doctorate for scholarly contribution. Original research, peer-reviewed publication, and academic recognition. Compare universities and explore your path.",
+};
+
+export default function PhDPathwayPage() {
+  const phdFAQs = doctoralFAQs.filter((faq) => !faq.question.includes("Post-Doctoral"));
+
+  return (
+    <main>
+      <PageHero
+        eyebrow="Research Doctorate"
+        title={phdTrack.title}
+        description={phdTrack.purpose}
+        secondaryLabel="View All Pathways"
+        secondaryHref="/doctoral-programs"
+      />
+
+      {/* Programme Overview */}
+      <section className="bg-white py-24">
+        <div className="container-premium grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="space-y-5 text-sm leading-7 text-slate-600">
+            <p>{phdTrack.description}</p>
+            <p>
+              The PhD is for researchers with deep expertise who are ready to make an original
+              contribution to their field. It's designed around genuine research contribution,
+              not classroom coursework.
+            </p>
+          </div>
+          <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
+            <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-slate-400">
+              Programme Snapshot
+            </h3>
+            <div className="mt-6 grid gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                  Duration
+                </p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">
+                  {phdTrack.duration}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                  Delivery Format
+                </p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">
+                  {phdTrack.format}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                  Focus Area
+                </p>
+                <p className="mt-2 text-lg font-semibold text-slate-950">
+                  {phdTrack.focus}
+                </p>
+              </div>
+              <div className="border-t border-slate-200 pt-4">
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">
+                  Ideal For
+                </p>
+                <div className="mt-3 grid gap-2">
+                  {phdTrack.audience.map((item) => (
+                    <div key={item} className="flex items-start gap-2 text-xs text-slate-600">
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#1E40FF]" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Outcomes */}
+      <section className="bg-slate-950 py-24">
+        <div className="container-premium">
+          <SectionHeading
+            variant="dark"
+            eyebrow="Research Outcomes"
+            title="What you'll achieve"
+            description="The PhD is your pathway to original scholarly contribution and academic recognition."
+          />
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            <div>
+              <div className="grid gap-3">
+                {phdTrack.outcomes.map((outcome) => (
+                  <div key={outcome} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#22D3EE]" />
+                    <span className="text-sm text-slate-300">{outcome}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.04] p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+                Career Progression
+              </p>
+              <p className="mt-4 text-sm leading-6 text-slate-300">
+                After completing your PhD, you're positioned for:
+              </p>
+              <p className="mt-4 text-sm font-semibold text-slate-100">
+                {phdTrack.progression}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available Universities */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <UniversityComparison
+            programmeId="phd-general"
+            title="Available Universities"
+            subtitle="Compare the 2 universities offering the PhD. Click any university name to view full details, research focus areas, and supervision opportunities."
+            linkToDetail="/doctoral-programs/phd"
+          />
+        </div>
+      </section>
+
+      {/* Pricing & Payment Plans */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <PricingDisplay
+            programmeId="phd-general"
+            title="Flexible Pricing & Payment Plans"
+          />
+        </div>
+      </section>
+
+      {/* Accreditations */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <AccreditationShowcase
+            programmeId="phd-general"
+            title="Institutional Recognition"
+          />
+        </div>
+      </section>
+
+      {/* Eligibility */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <SectionHeading
+            eyebrow="Entry Requirements"
+            title="PhD Eligibility Criteria"
+            description="The PhD requires demonstrated research capability and scholarly potential. These criteria help us identify strong candidates."
+          />
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {doctoralEligibility.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-7"
+              >
+                <h3 className="text-sm font-semibold text-slate-950">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Steps */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <SectionHeading
+            eyebrow="Your Journey"
+            title="The PhD Application Process"
+            description="Clear steps from initial consultation through to research and thesis completion."
+          />
+          <div className="mt-14 grid gap-6 lg:grid-cols-4">
+            {processSteps.map((step, idx) => (
+              <div key={step.title} className="relative">
+                <div className="rounded-[8px] border border-slate-200 bg-white p-6">
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-950 text-sm font-bold text-white">
+                    {idx + 1}
+                  </div>
+                  <h3 className="mt-2 text-sm font-semibold text-slate-950">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+                </div>
+                {idx < processSteps.length - 1 && (
+                  <div className="absolute right-0 top-8 hidden h-1 w-full translate-x-full bg-gradient-to-r from-[#1E40FF] to-transparent lg:block" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ConsultationNudge />
+
+      {/* FAQ */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium max-w-4xl">
+          <SectionHeading
+            eyebrow="Questions"
+            title="Frequently Asked Questions"
+            description="Find answers to common questions about the PhD pathway."
+          />
+          <div className="mt-12">
+            <Accordion.Root type="single" collapsible className="space-y-4">
+              {phdFAQs.map((faq, idx) => (
+                <Accordion.Item
+                  key={`faq-${idx}`}
+                  value={`faq-${idx}`}
+                  className="rounded-[8px] border border-slate-200 bg-white"
+                >
+                  <Accordion.Trigger className="flex w-full items-center justify-between px-6 py-4 text-left hover:bg-slate-50">
+                    <span className="font-semibold text-slate-950">
+                      {faq.question}
+                    </span>
+                    <ChevronDown className="h-5 w-5 shrink-0 text-slate-600 transition-transform duration-200" />
+                  </Accordion.Trigger>
+                  <Accordion.Content className="border-t border-slate-200 px-6 py-4 text-sm leading-6 text-slate-600">
+                    {faq.answer}
+                  </Accordion.Content>
+                </Accordion.Item>
+              ))}
+            </Accordion.Root>
+          </div>
+        </div>
+      </section>
+
+      <FinalCTA />
+    </main>
+  );
+}

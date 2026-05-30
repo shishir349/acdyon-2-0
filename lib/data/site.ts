@@ -951,9 +951,9 @@ export const topNav: NavEntry[] = [
       {
         label: "Doctoral Programs",
         items: [
-          { label: "DBA Programs", href: "/doctoral-programs", description: "Business doctorate for experienced executives and leaders." },
-          { label: "PhD Programs", href: "/doctoral-programs", description: "Research-oriented academic advancement guidance." },
-          { label: "Post Doctorate Fellowship", href: "/doctoral-programs", description: "Advanced recognition and research contribution tracks." },
+          { label: "DBA Programs", href: "/doctoral-programs/dba", description: "Business doctorate for experienced executives and leaders." },
+          { label: "PhD Programs", href: "/doctoral-programs/phd", description: "Research-oriented academic advancement guidance." },
+          { label: "Post Doctorate Fellowship", href: "/doctoral-programs/post-doctorate", description: "Advanced recognition and research contribution tracks." },
         ],
       },
       {
@@ -1195,5 +1195,243 @@ export const cybersecurityFAQs = [
   {
     question: "What does the programme cost and are scholarships available?",
     answer: "Programme pricing and scholarship availability are discussed during the initial consultation. AcdyOn is committed to ensuring financial constraints do not prevent motivated professionals from accessing premium education. The consultation team will outline all available options.",
+  },
+];
+
+// ─── DBA SPECIALIZATIONS (PHASE 3C) ─────────────────────────────────────────
+
+export const dbaSpecializations = [
+  {
+    id: 'strategic-management',
+    name: 'Strategic Management',
+    description: 'Business strategy, competitive advantage, and strategic planning',
+    researchThemes: ['Competitive strategy formulation', 'Digital transformation strategy', 'Organizational strategic positioning'],
+    thesisExamples: ['Impact of digital disruption on traditional business models', 'Agile strategy frameworks in global enterprises'],
+    industries: ['Technology', 'Finance', 'Manufacturing', 'Retail'],
+    careerOutcomes: ['Chief Strategy Officer', 'Board Advisor', 'Strategy Consultant', 'Industry Analyst'],
+  },
+  {
+    id: 'finance',
+    name: 'Finance & Investment',
+    description: 'Corporate finance, investment strategy, and financial management',
+    researchThemes: ['Capital structure decisions', 'Investment valuation models', 'Financial risk management'],
+    thesisExamples: ['ESG investing and financial performance', 'Impact of fintech on traditional banking'],
+    industries: ['Banking', 'Investment Management', 'Corporate Finance', 'Insurance'],
+    careerOutcomes: ['Chief Financial Officer', 'Investment Director', 'Finance Advisor', 'Board Treasurer'],
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing & Brand Strategy',
+    description: 'Market research, brand management, and customer engagement',
+    researchThemes: ['Consumer behavior analytics', 'Brand positioning frameworks', 'Digital marketing transformation'],
+    thesisExamples: ['Impact of personalization on customer loyalty', 'Brand resilience during market disruption'],
+    industries: ['Consumer Goods', 'Technology', 'Retail', 'Hospitality'],
+    careerOutcomes: ['Chief Marketing Officer', 'Brand Director', 'Market Research Leader', 'Customer Experience Head'],
+  },
+  {
+    id: 'human-resources',
+    name: 'Human Resource Management',
+    description: 'Organizational development, talent strategy, and people leadership',
+    researchThemes: ['Organizational culture transformation', 'Talent acquisition and retention', 'Leadership development models'],
+    thesisExamples: ['Impact of remote work on organizational culture', 'Succession planning in digital-first organizations'],
+    industries: ['Technology', 'Manufacturing', 'Healthcare', 'Professional Services'],
+    careerOutcomes: ['Chief People Officer', 'Head of Talent', 'Organizational Development Director', 'Executive Coach'],
+  },
+  {
+    id: 'operations',
+    name: 'Operations & Supply Chain',
+    description: 'Process optimization, supply chain management, and operational excellence',
+    researchThemes: ['Supply chain resilience', 'Lean and agile operations', 'Process automation and efficiency'],
+    thesisExamples: ['Supply chain optimization in global manufacturing', 'Circular economy principles in operations'],
+    industries: ['Manufacturing', 'Logistics', 'Retail', 'Automotive'],
+    careerOutcomes: ['Chief Operations Officer', 'Supply Chain Director', 'Operations Consultant', 'Quality Assurance Head'],
+  },
+  {
+    id: 'digital-transformation',
+    name: 'Digital Transformation',
+    description: 'Technology strategy, digital business models, and innovation management',
+    researchThemes: ['Digital business model innovation', 'Technology adoption and change management', 'Digital leadership'],
+    thesisExamples: ['Legacy system modernization strategies', 'Building digital-first organizational culture'],
+    industries: ['Technology', 'Finance', 'Retail', 'Healthcare'],
+    careerOutcomes: ['Chief Digital Officer', 'Transformation Director', 'Technology Strategist', 'Innovation Lead'],
+  },
+  {
+    id: 'innovation-entrepreneurship',
+    name: 'Innovation & Entrepreneurship',
+    description: 'New business development, intrapreneurship, and innovation ecosystems',
+    researchThemes: ['Corporate innovation models', 'Startup scaling frameworks', 'Innovation management systems'],
+    thesisExamples: ['Building innovation culture in established corporations', 'Venture creation and funding strategies'],
+    industries: ['Technology', 'Venture Capital', 'Manufacturing', 'Consulting'],
+    careerOutcomes: ['Chief Innovation Officer', 'Venture Director', 'Entrepreneur', 'Innovation Consultant'],
+  },
+  {
+    id: 'ai-business-strategy',
+    name: 'AI & Business Strategy',
+    description: 'Artificial intelligence strategy, algorithmic business models, and AI governance',
+    researchThemes: ['AI value creation models', 'Responsible AI governance', 'AI-driven organizational transformation'],
+    thesisExamples: ['AI adoption roadmaps for enterprises', 'Ethics and governance in AI systems'],
+    industries: ['Technology', 'Finance', 'Healthcare', 'Retail'],
+    careerOutcomes: ['Chief AI Officer', 'AI Strategy Lead', 'Technology Director', 'Research Leader'],
+  },
+  {
+    id: 'esg-sustainability',
+    name: 'ESG & Sustainability',
+    description: 'Environmental, social, and governance strategy for sustainable business',
+    researchThemes: ['Sustainable business model innovation', 'ESG reporting and impact measurement', 'Stakeholder governance'],
+    thesisExamples: ['Net-zero transition strategies', 'ESG reporting and financial performance'],
+    industries: ['Energy', 'Finance', 'Consumer Goods', 'Technology'],
+    careerOutcomes: ['Chief Sustainability Officer', 'ESG Director', 'Impact Investor', 'Sustainability Consultant'],
+  },
+  {
+    id: 'international-business',
+    name: 'International Business',
+    description: 'Global strategy, cross-cultural management, and international expansion',
+    researchThemes: ['Global market entry strategies', 'Cross-cultural leadership', 'International business policy'],
+    thesisExamples: ['Emerging market expansion frameworks', 'Cultural adaptation in global organizations'],
+    industries: ['Multinational Corporations', 'Consulting', 'Technology', 'Finance'],
+    careerOutcomes: ['Chief Global Officer', 'International Business Director', 'Global Strategy Lead', 'Market Development Head'],
+  },
+];
+
+// ─── DBA CAREER OUTCOMES (PHASE 3C) ──────────────────────────────────────────
+
+export const dbaCareerOutcomes = [
+  {
+    title: 'Board Membership Opportunities',
+    description: 'Doctoral qualification opens board-level governance, advisory roles, and strategic steering positions at leading organizations.',
+  },
+  {
+    title: 'Professor of Practice Pathways',
+    description: 'Teach at leading business schools, contribute to academic discourse, and develop thought leadership in your field.',
+  },
+  {
+    title: 'Consulting Authority',
+    description: 'Establish yourself as a recognized authority for strategic consulting, executive advisory, and thought leadership roles.',
+  },
+  {
+    title: 'Industry Thought Leadership',
+    description: 'Publish research, speak at global conferences, and shape the future of your industry through doctoral-level contribution.',
+  },
+  {
+    title: 'Executive Promotion',
+    description: 'Advance to C-suite and senior leadership positions with the doctoral credential that signals commitment to excellence.',
+  },
+  {
+    title: 'International Recognition',
+    description: 'Global academic recognition and institutional affiliation that elevates your professional standing across borders.',
+  },
+  {
+    title: 'Academic Publishing',
+    description: 'Publish your research in peer-reviewed journals and contribute original knowledge to your field of expertise.',
+  },
+  {
+    title: 'Advisory Board Invitations',
+    description: 'Join advisory boards of corporations, nonprofits, and academic institutions seeking doctoral-level expertise and perspective.',
+  },
+];
+
+// ─── DBA SUCCESS PROFILES (PHASE 3C) ────────────────────────────────────────
+
+export const dbaSuccessProfiles = [
+  {
+    id: 'founder-to-thought-leader',
+    title: 'Founder → Industry Thought Leader',
+    description: 'Build authority and publish research that shapes your industry',
+    outcomes: ['Published author', 'Speaking engagements at major conferences', 'Advisory board invitations', 'Industry recognition'],
+  },
+  {
+    id: 'vp-to-board-advisor',
+    title: 'Vice President → Board Advisor',
+    description: 'Transition from operational leadership to strategic advisory roles',
+    outcomes: ['Board membership at leading companies', 'Corporate governance expertise', 'Executive search advisory', 'Strategic consulting'],
+  },
+  {
+    id: 'consultant-to-professor',
+    title: 'Consultant → Professor of Practice',
+    description: 'Leverage expertise to educate the next generation',
+    outcomes: ['Teaching at top business schools', 'Curriculum development', 'Student mentorship', 'Academic network'],
+  },
+  {
+    id: 'director-to-research-leader',
+    title: 'Corporate Director → Research Leader',
+    description: 'Establish yourself as an industry researcher and thought leader',
+    outcomes: ['Published research', 'Research institute affiliation', 'Speaking invitations', 'Peer recognition'],
+  },
+  {
+    id: 'entrepreneur-to-published-author',
+    title: 'Entrepreneur → Published Author',
+    description: 'Document your expertise and share insights with the global business community',
+    outcomes: ['Book publication', 'Harvard Business Review contributor', 'Media appearances', 'Speaking tours'],
+  },
+  {
+    id: 'executive-to-global-speaker',
+    title: 'Senior Executive → Global Speaker',
+    description: 'Share your doctoral research on world stages',
+    outcomes: ['Keynote speaking at global summits', 'Conference chairman roles', 'Webinar host', 'Podcast guest'],
+  },
+];
+
+// ─── EXPANDED DBA FAQs (PHASE 3C) ───────────────────────────────────────────
+
+export const dbaFAQsExpanded = [
+  {
+    question: 'What is the difference between a DBA and an MBA?',
+    answer: 'An MBA focuses on business knowledge, leadership skills, and professional development. A DBA is the highest professional doctorate in business, designed for experienced executives who want to contribute original research to their field. A DBA includes everything an MBA covers PLUS original research contribution, doctoral qualification, thought leadership, academic recognition, and the title of Doctor. If you already have an MBA and want to advance further, a DBA is the natural next step.',
+  },
+  {
+    question: 'Can I pursue a DBA while continuing to work full-time?',
+    answer: 'Yes. DBA programmes are specifically designed for working professionals. Our partner universities offer flexible delivery formats including part-time, online, and hybrid options. Most DBA students continue in their current roles while completing the programme, using weekends and designated study periods for research and coursework.',
+  },
+  {
+    question: 'How long does a typical DBA take?',
+    answer: 'DBA programmes typically take 2-4 years depending on your pace, prior research experience, and the specific university. Full-time students may complete in 18-24 months, while part-time professionals typically take 3-4 years. The timeline is flexible and can be adjusted based on your circumstances.',
+  },
+  {
+    question: 'Are DBA qualifications internationally recognized?',
+    answer: 'Yes. AcdyOn works exclusively with globally accredited universities holding AACSB, ASIC, EQUIS, and ACBSP accreditations. These qualifications are recognized across 150+ countries and accepted for academic and professional positions worldwide. Your DBA will be recognized in Europe, Asia, Americas, and beyond.',
+  },
+  {
+    question: 'What research will I conduct during my DBA?',
+    answer: 'You will conduct original research aligned with your professional interests and career goals. This might be a case study of your own organization, an industry analysis, a methodological contribution, or an experimental study. Your supervisor helps you design research that is both academically rigorous and practically relevant to your career.',
+  },
+  {
+    question: 'Can I publish my DBA research?',
+    answer: 'Yes. Many DBA students publish their research in peer-reviewed journals and present at academic conferences. Your university will support publication strategies as part of your doctoral training. Some students publish 2-3 papers during their DBA, establishing themselves as recognized researchers.',
+  },
+  {
+    question: 'How is a DBA different from a PhD in business?',
+    answer: 'Both are doctorates involving original research. A PhD is typically more theory-focused and positions you for academic careers. A DBA is more practice-focused and positions you for executive roles that leverage research expertise. DBA students are practicing professionals; PhD students are often full-time academics. Choose based on whether your goal is executive leadership (DBA) or academic research (PhD).',
+  },
+  {
+    question: 'Can I use the title \"Doctor\" after earning a DBA?',
+    answer: 'Yes. A DBA is a recognized doctoral degree and entitles you to use the title "Doctor" professionally and academically. Many DBA graduates use "Dr." in professional contexts, introducing themselves as such in boards, conferences, and publications.',
+  },
+  {
+    question: 'What does the application process involve?',
+    answer: 'The process typically includes: (1) Initial consultation to assess fit and goals, (2) Eligibility review of your academic background and professional experience, (3) University matching based on your research interests, (4) Formal offer from the university, (5) Enrolment and supervisor assignment, (6) Orientation and research journey begins. The entire process typically takes 2-3 months.',
+  },
+  {
+    question: 'What are the eligibility requirements for a DBA?',
+    answer: 'Standard requirements include: (1) Master\'s degree or equivalent professional qualification, (2) Minimum 7-10 years of professional experience in business or management, (3) Demonstrated research readiness or interest in original research, (4) English language proficiency for academic writing. Some universities accept exceptional professionals with bachelor\'s degrees and extensive experience. AcdyOn assesses each candidate individually.',
+  },
+  {
+    question: 'How much does a DBA cost?',
+    answer: 'DBA tuition varies by university and ranges from $27,500 to $42,000+ depending on the institution and country. Many DBA students benefit from flexible payment plans (monthly installments over 3-12 months). Some employers offer sponsorship. Scholarship opportunities may be available based on your profile. Discuss all options during your initial consultation.',
+  },
+  {
+    question: 'Can I get a scholarship or financial assistance?',
+    answer: 'Yes. Scholarship opportunities vary by university and may be merit-based, employer-sponsored, or equity-focused. Many universities offer payment plans and partial scholarships for exceptional candidates. AcdyOn works with universities to identify financial options tailored to your situation. Discuss in your consultation.',
+  },
+  {
+    question: 'What is the supervision structure during my DBA?',
+    answer: 'You will be assigned a primary supervisor (doctoral guide) with expertise in your research area. Many programmes include a supervisory team of 2-3 academics who provide guidance on research design, methodology, writing, and publication. Supervision is typically monthly or bi-monthly, with flexibility for intensive periods. You\'ll have clear escalation paths if you need additional support.',
+  },
+  {
+    question: 'How much time per week should I budget for my DBA?',
+    answer: 'Part-time DBA students typically budget 15-20 hours per week. In early stages (coursework and proposal development) this might be higher (20-25 hours). In active research phases it varies with your project. Full-time students commit 35-40 hours per week. Discuss realistic time commitment with your programme advisor during consultation.',
+  },
+  {
+    question: 'Will I be taught in classroom or online?',
+    answer: 'Most DBA programmes offer flexible delivery: Online (asynchronous recorded lectures plus synchronous seminars), Part-Time (evening/weekend classes), Hybrid (mix of online and in-person intensives), or Full-Time (traditional classroom). Choose based on your preference and work schedule. All formats deliver equivalent academic rigor.',
   },
 ];

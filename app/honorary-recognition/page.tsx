@@ -7,6 +7,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { SuccessStoryCard } from "@/components/cards/success-story-card";
 import { CTAButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { UniversityComparison } from "@/components/UniversityComparison";
+import { PricingDisplay } from "@/components/PricingDisplay";
+import { AccreditationShowcase } from "@/components/AccreditationShowcase";
 import { honoraryEligibility, honoraryFAQs, honoraryProcess, honoraryTracks, successStories } from "@/lib/data/site";
 
 export const metadata: Metadata = {
@@ -156,6 +159,37 @@ export default function HonoraryRecognitionPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Institution Comparison */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <UniversityComparison
+            programmeId="honorary-doctorate"
+            title="Compare Institutions for Honorary Recognition"
+            subtitle="Each partner institution brings unique prestige and global recognition. Compare accreditations, geographic standing, and institutional focus."
+          />
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <PricingDisplay
+            programmeId="honorary-doctorate"
+            title="Honorary Recognition Fees & Payment Options"
+          />
+        </div>
+      </section>
+
+      {/* Trust & Accreditations */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <AccreditationShowcase
+            programmeId="honorary-doctorate"
+            title="Institutional Accreditations & Recognition"
+          />
         </div>
       </section>
 

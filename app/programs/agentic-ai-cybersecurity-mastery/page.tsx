@@ -7,6 +7,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { SuccessStoryCard } from "@/components/cards/success-story-card";
 import { CTAButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { GeoSection } from "@/components/GeoSection";
+import { PricingDisplay } from "@/components/PricingDisplay";
+import { AccreditationShowcase } from "@/components/AccreditationShowcase";
 import {
   cybersecurityCareerPaths,
   cybersecurityCertifications,
@@ -293,6 +296,78 @@ export default function CybersecurityMasteryPage() {
           </div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <PricingDisplay
+            programmeId="ai-cybersecurity"
+            title="Flexible Pricing & Payment Plans"
+          />
+        </div>
+      </section>
+
+      {/* Trust & Accreditations */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <AccreditationShowcase
+            programmeId="ai-cybersecurity"
+            title="AcdyOn Certification & Global Recognition"
+          />
+        </div>
+      </section>
+
+      {/* Geo-Specific: Microsoft AI-900 for UK/US/AE/Europe */}
+      <GeoSection showFor={['uk', 'us', 'ae', 'eu']}>
+        <section className="bg-slate-950 py-24 text-white">
+          <div className="container-premium">
+            <div className="rounded-[8px] border border-white/10 bg-white/[0.04] p-10">
+              <div className="flex items-start gap-4 mb-6">
+                <Shield className="h-8 w-8 shrink-0 text-[#22D3EE]" />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#22D3EE] mb-2">
+                    Global Certification
+                  </p>
+                  <h3 className="font-display text-3xl leading-tight">
+                    Microsoft AI-900 Certification Included
+                  </h3>
+                </div>
+              </div>
+
+              <p className="text-sm leading-7 text-slate-300 mb-5">
+                Graduates in UK, US, UAE, and Europe receive preparation for the Microsoft Azure AI Fundamentals (AI-900) certification as part of the programme. This globally recognised certification accelerates career progression and demonstrates practical AI competency to employers worldwide.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="rounded-[8px] bg-white/[0.03] border border-white/10 p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37] mb-2">
+                    Exam Prep
+                  </p>
+                  <p className="text-sm text-slate-300">
+                    Dedicated exam preparation and practice tests included
+                  </p>
+                </div>
+                <div className="rounded-[8px] bg-white/[0.03] border border-white/10 p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37] mb-2">
+                    Global Recognition
+                  </p>
+                  <p className="text-sm text-slate-300">
+                    Recognized by employers and institutions worldwide
+                  </p>
+                </div>
+                <div className="rounded-[8px] bg-white/[0.03] border border-white/10 p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#D4AF37] mb-2">
+                    Career Advantage
+                  </p>
+                  <p className="text-sm text-slate-300">
+                    Demonstrates practical AI knowledge to employers
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </GeoSection>
 
       <ConsultationNudge />
 
