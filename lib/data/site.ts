@@ -1746,3 +1746,252 @@ export const phdFAQsExpanded = [
     answer: 'Research impact means your work influences your field, policy, practice, or society. It\'s measured through citations, publications, conference presentations, policy influence, or industry adoption. Universities increasingly value impact. Your research impact determines your academic reputation and career opportunities.',
   },
 ];
+
+// ─── HONORARY RECOGNITION FIELDS (PHASE 3E) ──────────────────────────────────
+
+export const honoraryRecognitionFields = [
+  {
+    id: 'business-leadership',
+    name: 'Business Leadership',
+    description: 'Recognition for exceptional business achievements and industry leadership',
+    examples: ['CEO achievements', 'Business transformation', 'Industry disruption', 'Market creation'],
+  },
+  {
+    id: 'entrepreneurship',
+    name: 'Entrepreneurship',
+    description: 'Recognition for founding companies and building enterprises',
+    examples: ['Startup founders', 'Business growth', 'Job creation', 'Innovation ventures'],
+  },
+  {
+    id: 'education',
+    name: 'Education & Academic Leadership',
+    description: 'Recognition for contributions to education and academic advancement',
+    examples: ['University leadership', 'Curriculum innovation', 'Student impact', 'Academic excellence'],
+  },
+  {
+    id: 'technology',
+    name: 'Technology & Innovation',
+    description: 'Recognition for technological advancement and digital innovation',
+    examples: ['Tech innovation', 'Digital transformation', 'Tech leadership', 'Software breakthroughs'],
+  },
+  {
+    id: 'artificial-intelligence',
+    name: 'Artificial Intelligence',
+    description: 'Recognition for contributions to AI development and ethics',
+    examples: ['AI research', 'Machine learning', 'AI ethics', 'AI applications'],
+  },
+  {
+    id: 'healthcare',
+    name: 'Healthcare & Medicine',
+    description: 'Recognition for healthcare advancement and medical contributions',
+    examples: ['Medical breakthroughs', 'Healthcare innovation', 'Patient care leadership', 'Health research'],
+  },
+  {
+    id: 'public-service',
+    name: 'Public Service & Governance',
+    description: 'Recognition for government and public sector leadership',
+    examples: ['Government leadership', 'Policy impact', 'Public administration', 'Civic contribution'],
+  },
+  {
+    id: 'innovation',
+    name: 'Innovation & Research',
+    description: 'Recognition for innovative research and discovery',
+    examples: ['Research breakthrough', 'Patent development', 'Scientific discovery', 'Innovation impact'],
+  },
+  {
+    id: 'social-impact',
+    name: 'Social Impact & Community',
+    description: 'Recognition for social contributions and community development',
+    examples: ['Social enterprise', 'Community development', 'Poverty alleviation', 'Social justice'],
+  },
+  {
+    id: 'finance',
+    name: 'Finance & Economics',
+    description: 'Recognition for financial innovation and economic leadership',
+    examples: ['Financial innovation', 'Economic development', 'Investment leadership', 'Market expertise'],
+  },
+  {
+    id: 'research',
+    name: 'Research & Academia',
+    description: 'Recognition for academic research and scholarly contribution',
+    examples: ['Peer-reviewed research', 'Academic publication', 'Research leadership', 'Knowledge creation'],
+  },
+  {
+    id: 'sustainability',
+    name: 'Sustainability & Environment',
+    description: 'Recognition for environmental and sustainability leadership',
+    examples: ['Climate action', 'Sustainable development', 'Environmental impact', 'Green innovation'],
+  },
+  {
+    id: 'arts-culture',
+    name: 'Arts & Culture',
+    description: 'Recognition for artistic and cultural contributions',
+    examples: ['Cultural leadership', 'Artistic achievement', 'Cultural preservation', 'Creative impact'],
+  },
+  {
+    id: 'media-communication',
+    name: 'Media & Communication',
+    description: 'Recognition for media innovation and communication leadership',
+    examples: ['Media platform growth', 'Journalism impact', 'Digital communication', 'Broadcast excellence'],
+  },
+  {
+    id: 'international-relations',
+    name: 'International Relations & Diplomacy',
+    description: 'Recognition for global leadership and international relations',
+    examples: ['International diplomacy', 'Global leadership', 'Cross-cultural impact', 'International policy'],
+  },
+];
+
+// ─── HONORARY ELIGIBILITY INDICATORS (PHASE 3E) ──────────────────────────────
+
+export const honoraryEligibilityIndicators = [
+  'Significant professional achievements in your field',
+  'Recognized industry or thought leadership',
+  'Public recognition and professional reputation',
+  'Meaningful social, academic or community impact',
+  'Innovation contributions to your industry',
+  'Academic or scholarly contributions',
+  'Business accomplishments and enterprise success',
+  'Community service and philanthropic work',
+  'Published work or intellectual contributions',
+  'Speaking engagements and thought leadership',
+];
+
+// ─── HONORARY RECOGNITION ITEMS (PHASE 3E) ──────────────────────────────────
+
+export const honoraryRecognitionItems = [
+  { title: 'Honorary Doctorate Certificate', description: 'Official recognition document signed by institutional leadership' },
+  { title: 'Academic Recognition Letter', description: 'Formal letter documenting the award and recognition' },
+  { title: 'Award Documentation', description: 'Complete official documentation of the honorary award' },
+  { title: 'Institutional Record', description: 'Permanent record of recognition in institutional database' },
+  { title: 'Convocation Invitation', description: 'Invitation to attend graduation ceremony and convocation' },
+  { title: 'Recognition Ceremony', description: 'Formal recognition event (virtual or in-person options)' },
+  { title: 'Digital Assets', description: 'Professional digital credentials and recognition assets' },
+  { title: 'Professional Documentation', description: 'Verification documentation for professional use' },
+];
+
+// ─── HONORARY PROFILE EXAMPLES (PHASE 3E) ─────────────────────────────────
+
+export const honoraryProfileExamples = [
+  {
+    id: 'founder-entrepreneur',
+    transition: 'Founder & Entrepreneur → Honorary Doctor in Entrepreneurship',
+    achievements: 'Built 3 successful companies, created 500+ jobs, industry leadership',
+    recognition: 'Honorary Doctorate in Entrepreneurship recognizing business impact',
+  },
+  {
+    id: 'education-leader',
+    transition: 'Education Leader → Honorary Doctor in Education',
+    achievements: 'University president, curriculum innovation, student impact',
+    recognition: 'Honorary Doctorate in Education recognizing academic leadership',
+  },
+  {
+    id: 'tech-executive',
+    transition: 'Technology Executive → Honorary Doctor in Innovation',
+    achievements: 'Led digital transformation, technological breakthroughs, innovation impact',
+    recognition: 'Honorary Doctorate in Innovation recognizing technology leadership',
+  },
+  {
+    id: 'social-leader',
+    transition: 'Social Impact Leader → Honorary Doctor in Public Service',
+    achievements: 'Built social enterprises, community development, social impact',
+    recognition: 'Honorary Doctorate in Public Service recognizing community contribution',
+  },
+  {
+    id: 'researcher',
+    transition: 'Research Contributor → Honorary Doctor in Academic Leadership',
+    achievements: 'Published researcher, peer-reviewed publications, research impact',
+    recognition: 'Honorary Doctorate in Academic Leadership recognizing scholarly contribution',
+  },
+  {
+    id: 'business-leader',
+    transition: 'Business Leader → Honorary Doctor in Business Leadership',
+    achievements: 'Corporate transformation, market impact, industry influence',
+    recognition: 'Honorary Doctorate in Business Leadership recognizing executive achievement',
+  },
+];
+
+// ─── HONORARY FAQs EXPANDED (PHASE 3E) ───────────────────────────────────
+
+export const honoraryFAQsExpanded = [
+  {
+    question: 'What exactly is an honorary doctorate?',
+    answer: 'An honorary doctorate is a recognition awarded to individuals whose achievements, influence, contributions or leadership have created meaningful impact. It is NOT an academic degree earned through coursework, research, or dissertation. It is a recognition of lifetime accomplishments.',
+  },
+  {
+    question: 'Am I eligible for an honorary doctorate?',
+    answer: 'Eligibility is based on demonstrated achievements and contributions in your field. There is no single formula—each application is reviewed individually. Common indicators include professional achievements, industry leadership, public recognition, social impact, innovation contributions, and community service.',
+  },
+  {
+    question: 'How is an honorary doctorate different from a regular doctorate?',
+    answer: 'A regular doctorate (PhD, DBA) requires coursework, research, and a dissertation. An honorary doctorate is a recognition of achievements already earned. It is awarded based on your professional accomplishments, not academic study.',
+  },
+  {
+    question: 'Can I use the title "Dr." with an honorary doctorate?',
+    answer: 'Yes. An honorary doctorate is a legitimate doctoral qualification and entitles you to use the "Dr." title professionally and academically, just as with earned doctorates.',
+  },
+  {
+    question: 'How long does the recognition process take?',
+    answer: 'The process typically takes 3-6 months from initial assessment through award confirmation. Timeline varies by institution and application complexity. An advisor can provide specific timelines for your situation.',
+  },
+  {
+    question: 'Do I need a university degree to be eligible?',
+    answer: 'Most institutions prefer applicants to have university education, but exceptional achievements may qualify individuals without formal degrees. Each case is reviewed on its merits.',
+  },
+  {
+    question: 'Which institution should I choose?',
+    answer: 'The best institution depends on your achievements, field, and goals. Institutions have different recognition focuses and global standing. An advisor can help match you with the most appropriate institution.',
+  },
+  {
+    question: 'Is an honorary doctorate recognized internationally?',
+    answer: 'Yes. Honorary doctorates from accredited institutions are recognized globally. Institutional accreditation (AACSB, EQUIS, ASIC) ensures international standing and credibility.',
+  },
+  {
+    question: 'What are the professional benefits of honorary recognition?',
+    answer: 'Benefits include: enhanced professional credibility, recognition of achievements, eligibility for academic positions, speaking authority, board opportunities, publishing platforms, international recognition, and professional distinction.',
+  },
+  {
+    question: 'Can I include it on my LinkedIn or resume?',
+    answer: 'Yes. An honorary doctorate is a legitimate credential and should be included on professional profiles, resumes, and business materials. List it alongside your other qualifications.',
+  },
+  {
+    question: 'What documentation do I receive?',
+    answer: 'You receive: Honorary Doctorate Certificate, Academic Recognition Letter, Award Documentation, Institutional Record, and digital recognition assets. You may also receive an invitation to a recognition ceremony or convocation.',
+  },
+  {
+    question: 'Is there a fee for an honorary doctorate?',
+    answer: 'Fees vary by institution. Some institutions award honorary doctorates without fees; others have administrative or convocation fees. Discuss fees with your institution during the process.',
+  },
+  {
+    question: 'How is the recognition ceremony conducted?',
+    answer: 'Recognition ceremonies can be in-person at university convocations or virtual. The institution determines the format. You may have options for participation level.',
+  },
+  {
+    question: 'What is required for the application?',
+    answer: 'Requirements typically include: professional biography, achievement summary, CV/resume, letters of recommendation, publication list (if applicable), and a statement of contributions. Specific requirements vary by institution.',
+  },
+  {
+    question: 'Who reviews honorary doctorate applications?',
+    answer: 'Applications are reviewed by institutional recognition committees, often including academic leadership, faculty, and sometimes external advisors. The process is rigorous and serious.',
+  },
+  {
+    question: 'Can I lose an honorary doctorate?',
+    answer: 'Honorary doctorates are permanent recognitions. However, institutions reserve the right to withdraw recognition if the recipient engages in serious misconduct or if the award was granted under false pretenses.',
+  },
+  {
+    question: 'Will the institution promote my honorary doctorate?',
+    answer: 'Institutions typically recognize honorary recipients in their publications, websites, and communications. However, primary promotion of your achievement is your responsibility.',
+  },
+  {
+    question: 'Can I pursue multiple honorary doctorates?',
+    answer: 'Yes, you can receive honorary recognition from multiple institutions. Each recognition stands on its own merit. Some individuals receive multiple honorary doctorates throughout their careers.',
+  },
+  {
+    question: 'How does honorary recognition differ from honorary professorships?',
+    answer: 'An honorary doctorate is a recognition of achievement. An honorary professorship is an academic appointment that may involve teaching or institutional responsibilities. They are different recognitions.',
+  },
+  {
+    question: 'What should I include in my achievement statement?',
+    answer: 'Your achievement statement should highlight: major accomplishments, industry or field impact, social contributions, innovation, leadership roles, publications, public recognition, and why you believe you merit recognition.',
+  },
+];
