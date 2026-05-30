@@ -1435,3 +1435,314 @@ export const dbaFAQsExpanded = [
     answer: 'Most DBA programmes offer flexible delivery: Online (asynchronous recorded lectures plus synchronous seminars), Part-Time (evening/weekend classes), Hybrid (mix of online and in-person intensives), or Full-Time (traditional classroom). Choose based on your preference and work schedule. All formats deliver equivalent academic rigor.',
   },
 ];
+
+// ─── PhD RESEARCH DISCIPLINES (PHASE 3D) ─────────────────────────────────────
+
+export const phdResearchDisciplines = [
+  {
+    id: 'business-management',
+    name: 'Business & Management',
+    description: 'Strategic research in organizational behavior and management',
+    researchThemes: ['Organizational strategy', 'Leadership dynamics', 'Corporate governance'],
+    dissertationExamples: ['Agile organizational structures in global enterprises', 'Digital disruption and strategic adaptation'],
+    careerOutcomes: ['Professor of Management', 'Research Director', 'Think Tank Scholar', 'Corporate Research Lead'],
+    industryRelevance: 'Fortune 500, Management Consulting, Academic Institutions',
+  },
+  {
+    id: 'education',
+    name: 'Education & Learning',
+    description: 'Original research in educational theory and pedagogy',
+    researchThemes: ['Learning sciences', 'Digital pedagogy', 'Educational equity'],
+    dissertationExamples: ['Impact of AI on student engagement', 'Inclusive learning frameworks'],
+    careerOutcomes: ['Professor of Education', 'Curriculum Researcher', 'Dean of Academic Affairs', 'Educational Policy Expert'],
+    industryRelevance: 'Universities, EdTech, Government Education Ministries',
+  },
+  {
+    id: 'information-technology',
+    name: 'Information Technology',
+    description: 'Advanced research in technology systems and innovation',
+    researchThemes: ['Distributed systems', 'Cybersecurity frameworks', 'Technology adoption'],
+    dissertationExamples: ['Blockchain in enterprise systems', 'Quantum computing applications'],
+    careerOutcomes: ['CTO', 'Research Scientist', 'Technology Fellow', 'Patent Developer'],
+    industryRelevance: 'Tech Companies, Research Labs, Government Tech Agencies',
+  },
+  {
+    id: 'artificial-intelligence',
+    name: 'Artificial Intelligence & Machine Learning',
+    description: 'Research in AI algorithms, ethics, and applications',
+    researchThemes: ['Responsible AI', 'Algorithmic fairness', 'AI governance'],
+    dissertationExamples: ['Ethical frameworks for autonomous systems', 'AI bias detection and mitigation'],
+    careerOutcomes: ['AI Research Lead', 'Chief AI Officer', 'University Fellow', 'Innovation Director'],
+    industryRelevance: 'Tech Giants, Research Institutes, AI Startups',
+  },
+  {
+    id: 'data-science',
+    name: 'Data Science & Analytics',
+    description: 'Advanced research in data analysis and visualization',
+    researchThemes: ['Data ethics', 'Predictive analytics', 'Data governance'],
+    dissertationExamples: ['Privacy-preserving analytics', 'Real-time data processing'],
+    careerOutcomes: ['Chief Data Officer', 'Research Scientist', 'Analytics Director', 'Academic Data Researcher'],
+    industryRelevance: 'Financial Institutions, Tech Companies, Research Centers',
+  },
+  {
+    id: 'leadership-studies',
+    name: 'Leadership Studies',
+    description: 'Research in leadership theory and organizational effectiveness',
+    researchThemes: ['Servant leadership', 'Cross-cultural leadership', 'Distributed leadership'],
+    dissertationExamples: ['Leadership in crisis management', 'Generational leadership differences'],
+    careerOutcomes: ['Leadership Professor', 'Executive Coach Trainer', 'Organizational Development Director', 'Dean'],
+    industryRelevance: 'Business Schools, Executive Education, Leadership Development',
+  },
+  {
+    id: 'public-administration',
+    name: 'Public Administration & Policy',
+    description: 'Original research in governance and public policy',
+    researchThemes: ['Policy analysis', 'Government reform', 'Public sector management'],
+    dissertationExamples: ['Digital government transformation', 'Public sector innovation'],
+    careerOutcomes: ['Policy Advisor', 'Government Research Director', 'Think Tank Fellow', 'UN Expert'],
+    industryRelevance: 'Government Agencies, Policy Think Tanks, International Organizations',
+  },
+  {
+    id: 'healthcare-management',
+    name: 'Healthcare Management',
+    description: 'Research in health systems, policy and organizational management',
+    researchThemes: ['Healthcare innovation', 'Patient outcomes', 'Health policy'],
+    dissertationExamples: ['Digital health transformation', 'Healthcare equity and access'],
+    careerOutcomes: ['Healthcare Administrator', 'Health Policy Researcher', 'Medical School Dean', 'WHO Expert'],
+    industryRelevance: 'Hospitals, Health Ministries, Medical Research Institutes',
+  },
+  {
+    id: 'psychology',
+    name: 'Psychology & Behavioral Science',
+    description: 'Rigorous research in human behavior and mental processes',
+    researchThemes: ['Cognitive psychology', 'Social behavior', 'Organizational psychology'],
+    dissertationExamples: ['Workplace stress and resilience', 'Digital communication and mental health'],
+    careerOutcomes: ['Psychology Professor', 'Clinical Research Director', 'Organizational Psychologist', 'Think Tank Researcher'],
+    industryRelevance: 'Universities, Mental Health Institutions, Corporate HR',
+  },
+  {
+    id: 'finance',
+    name: 'Finance & Economics',
+    description: 'Advanced research in financial systems and economic theory',
+    researchThemes: ['Behavioral finance', 'Economic policy', 'Financial innovation'],
+    dissertationExamples: ['Cryptocurrency economics', 'ESG investment impact'],
+    careerOutcomes: ['Finance Professor', 'Central Bank Researcher', 'Investment Research Director', 'Nobel Prize Candidate'],
+    industryRelevance: 'Financial Institutions, Central Banks, Economics Think Tanks',
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing & Consumer Behavior',
+    description: 'Research in consumer psychology and market dynamics',
+    researchThemes: ['Digital marketing', 'Consumer behavior', 'Brand strategy'],
+    dissertationExamples: ['AI in personalized marketing', 'Sustainable consumption patterns'],
+    careerOutcomes: ['Marketing Professor', 'Market Research Director', 'Consumer Insights Lead', 'Academic Advisor'],
+    industryRelevance: 'Consumer Goods, Marketing Agencies, Business Schools',
+  },
+  {
+    id: 'human-resources',
+    name: 'Human Resources & Talent',
+    description: 'Research in organizational development and talent management',
+    researchThemes: ['Talent acquisition', 'Organizational culture', 'Remote work dynamics'],
+    dissertationExamples: ['Future of work research', 'Employee engagement and productivity'],
+    careerOutcomes: ['HR Professor', 'Organizational Development Director', 'Talent Research Lead', 'Corporate University Dean'],
+    industryRelevance: 'Multinational Corporations, HR Technology, Business Schools',
+  },
+  {
+    id: 'international-business',
+    name: 'International Business & Global Studies',
+    description: 'Research in cross-border business and global economics',
+    researchThemes: ['Global supply chains', 'International trade', 'Cross-cultural management'],
+    dissertationExamples: ['Emerging market entry strategies', 'Global value chains post-pandemic'],
+    careerOutcomes: ['International Business Professor', 'UN Economist', 'Trade Policy Expert', 'Global Strategy Director'],
+    industryRelevance: 'Multinational Corporations, International Organizations, Trade Bodies',
+  },
+  {
+    id: 'sustainability',
+    name: 'Sustainability & Environmental Studies',
+    description: 'Research in sustainable development and environmental management',
+    researchThemes: ['Circular economy', 'Climate adaptation', 'ESG frameworks'],
+    dissertationExamples: ['Net-zero transition pathways', 'Biodiversity and business'],
+    careerOutcomes: ['Sustainability Professor', 'Environmental Policy Director', 'CSR Research Lead', 'UNEP Advisor'],
+    industryRelevance: 'Energy Companies, Environmental Agencies, Sustainability-Focused Organizations',
+  },
+  {
+    id: 'digital-transformation',
+    name: 'Digital Transformation & Innovation',
+    description: 'Research in technology adoption and organizational change',
+    researchThemes: ['Digital business models', 'Innovation ecosystems', 'Technology governance'],
+    dissertationExamples: ['Blockchain in supply chains', 'Digital platform economics'],
+    careerOutcomes: ['Digital Innovation Professor', 'CTO', 'Technology Strategy Director', 'Innovation Labs Director'],
+    industryRelevance: 'Tech Companies, Consulting Firms, Digital Transformation Leaders',
+  },
+];
+
+// ─── PhD CAREER OUTCOMES (PHASE 3D) ──────────────────────────────────────────
+
+export const phdCareerOutcomes = [
+  {
+    title: 'University Professor',
+    description: 'Lead research teams, supervise doctoral students, publish groundbreaking research, and shape academic disciplines.',
+  },
+  {
+    title: 'Research Director',
+    description: 'Direct research initiatives at universities, think tanks, or corporate research labs.',
+  },
+  {
+    title: 'Published Scholar',
+    description: 'Publish in peer-reviewed journals, academic conferences, and contribute to global knowledge.',
+  },
+  {
+    title: 'Think Tank Fellow',
+    description: 'Conduct policy research for leading institutions influencing global decision-making.',
+  },
+  {
+    title: 'Policy Expert & Advisor',
+    description: 'Shape government policy through research expertise and evidence-based recommendations.',
+  },
+  {
+    title: 'Academic Leadership',
+    description: 'Progress to Dean, Provost, or University President positions with doctoral credentials.',
+  },
+  {
+    title: 'Institutional Recognition',
+    description: 'Access international postdoctoral fellowships, research grants, and academic networks.',
+  },
+  {
+    title: 'Thought Leadership',
+    description: 'Speak at global conferences, publish books, and influence your field of research.',
+  },
+  {
+    title: 'Consulting & Advisory',
+    description: 'Leverage research expertise for high-value consulting to governments and organizations.',
+  },
+  {
+    title: 'Corporate Research',
+    description: 'Lead innovation and research divisions in technology and global organizations.',
+  },
+];
+
+// ─── PhD SUCCESS PROFILES (PHASE 3D) ────────────────────────────────────────
+
+export const phdSuccessProfiles = [
+  {
+    id: 'researcher-to-professor',
+    title: 'Research Associate → Full Professor',
+    description: 'Progress from postdoctoral research to tenured academic leadership',
+    outcomes: ['Published 25+ peer-reviewed papers', 'Research group leadership', 'Doctoral supervision', 'Endowed professorship'],
+  },
+  {
+    id: 'consultant-to-scholar',
+    title: 'Management Consultant → Published Scholar',
+    description: 'Transform consulting experience into rigorous academic research contribution',
+    outcomes: ['Authored 2 books', 'Keynote speaker at major conferences', 'Research methodology expert', 'PhD supervisor'],
+  },
+  {
+    id: 'professional-to-policy-expert',
+    title: 'Corporate Professional → Policy Research Director',
+    description: 'Leverage industry expertise for policy influence through doctoral research',
+    outcomes: ['Think tank affiliation', 'Government advisory roles', 'Policy publications', 'International recognition'],
+  },
+  {
+    id: 'educator-to-academic-leader',
+    title: 'Educator → Academic Dean',
+    description: 'Advance from teaching professional to institutional academic leadership',
+    outcomes: ['Doctoral degree holder', 'Dean of Faculty', 'Research institute leadership', 'University governance'],
+  },
+  {
+    id: 'industry-to-innovation-director',
+    title: 'Industry Leader → Research Innovation Director',
+    description: 'Establish corporate research center and lead technological innovation',
+    outcomes: ['20+ patents filed', 'Research lab director', 'Academic collaborations', 'Industry thought leader'],
+  },
+  {
+    id: 'government-to-un-expert',
+    title: 'Government Officer → UN Expert & Advisor',
+    description: 'Achieve international recognition and influence through doctoral research expertise',
+    outcomes: ['UN advisor positions', 'International publications', 'Global conference speaking', 'Policy influence'],
+  },
+];
+
+// ─── PhD FAQs EXPANDED (PHASE 3D) ───────────────────────────────────────────
+
+export const phdFAQsExpanded = [
+  {
+    question: 'What is the difference between a PhD and a DBA?',
+    answer: 'A DBA (Doctor of Business Administration) focuses on applied business practice, executive leadership, and industry impact. A PhD is an academic research degree focused on original knowledge creation, academic contributions, and scholarly advancement. PhDs are primarily for academic careers, teaching, and research; DBAs are for executive and leadership roles. Choose PhD if you want to be a researcher or professor; choose DBA if you want to be a business leader.',
+  },
+  {
+    question: 'What exactly is the PhD dissertation?',
+    answer: 'The PhD dissertation is an original piece of academic research that makes a significant contribution to your field. It typically involves (1) extensive literature review, (2) research question development, (3) methodology design, (4) primary research or analysis, (5) findings and discussion, and (6) implications for the field. Length varies by discipline (40,000-100,000+ words typical).',
+  },
+  {
+    question: 'How long does a PhD typically take?',
+    answer: 'PhD duration varies by country and discipline. Typical timelines: 3-4 years (UK), 5-7 years (USA), 4-6 years (Australia). Research-intensive disciplines may take longer. Part-time PhDs can take 6-8 years. Your supervisor and institution will help establish realistic timelines.',
+  },
+  {
+    question: 'Do I need to publish my research during my PhD?',
+    answer: 'Publication requirements vary by institution. Many programs expect 2-4 peer-reviewed publications from your doctoral research. Publishing strengthens your academic profile, demonstrates research quality, and establishes you as a scholar. Your supervisor guides publication strategy.',
+  },
+  {
+    question: 'What is a viva voce (PhD defense)?',
+    answer: 'A viva voce is an oral examination where you defend your dissertation before a panel of expert examiners. You present your research and answer detailed questions about your work, methodology, and findings. Vivas typically last 1-3 hours and assess research quality and your expertise. Most candidates pass (with potential minor revisions required).',
+  },
+  {
+    question: 'Can I pursue a PhD while working full-time?',
+    answer: 'Yes, but it\'s demanding. Many PhD students work part-time or hold fellowships. Part-time PhDs take longer (6-8 years typically). You need disciplined time management and your employer\'s support. Research-intensive work may require reduced hours during critical phases.',
+  },
+  {
+    question: 'What is a PhD supervisor and how important are they?',
+    answer: 'Your PhD supervisor is a senior academic who guides your research journey. They help develop your research question, review drafts, provide feedback, offer methodological guidance, and support publication. The supervisor-student relationship is critical—good supervision accelerates progress; poor supervision can derail it. You typically have input into supervisor selection.',
+  },
+  {
+    question: 'Can I choose any research topic I want?',
+    answer: 'Your research topic must align with your institution\'s strengths and your supervisor\'s expertise. It should be novel, feasible within your timeline, and make a meaningful contribution. Your institution approves the topic proposal early in the program. Work with your supervisor to refine an idea into a rigorous research question.',
+  },
+  {
+    question: 'How is a PhD recognized internationally?',
+    answer: 'A PhD from an accredited university is recognized globally, especially if your institution holds AACSB, EQUIS, ASIC, or similar accreditations. Your research contributions (publications, conferences, citations) also establish international recognition. The PhD credential itself is portable across countries for academic employment.',
+  },
+  {
+    question: 'What are the career options after a PhD?',
+    answer: 'Career paths include: (1) University professor/researcher, (2) Postdoctoral fellow, (3) Think tank researcher, (4) Policy advisor/government, (5) Corporate research director, (6) Consultant, (7) Independent scholar, (8) Author/publisher. PhDs offer flexibility—academia or industry.',
+  },
+  {
+    question: 'Do I get funding or scholarships for a PhD?',
+    answer: 'Many PhDs are fully funded through university scholarships, research grants, or government funding. Some require tuition payment. Funding sources include: university fellowships, government grants, industry sponsorship, supervisor research grants. Discuss funding options during application.',
+  },
+  {
+    question: 'What research methodology will I learn?',
+    answer: 'You\'ll develop expertise in research design, data collection, analysis, and interpretation specific to your discipline. This includes quantitative methods (statistics, econometrics), qualitative methods (interviews, case studies), or mixed methods. Coursework and supervisor guidance develop your methodological skills.',
+  },
+  {
+    question: 'Is a PhD certificate or credential more important than the research?',
+    answer: 'Both matter, but the research is paramount. The credential signals you\'ve completed the degree, but your research reputation (publications, citations, recognition) defines your academic impact. A PhD from a prestigious institution with weak research has less value than quality research from any institution.',
+  },
+  {
+    question: 'Can I teach at a university with a PhD?',
+    answer: 'Yes. A PhD qualifies you for academic employment. Most tenure-track professor positions require a PhD. Some teaching positions (lecturer, instructor) may not. With a PhD, you\'re qualified for research positions, assistant professor roles, and higher academic ranks. Teaching eligibility varies by country and institution.',
+  },
+  {
+    question: 'How do I know if PhD is right for me?',
+    answer: 'Consider these: (1) Do you love research and discovery? (2) Do you want to contribute original knowledge? (3) Are you comfortable with 3-7 years of focused study? (4) Do you want an academic or research career? (5) Can you handle criticism and iteration? (6) Are you self-directed? If yes to most, a PhD may suit you.',
+  },
+  {
+    question: 'What is the difference between PhD and academic postdocs?',
+    answer: 'A PhD is a degree program (3-7 years) where you develop research skills and complete a dissertation. A postdoctoral fellowship (1-3 years) is after your PhD—you conduct independent research, publish, and establish your research program. Postdocs are stepping stones to professor positions.',
+  },
+  {
+    question: 'How competitive is PhD admission?',
+    answer: 'Competitiveness varies by field and institution. Strong PhD applications include: master\'s degree (usually required), research experience, publications, clear research interests, strong references, and good communication. Top-tier programs are highly competitive; less-ranked programs are more accessible.',
+  },
+  {
+    question: 'What if I decide the PhD isn\'t for me mid-way?',
+    answer: 'Many institutions offer exit options: (1) Master\'s degree upon withdrawal, (2) Diploma of Research Studies, (3) Resume with "PhD candidacy completed." You can leave with credentials rather than empty-handed. Discuss exit options with your program before starting.',
+  },
+  {
+    question: 'Can I do a PhD part-time while working?',
+    answer: 'Yes, but it requires careful planning. Part-time PhDs take 5-8 years. You need flexible employment, supportive employer, and disciplined time management. Some phases (proposal, data collection, writing) demand intensive time. Part-time study is achievable but requires commitment.',
+  },
+  {
+    question: 'What is research impact and how does it matter?',
+    answer: 'Research impact means your work influences your field, policy, practice, or society. It\'s measured through citations, publications, conference presentations, policy influence, or industry adoption. Universities increasingly value impact. Your research impact determines your academic reputation and career opportunities.',
+  },
+];
