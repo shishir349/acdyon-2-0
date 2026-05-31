@@ -55,6 +55,7 @@ export const navGroups = [
     summary: "Recognition pathways for distinguished contribution.",
     items: [
       { label: "Honorary Doctorate", href: "/honorary-recognition", description: "Recognition for impact, leadership, and contribution." },
+      { label: "LSBS Honorary Doctorate", href: "/honorary-recognition/lsbs", description: "London School of Business & Science — distinguished recognition." },
       { label: "Honorary Professorship", href: "/honorary-recognition", description: "Academic distinction for educators and experts." },
     ],
   },
@@ -141,10 +142,38 @@ export const audiences = [
 ];
 
 export const universities = [
-  { name: "Global Business University", country: "Switzerland", flag: "CH", note: "Executive learning and business advancement pathways.", verification: "Partner pathway verified" },
-  { name: "International Leadership Institute", country: "United Kingdom", flag: "UK", note: "Leadership-focused academic collaboration.", verification: "Recognition guidance available" },
-  { name: "American Professional Academy", country: "United States", flag: "US", note: "Career-oriented certification and recognition routes.", verification: "Eligibility review supported" },
-  { name: "European Digital University", country: "France", flag: "FR", note: "Digital skills and innovation-focused programs.", verification: "Academic fit assessed" },
+  {
+    name: "Kennedy University",
+    country: "USA / France",
+    flag: "US",
+    note: "Online doctoral pathways — DBA and PhD — for working executives and professionals.",
+    verification: "Partner pathway verified",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Kennedy-University-520-x-330%20(2).jpg",
+  },
+  {
+    name: "Dunster Business School",
+    country: "Switzerland",
+    flag: "CH",
+    note: "Swiss private business school — QS 4-Star rated DBA and PhD. Executive-focused research.",
+    verification: "Partner pathway verified",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/DBS_New-Final-Logo_6.png",
+  },
+  {
+    name: "LSMT",
+    country: "United Kingdom",
+    flag: "UK",
+    note: "London School of Management & Technology — DBA pathways for senior professionals.",
+    verification: "Eligibility review supported",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/LSMT-Logo.webp",
+  },
+  {
+    name: "LSBS",
+    country: "United Kingdom",
+    flag: "UK",
+    note: "London School of Business & Science — Honorary Doctorate for distinguished professionals.",
+    verification: "Nomination pathway open",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Screenshot%202026-05-31%20at%209.16.10%20PM.png",
+  },
 ];
 
 export const testimonials = [
@@ -257,32 +286,49 @@ export const programPages = {
   },
 };
 
-export const logos = [
-  "Kennedy University",
-  "LSBS",
-  "Birchwood University",
-  "Dunster Business School",
-  "Swiss Academic Forum",
-  "London Executive Institute",
-  "American Leadership Council",
-  "European Digital Academy",
+export const partnerUniversities = [
+  {
+    name: "Kennedy University",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Kennedy-University-520-x-330%20(2).jpg",
+    country: "USA",
+  },
+  {
+    name: "Dunster Business School",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/DBS_New-Final-Logo_6.png",
+    country: "Switzerland",
+  },
+  {
+    name: "LSMT",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/LSMT-Logo.webp",
+    country: "United Kingdom",
+  },
+  {
+    name: "EIMT",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/images.jpeg",
+    country: "Switzerland",
+  },
+  {
+    name: "Birchwood University",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Birchwood-University-520-x-330.jpg",
+    country: "Belgium",
+  },
+  {
+    name: "LSBS",
+    logo: "https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Screenshot%202026-05-31%20at%209.16.10%20PM.png",
+    country: "United Kingdom",
+  },
 ];
+
+export const logos = partnerUniversities.map((u) => u.name);
 
 export const authorityStats = [
   { value: "18+", label: "Countries" },
-  { value: "5+", label: "University Partners" },
+  { value: "6+", label: "University Partners" },
   { value: "5,000+", label: "Professionals Guided" },
   { value: "25+", label: "Academic & Professional Pathways" },
 ];
 
-export const institutionLogos = [
-  "Kennedy University",
-  "LSBS",
-  "Birchwood University",
-  "Dunster Business School",
-  "Swiss Academic Forum",
-  "London Executive Institute",
-];
+export const institutionLogos = partnerUniversities.map((u) => u.name);
 
 export const featuredAiBullets = [
   "4 Month Program",
@@ -960,6 +1006,7 @@ export const topNav: NavEntry[] = [
         label: "Recognition Pathways",
         items: [
           { label: "Honorary Doctorate", href: "/honorary-recognition", description: "Recognition for professional impact and leadership contribution." },
+          { label: "LSBS Honorary Doctorate", href: "/honorary-recognition/lsbs", description: "London School of Business & Science — elite nomination pathway." },
           { label: "Honorary Professorship", href: "/honorary-recognition", description: "Academic distinction for educators and domain experts." },
         ],
       },

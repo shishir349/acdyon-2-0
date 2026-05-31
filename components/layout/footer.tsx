@@ -1,109 +1,135 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, Building2 } from "lucide-react";
 import { BrandLogo } from "@/components/layout/brand-logo";
-import { contactDetails, socialLinks } from "@/lib/data/site";
 
-const footerGroups = [
-  {
-    title: "Programs",
-    links: [
-      { label: "Executive Certifications", href: "/programs" },
-      { label: "Corporate Training", href: "/contact" },
-      { label: "AI & Technology", href: "/ai-courses" },
-    ],
-  },
-  {
-    title: "Flagship Programs",
-    links: [
-      { label: "Agentic AI & Automation", href: "/programs/agentic-ai-automation-mastery" },
-      { label: "AI & Cybersecurity Mastery", href: "/programs/agentic-ai-cybersecurity-mastery" },
-      { label: "AI for Business Leaders", href: "/ai-courses" },
-    ],
-  },
-  {
-    title: "Academic Pathways",
-    links: [
-      { label: "DBA & PhD Programs", href: "/doctoral-programs" },
-      { label: "Honorary Recognition", href: "/honorary-recognition" },
-      { label: "Universities", href: "/universities" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Success Stories", href: "/success-stories" },
-      { label: "Blogs", href: "/blogs" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
+const exploreLinks = [
+  { label: "Home", href: "/" },
+  { label: "About AcdyOn", href: "/about" },
+  { label: "Programs", href: "/programs" },
+  { label: "Universities", href: "/universities" },
+  { label: "Doctoral Pathways", href: "/doctoral-programs" },
+  { label: "Honorary Recognition", href: "/honorary-recognition" },
+  { label: "AI & Technology", href: "/programs/agentic-ai-automation-mastery" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-and-conditions" },
+  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
+];
+
+const usaDetails = [
+  { icon: Building2, text: "AcdyOn Technologies LLC" },
+  { icon: Mail, text: "admissions@acdyon.com" },
+  { icon: Phone, text: "+1 213 534 7859" },
+  { icon: MapPin, text: "Wyoming, United States" },
+];
+
+const indiaDetails = [
+  { icon: Building2, text: "REBB Ventures Private Limited" },
+  { icon: Mail, text: "admissions@acdyon.com" },
+  { icon: Phone, text: "+91 9779914422" },
+  { icon: MapPin, text: "Noida, Uttar Pradesh, India" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-slate-950 text-white">
-      <div className="container-premium pb-20 pt-16 sm:pb-16">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr]">
+      <div className="container-premium py-16">
+        {/* 5-column grid */}
+        <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+
+          {/* Col 1 — Brand */}
           <div>
             <BrandLogo variant="light" />
-            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-300">
-              A premium global education platform for executive learning, AI capability, academic advancement, and international recognition.
+            <p className="mt-5 text-sm leading-7 text-slate-300">
+              AcdyOn provides access to globally recognized executive education, doctoral pathways, academic advancement programmes, and honorary recognition opportunities through international institutional partnerships.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-white/30 hover:text-white"
-                >
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#D4AF37]" />
+              <span className="text-xs font-medium text-slate-400">
+                Global Executive Education &amp; Academic Recognition Platform
+              </span>
+            </div>
+          </div>
+
+          {/* Col 2 — Explore */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white">Explore</h3>
+            <ul className="mt-5 space-y-3">
+              {exploreLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-slate-400 transition hover:text-white">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 3 — United States */}
+          <div>
+            <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
+              United States <span>🇺🇸</span>
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {usaDetails.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-start gap-2.5">
+                  <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />
+                  <span className="text-sm text-slate-400">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4 — India */}
+          <div>
+            <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white">
+              India <span>🇮🇳</span>
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {indiaDetails.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-start gap-2.5">
+                  <Icon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-slate-500" />
+                  <span className="text-sm text-slate-400">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5 — Legal */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-white">Legal</h3>
+            <ul className="mt-5 space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-slate-400 transition hover:text-white">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="space-y-1 text-xs text-slate-500">
+              <p>© 2026 AcdyOn Technologies LLC. All Rights Reserved.</p>
+              <p>USA Entity: AcdyOn Technologies LLC · Wyoming, United States</p>
+              <p>India Operational Entity: REBB Ventures Private Limited · Noida, UP, India</p>
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
+              {legalLinks.map((link) => (
+                <Link key={link.label} href={link.href} className="transition hover:text-slate-300">
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {footerGroups.map((group) => (
-              <div key={group.title}>
-                <h3 className="text-sm font-semibold text-white">{group.title}</h3>
-                <div className="mt-4 grid gap-3">
-                  {group.links.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="text-sm text-slate-400 transition hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-12 grid gap-8 border-t border-white/10 pt-8 lg:grid-cols-[1fr_420px]">
-          <div className="grid gap-2 text-sm text-slate-400">
-            {contactDetails.map((detail) => (
-              <span key={detail}>{detail}</span>
-            ))}
-          </div>
-          <div className="flex overflow-hidden rounded-full border border-white/10 bg-white/5 p-1">
-            <input
-              className="min-w-0 flex-1 bg-transparent px-5 text-sm outline-none placeholder:text-slate-500"
-              placeholder="Email for programme updates and insights"
-            />
-            <button
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-slate-950"
-              aria-label="Subscribe"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-        <div className="mt-8 flex flex-col gap-3 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 AcdyOn. All rights reserved.</span>
-          <span>Privacy Policy · Terms of Use · Admissions Policy</span>
         </div>
       </div>
     </footer>

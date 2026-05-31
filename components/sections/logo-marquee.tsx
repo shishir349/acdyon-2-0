@@ -1,7 +1,8 @@
-import { logos, stats } from "@/lib/data/site";
+import Image from "next/image";
+import { partnerUniversities, stats } from "@/lib/data/site";
 
 export function LogoMarquee() {
-  const repeated = [...logos, ...logos];
+  const repeated = [...partnerUniversities, ...partnerUniversities];
 
   return (
     <section className="border-y border-slate-200 bg-white py-10">
@@ -24,9 +25,20 @@ export function LogoMarquee() {
           </div>
           <div className="overflow-hidden">
             <div className="marquee flex w-max gap-4">
-              {repeated.map((logo, index) => (
-                <div key={`${logo}-${index}`} className="flex h-14 min-w-56 items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-6 text-sm font-semibold text-slate-600">
-                  {logo}
+              {repeated.map((uni, index) => (
+                <div
+                  key={`${uni.name}-${index}`}
+                  className="flex h-16 min-w-48 items-center justify-center rounded-[8px] border border-slate-200 bg-white px-5"
+                >
+                  <div className="relative h-10 w-36">
+                    <Image
+                      src={uni.logo}
+                      alt={uni.name}
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
                 </div>
               ))}
             </div>
