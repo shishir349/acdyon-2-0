@@ -5,7 +5,8 @@ import { ConsultationNudge } from "@/components/sections/consultation-nudge";
 import { FinalCTA } from "@/components/sections/final-cta";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { UniversityComparison } from "@/components/UniversityComparison";
+import { UniversityShowcase } from "@/components/sections/university-showcase";
+import { universities } from "@/lib/data/universities";
 import { AccreditationShowcase } from "@/components/AccreditationShowcase";
 import { dbaSpecializations, dbaCareerOutcomes, dbaSuccessProfiles, dbaFAQsExpanded } from "@/lib/data/site";
 
@@ -189,9 +190,10 @@ export default function DBAPage() {
             description="Study with internationally accredited universities recognized across 150+ countries. No pricing shown here — explore individual universities for tuition and payment plans."
           />
           <div className="mt-14">
-            <UniversityComparison
-              programmeId="dba-general"
-              linkToDetail="/doctoral-programs/dba"
+            <UniversityShowcase
+              universities={universities.filter(u => u.programmes.dba)}
+              programType="dba"
+              ctaLabel="View Programme"
             />
           </div>
         </div>

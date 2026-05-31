@@ -49,11 +49,11 @@ export function HeroSection() {
           <div className="absolute inset-4 overflow-hidden rounded-[8px] border border-white/50 bg-white/78 p-5 shadow-2xl backdrop-blur-xl">
             <div className="relative overflow-hidden rounded-[8px] bg-slate-950 p-6 text-white">
               <Image
-                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1200&q=82"
+                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=75"
                 alt="Global academic learners in a premium university setting"
                 fill
                 priority
-                sizes="(min-width: 1024px) 520px, 90vw"
+                sizes="(min-width: 1024px) 520px, (min-width: 640px) 400px, 320px"
                 className="object-cover opacity-42"
               />
               <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,64,255,0.68)_55%,rgba(34,211,238,0.42))]" />

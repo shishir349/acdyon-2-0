@@ -1,0 +1,29 @@
+# Enable compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache static assets for 1 year
+<FilesMatch "\.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2|ttf|eot|webp)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Cache Next.js static files
+<FilesMatch "^\._next">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Don't cache HTML
+<FilesMatch "\.html$">
+  Header set Cache-Control "public, max-age=0, must-revalidate"
+</FilesMatch>
+
+# Enable gzip for text files
+<IfModule mod_gzip.c>
+  mod_gzip_on Yes
+  mod_gzip_dechunk Yes
+  mod_gzip_item_include file \.(html|txt|xml|js|css|json)$
+  mod_gzip_item_include handler ^cgi-script$
+  mod_gzip_item_exclude mime ^image/
+  mod_gzip_minimum_file_size 512
+</IfModule>
