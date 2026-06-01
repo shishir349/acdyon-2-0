@@ -1044,13 +1044,12 @@ export const topNav: NavEntry[] = [
 // ─── Agentic AI & Cybersecurity Mastery Program ───────────────────────────────
 
 export const cybersecurityProgramMeta = {
-  eyebrow: "Flagship Cybersecurity Program",
+  eyebrow: "Cybersecurity Career Programme",
   title: "Agentic AI & Cybersecurity Mastery",
-  description: "Master AI-powered cybersecurity from fundamentals to autonomous defence — with hands-on labs, red team simulations, Microsoft AI-900 certification, and 360° career support.",
-  duration: "16 Weeks",
-  format: "Blended — Online",
-  certification: "Microsoft AI-900",
-  careerSupport: "360° Career Support",
+  description: "Develop practical offensive and defensive cybersecurity expertise, learn AI-assisted threat detection techniques, and prepare for high-growth cybersecurity careers through hands-on labs, real-world simulations, internship experience, and placement readiness support.",
+  duration: "6 Months",
+  format: "Live Online",
+  careerSupport: "Career Launch Month",
   partner: "In collaboration with The Tech Unique (TTU)",
 };
 
@@ -1173,16 +1172,22 @@ export const cybersecurityCareerPaths = [
 
 export const cybersecurityCertifications = [
   {
-    title: "Certificate of Agentic AI & Cybersecurity Mastery",
+    title: "Cybersecurity Mastery Certificate",
     issuer: "AcdyOn",
-    description: "Demonstrates mastery in AI-powered cybersecurity, autonomous defence, and applied security practice.",
-    badge: null,
+    description: "Issued upon successful completion of all programme modules, labs, and assessments. Demonstrates verified cybersecurity expertise.",
+    badge: "Programme Certificate",
   },
   {
-    title: "Microsoft AI-900",
-    issuer: "Microsoft",
-    description: "Validates foundational knowledge of AI concepts and Microsoft Azure AI services. Globally recognised by employers.",
-    badge: "Microsoft Certified",
+    title: "Capstone Project Portfolio",
+    issuer: "AcdyOn",
+    description: "A portfolio of real-world security projects completed during the programme — demonstrable evidence of practical skill.",
+    badge: "Portfolio",
+  },
+  {
+    title: "Internship Experience Letter",
+    issuer: "AcdyOn / Partner",
+    description: "Issued to qualifying graduates who complete the internship component. Confirms practical industry exposure.",
+    badge: "Internship",
   },
 ];
 
