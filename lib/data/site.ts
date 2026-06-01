@@ -55,8 +55,8 @@ export const navGroups = [
     summary: "Recognition pathways for distinguished contribution.",
     items: [
       { label: "Honorary Doctorate", href: "/honorary-recognition", description: "Recognition for impact, leadership, and contribution." },
-      { label: "LSBS Honorary Doctorate", href: "/honorary-recognition/lsbs", description: "London School of Business & Science — distinguished recognition." },
-      { label: "Honorary Professorship", href: "/honorary-recognition", description: "Academic distinction for educators and experts." },
+      { label: "Kennedy University", href: "/honorary-recognition/kennedy-university", description: "Prestigious US-based honorary recognition pathway." },
+      { label: "Dunster Business School", href: "/honorary-recognition/dunster-business-school", description: "Swiss QS 4-Star honorary doctorate recognition." },
     ],
   },
   {
@@ -1005,9 +1005,9 @@ export const topNav: NavEntry[] = [
       {
         label: "Recognition Pathways",
         items: [
-          { label: "Honorary Doctorate", href: "/honorary-recognition", description: "Recognition for professional impact and leadership contribution." },
-          { label: "LSBS Honorary Doctorate", href: "/honorary-recognition/lsbs", description: "London School of Business & Science — elite nomination pathway." },
-          { label: "Honorary Professorship", href: "/honorary-recognition", description: "Academic distinction for educators and domain experts." },
+          { label: "Honorary Doctorate Overview", href: "/honorary-recognition", description: "Recognition for professional impact and leadership contribution." },
+          { label: "Kennedy University", href: "/honorary-recognition/kennedy-university", description: "Prestigious US-based honorary recognition pathway." },
+          { label: "Dunster Business School", href: "/honorary-recognition/dunster-business-school", description: "Swiss QS 4-Star honorary doctorate recognition." },
         ],
       },
     ],
