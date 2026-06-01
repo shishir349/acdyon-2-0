@@ -348,32 +348,11 @@ export default function KennedyHonoraryPage() {
           />
 
           <div className="mx-auto mt-14 max-w-3xl">
-            <div className="flex min-h-[420px] flex-col items-center justify-center rounded-[8px] border-2 border-dashed border-[#D4AF37]/40 bg-[#D4AF37]/5 p-12 text-center">
-              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#D4AF37]/10">
-                <Award className="h-10 w-10 text-[#D4AF37]" />
+            <div className="relative flex flex-col items-center justify-center rounded-[8px] border border-slate-200 bg-white p-6 shadow-lg">
+              <div className="relative h-96 w-full overflow-hidden rounded-[8px]">
+                <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/KU%20HD.png" alt="Kennedy University Honorary Doctorate Certificate" fill className="object-contain" unoptimized />
               </div>
-              <p className="mb-2 font-display text-2xl text-slate-950">Certificate Preview Coming Soon</p>
-              <p className="mb-6 max-w-sm text-sm leading-6 text-slate-500">
-                An example of the Kennedy University Honorary Doctorate certificate will be displayed here. The certificate is formally issued on official university stationery with institutional seal and authorised signatures.
-              </p>
-              <div className="w-full max-w-md rounded-[8px] border border-[#D4AF37]/30 bg-white p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-slate-400">Certificate Includes</p>
-                <ul className="mt-4 space-y-2">
-                  {[
-                    'Institution name and official seal',
-                    'Recipient full name and title',
-                    'Degree: Doctor Honoris Causa',
-                    'Date of conferment',
-                    'Signatures of institutional leadership',
-                    'Unique certificate registration number',
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#D4AF37]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="mt-6 text-center text-sm text-slate-500">Official Kennedy University Honorary Doctorate Certificate</p>
             </div>
           </div>
         </div>

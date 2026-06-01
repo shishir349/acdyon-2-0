@@ -188,23 +188,11 @@ export default function LSMTDBAPage() {
         <div className="container-premium">
           <SectionHeading eyebrow="Credentials" title="What You Graduate With" description="A comprehensive doctorate package recognised globally for executive advancement." />
           <div className="mx-auto mt-14 max-w-3xl">
-            <div className="flex min-h-[420px] flex-col items-center justify-center rounded-[8px] border-2 border-dashed border-[#1E40FF]/40 bg-[#1E40FF]/5 p-12 text-center">
-              <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#1E40FF]/10">
-                <Award className="h-10 w-10 text-[#1E40FF]" />
+            <div className="relative flex flex-col items-center justify-center rounded-[8px] border border-slate-200 bg-white p-6 shadow-lg">
+              <div className="relative h-96 w-full overflow-hidden rounded-[8px]">
+                <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/LSMT%20DBA.webp" alt="LSMT Doctor of Business Administration Certificate" fill className="object-contain" unoptimized />
               </div>
-              <p className="mb-2 font-display text-2xl text-slate-950">Doctoral Certificate & Documentation</p>
-              <p className="mb-6 max-w-sm text-sm leading-6 text-slate-500">Official LSMT DBA certificate, transcript, and comprehensive documentation confirming your doctoral qualification.</p>
-              <div className="w-full max-w-md rounded-[8px] border border-[#1E40FF]/30 bg-white p-6">
-                <p className="text-xs font-bold uppercase tracking-wide text-slate-400">You Receive</p>
-                <ul className="mt-4 space-y-2">
-                  {['Official DBA Degree', 'Academic Transcript', 'Research Supervision', 'Doctoral Thesis (60,000-80,000 words)', 'Alumni Network Access', 'Graduation Ceremony Invitation'].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#1E40FF]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="mt-6 text-center text-sm text-slate-500">Official LSMT DBA Certificate</p>
             </div>
           </div>
         </div>

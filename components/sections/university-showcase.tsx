@@ -74,6 +74,7 @@ export function UniversityShowcase({
                     alt={university.name}
                     fill
                     className="object-contain p-4"
+                    unoptimized
                   />
                 )}
               </div>
