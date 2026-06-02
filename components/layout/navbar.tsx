@@ -28,7 +28,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "bg-white/82 py-3 shadow-sm backdrop-blur-xl" : "bg-transparent py-5",
+        scrolled ? "bg-white/90 py-3 shadow-md backdrop-blur-md" : "bg-transparent py-5",
       )}
     >
       <nav className="container-premium flex items-center justify-between">
@@ -66,7 +66,9 @@ export function Navbar() {
                     {entry.label}
                     <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
                   </Link>
-                  <div className="pointer-events-none absolute left-1/2 top-full w-[500px] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100">
+                  {/* Invisible hover buffer to prevent menu closing */}
+                  <div className="pointer-events-none absolute left-1/2 top-full h-3 w-[500px] -translate-x-1/2 group-hover:pointer-events-auto" />
+                  <div className="pointer-events-none absolute left-1/2 top-full w-[500px] -translate-x-1/2 translate-y-6 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-5 group-hover:opacity-100">
                     <div className="rounded-[8px] border border-slate-200 bg-white/94 p-3 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl">
                       <div className="rounded-[8px] bg-slate-950 p-5 text-white">
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
@@ -101,7 +103,9 @@ export function Navbar() {
                     {entry.label}
                     <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
                   </Link>
-                  <div className="pointer-events-none absolute left-0 top-full w-[780px] translate-y-3 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-2 group-hover:opacity-100">
+                  {/* Invisible hover buffer to prevent menu closing */}
+                  <div className="pointer-events-none absolute left-0 top-full h-3 w-[780px] group-hover:pointer-events-auto" />
+                  <div className="pointer-events-none absolute left-0 top-full w-[780px] translate-y-6 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-5 group-hover:opacity-100">
                     <div className="rounded-[8px] border border-slate-200 bg-white/94 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl">
                       <div className="rounded-t-[8px] bg-slate-950 px-6 py-5 text-white">
                         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">

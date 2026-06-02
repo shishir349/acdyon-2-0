@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { FloatingCTA } from "@/components/layout/floating-cta";
+import { PageTransitionLoader } from "@/components/page-transition-loader";
 import "./globals.css";
 
 const inter = Inter({
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <PageTransitionLoader />
         <Navbar />
         {children}
         <Footer />
