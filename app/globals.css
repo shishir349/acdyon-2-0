@@ -70,6 +70,36 @@ body {
   }
 }
 
+@keyframes hero-left {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-right {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-hero-left {
+  animation: hero-left 0.7s ease-out;
+}
+
+.animate-hero-right {
+  animation: hero-right 0.8s ease-out 0.1s backwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

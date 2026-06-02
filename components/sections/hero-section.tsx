@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { BadgeCheck, Bot, BriefcaseBusiness, Globe2, GraduationCap, Landmark, Network, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { CTAButton } from "@/components/ui/button";
@@ -13,7 +10,7 @@ export function HeroSection() {
       <div className="absolute right-[-12%] top-20 h-96 w-96 rounded-full bg-[#22D3EE]/16 blur-3xl" />
       <div className="absolute bottom-10 left-[-10%] h-96 w-96 rounded-full bg-[#1E40FF]/12 blur-3xl" />
       <div className="container-premium relative grid min-h-[calc(100vh-8rem)] items-center gap-12 py-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+        <div className="animate-hero-left">
           <p className="mb-5 inline-flex rounded-full border border-[#1E40FF]/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#1E40FF] backdrop-blur">
             Global Executive Education & Academic Recognition
           </p>
@@ -38,13 +35,8 @@ export function HeroSection() {
               </div>
             ))}
           </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="relative min-h-[540px]"
-        >
+        </div>
+        <div className="relative min-h-[540px] animate-hero-right">
           <div className="absolute inset-0 rounded-[8px] bg-slate-950/95 luxury-shadow" />
           <div className="absolute inset-4 overflow-hidden rounded-[8px] border border-white/50 bg-white/78 p-5 shadow-2xl backdrop-blur-xl">
             <div className="relative overflow-hidden rounded-[8px] bg-slate-950 p-6 text-white">
@@ -102,7 +94,7 @@ export function HeroSection() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
