@@ -27,7 +27,25 @@ export default function PhDPage() {
         secondaryHref="/doctoral-programs"
       />
 
-      {/* SECTION 2: Why Pursue a PhD */}
+      {/* SECTION 2: Available PhD Universities */}
+      <section className="bg-[#F8FAFC] py-24">
+        <div className="container-premium">
+          <SectionHeading
+            eyebrow="Global Partnerships"
+            title="Available PhD Universities"
+            description="Study with internationally accredited universities recognized across 150+ countries. Research excellence and scholarly support."
+          />
+          <div className="mt-14">
+            <UniversityShowcase
+              universities={universities.filter(u => u.programmes.phd)}
+              programType="phd"
+              ctaLabel="View Programme"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: Why Pursue a PhD */}
       <section className="bg-white py-24">
         <div className="container-premium">
           <SectionHeading
@@ -69,7 +87,7 @@ export default function PhDPage() {
         </div>
       </section>
 
-      {/* SECTION 3: Who Pursues a PhD */}
+      {/* SECTION 4: Who Pursues a PhD */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="container-premium">
           <SectionHeading
@@ -97,7 +115,7 @@ export default function PhDPage() {
         </div>
       </section>
 
-      {/* SECTION 4: What You Can Achieve */}
+      {/* SECTION 5: What You Can Achieve */}
       <section className="bg-white py-24">
         <div className="container-premium">
           <SectionHeading
@@ -116,7 +134,7 @@ export default function PhDPage() {
         </div>
       </section>
 
-      {/* SECTION 5: Research Disciplines & Specialisations */}
+      {/* SECTION 6: Research Disciplines & Specialisations */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="container-premium">
           <SectionHeading
@@ -145,7 +163,7 @@ export default function PhDPage() {
         </div>
       </section>
 
-      {/* SECTION 6: PhD Research Process */}
+      {/* SECTION 7: PhD Research Process */}
       <section className="bg-white py-24">
         <div className="container-premium">
           <SectionHeading
@@ -176,24 +194,6 @@ export default function PhDPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: Available PhD Universities */}
-      <section className="bg-[#F8FAFC] py-24">
-        <div className="container-premium">
-          <SectionHeading
-            eyebrow="Global Partnerships"
-            title="Available PhD Universities"
-            description="Study with internationally accredited universities recognized across 150+ countries. Research excellence and scholarly support."
-          />
-          <div className="mt-14">
-            <UniversityShowcase
-              universities={universities.filter(u => u.programmes.phd)}
-              programType="phd"
-              ctaLabel="View Programme"
-            />
           </div>
         </div>
       </section>

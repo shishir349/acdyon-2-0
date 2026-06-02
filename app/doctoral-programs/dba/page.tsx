@@ -28,7 +28,25 @@ export default function DBAPage() {
         secondaryHref="/doctoral-programs"
       />
 
-      {/* SECTION 2: DBA vs MBA */}
+      {/* SECTION 2: Choose Your DBA University */}
+      <section className="bg-white py-24">
+        <div className="container-premium">
+          <SectionHeading
+            eyebrow="Global Partnerships"
+            title="Choose Your DBA University"
+            description="Study with internationally accredited universities recognized across 150+ countries. No pricing shown here — explore individual universities for tuition and payment plans."
+          />
+          <div className="mt-14">
+            <UniversityShowcase
+              universities={universities.filter(u => u.programmes.dba)}
+              programType="dba"
+              ctaLabel="View Programme"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: DBA vs MBA */}
       <section className="bg-white py-24">
         <div className="container-premium">
           <SectionHeading
@@ -93,7 +111,7 @@ export default function DBAPage() {
         </div>
       </section>
 
-      {/* SECTION 3: Who Pursues a DBA */}
+      {/* SECTION 4: Who Pursues a DBA */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="container-premium">
           <SectionHeading
@@ -121,7 +139,7 @@ export default function DBAPage() {
         </div>
       </section>
 
-      {/* SECTION 4: Career & Professional Outcomes */}
+      {/* SECTION 5: Career & Professional Outcomes */}
       <section className="bg-white py-24">
         <div className="container-premium">
           <SectionHeading
@@ -140,7 +158,7 @@ export default function DBAPage() {
         </div>
       </section>
 
-      {/* SECTION 5: DBA Research Specializations */}
+      {/* SECTION 6: DBA Research Specializations */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="container-premium">
           <SectionHeading
@@ -177,24 +195,6 @@ export default function DBAPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: Choose Your DBA University */}
-      <section className="bg-white py-24">
-        <div className="container-premium">
-          <SectionHeading
-            eyebrow="Global Partnerships"
-            title="Choose Your DBA University"
-            description="Study with internationally accredited universities recognized across 150+ countries. No pricing shown here — explore individual universities for tuition and payment plans."
-          />
-          <div className="mt-14">
-            <UniversityShowcase
-              universities={universities.filter(u => u.programmes.dba)}
-              programType="dba"
-              ctaLabel="View Programme"
-            />
           </div>
         </div>
       </section>
