@@ -6,6 +6,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { UniversityCard } from "@/components/cards/university-card";
 import { CTAButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Carousel } from "@/components/ui/carousel";
 import {
   geographicPresence,
   howRecognitionWorks,
@@ -13,6 +14,7 @@ import {
   universitiesExtended,
   universitiesFAQs,
 } from "@/lib/data/site";
+import { HorizontalScroll } from "@/components/ui/horizontal-scroll";
 
 export const metadata: Metadata = {
   title: "Universities",
@@ -29,26 +31,28 @@ export default function UniversitiesPage() {
       />
 
       {/* Partner University Showcase */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="University Network"
-            title="Global academic partners across 8 countries"
+            title="Our global university partners"
             description="Each institution is selected based on international standing, recognition signals, and suitability for the professional learners AcdyOn serves."
           />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {universitiesExtended.map((university) => (
-              <UniversityCard key={university.name} {...university} />
-            ))}
+          <div className="mt-10 sm:mt-14">
+            <Carousel
+              items={universitiesExtended.map((university) => (
+                <UniversityCard key={university.name} {...university} className="h-full" />
+              ))}
+            />
           </div>
-          <p className="mt-8 text-center text-sm text-slate-500">
+          <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
             Pathway suitability is assessed individually during consultation. Not all institutions are available for all program types or nationalities.
           </p>
         </div>
       </section>
 
       {/* Geographic Presence */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Geographic Presence"
@@ -59,15 +63,15 @@ export default function UniversitiesPage() {
             {geographicPresence.map((region) => (
               <article
                 key={region.region}
-                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#D4AF37]/50"
+                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#D4AF37]/50 dark:bg-slate-900/60 dark:border-slate-800"
               >
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">{region.region}</p>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{region.description}</p>
+                <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{region.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {region.countries.map((country) => (
                     <span
                       key={country}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600"
+                      className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 dark:bg-slate-950 dark:text-slate-300 dark:border-slate-800"
                     >
                       {country}
                     </span>
@@ -80,49 +84,51 @@ export default function UniversitiesPage() {
       </section>
 
       {/* Academic Recognition Pathways */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Recognition Pathways"
             title="Three routes to academic distinction"
             description="AcdyOn guides professionals through three core recognition pathways — each suited to a different stage of career, professional background, and academic goal."
           />
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {recognitionPathways.map((pathway) => (
-              <article
-                key={pathway.title}
-                className="rounded-[8px] border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-[8px] bg-slate-950 text-white">
-                  <pathway.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-slate-950">{pathway.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{pathway.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {pathway.programs.map((prog) => (
-                    <span
-                      key={prog}
-                      className="rounded-full border border-slate-200 bg-[#F8FAFC] px-3 py-1 text-xs font-semibold text-slate-600"
-                    >
-                      {prog}
-                    </span>
-                  ))}
-                </div>
-                <CTAButton href={pathway.href} variant="secondary" className="mt-7">
-                  Explore Pathway
-                </CTAButton>
-              </article>
-            ))}
-          </div>
+          <HorizontalScroll>
+            <div className="mt-12 flex gap-4 overflow-x-auto sm:grid sm:gap-5 lg:grid-cols-3">
+              {recognitionPathways.map((pathway) => (
+                <article
+                  key={pathway.title}
+                  className="min-w-[280px] shrink-0 sm:min-w-0 sm:shrink rounded-[8px] border border-slate-200 bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30 dark:bg-slate-950 dark:border-slate-800"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[8px] bg-slate-950 text-white">
+                    <pathway.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-slate-950 dark:text-white">{pathway.title}</h3>
+                  <p className="mt-3 w-75 text-sm leading-7 text-slate-600 dark:text-slate-300">{pathway.description}</p>
+                  <div className="mt-5 w-85 flex flex-wrap gap-2">
+                    {pathway.programs.map((prog) => (
+                      <span
+                        key={prog}
+                        className="rounded-full border border-slate-200 bg-[#F8FAFC] px-3 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-900/60 dark:text-slate-300 dark:border-slate-800"
+                      >
+                        {prog}
+                      </span>
+                    ))}
+                  </div>
+                  <CTAButton href={pathway.href} variant="secondary" className="mt-7">
+                    Explore Pathway
+                  </CTAButton>
+                </article>
+              ))}
+            </div>
+          </HorizontalScroll>
         </div>
       </section>
 
       {/* Why Institutional Partnerships Matter */}
-      <section className="bg-white py-24">
-        <div className="container-premium grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="rounded-[8px] bg-slate-950 p-10 text-white">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
+        <div className="container-premium grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <div className="min-w-0 rounded-[8px] bg-slate-950 p-10 text-white">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Institutional Partnerships</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight">
+            <h2 className="mt-5 font-display text-2xl sm:text-4xl leading-tight">
               A partnership that exists only on a website is not a partnership
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-300">
@@ -151,9 +157,9 @@ export default function UniversitiesPage() {
                 desc: "Institutional partnerships are maintained only when they continue to serve the professionals we guide. If the relationship no longer delivers, it is reassessed.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6">
-                <h3 className="font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 dark:text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -161,37 +167,39 @@ export default function UniversitiesPage() {
       </section>
 
       {/* How Recognition Works */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Process"
             title="How academic recognition works at AcdyOn"
             description="A structured, consultation-led process that ensures every professional is matched to the right institution and pathway before any commitment is made."
           />
-          <div className="mt-14 grid gap-5 lg:grid-cols-4">
+          <div className="mt-10 sm:mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto sm:grid sm:gap-5 lg:grid-cols-4">
             {howRecognitionWorks.map((step, index) => (
               <article
                 key={step.title}
-                className="relative rounded-[8px] border border-slate-200 bg-white p-6"
+                className="relative min-w-[280px] shrink-0 snap-center sm:min-w-0 sm:shrink rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
                   {index + 1}
                 </span>
-                <h3 className="mt-8 text-lg font-semibold text-slate-950">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{step.description}</p>
+                <h3 className="mt-8 text-lg font-semibold text-slate-950 dark:text-white">{step.title}</h3>
+                <p className="mt-3 w-60 text-sm leading-7 text-slate-600 dark:text-slate-300">{step.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+
+
       {/* Verification & Credibility */}
-      <section className="bg-slate-950 py-20">
+      <section className="bg-slate-950 py-12 sm:py-20">
         <div className="container-premium">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
+            <div className="min-w-0">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Credibility Standards</p>
-              <h2 className="mt-5 font-display text-4xl leading-tight text-white">
+              <h2 className="mt-5 font-display text-2xl sm:text-4xl leading-tight text-white">
                 Transparency before enrollment — always
               </h2>
               <p className="mt-5 text-sm leading-7 text-slate-300">
@@ -222,7 +230,7 @@ export default function UniversitiesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium max-w-4xl">
           <SectionHeading eyebrow="FAQ" title="Questions about university partnerships and recognition" />
           <Accordion.Root type="single" collapsible className="mt-12 grid gap-3">
@@ -230,13 +238,13 @@ export default function UniversitiesPage() {
               <Accordion.Item
                 key={faq.question}
                 value={faq.question}
-                className="rounded-[8px] border border-slate-200 bg-white px-5"
+                className="rounded-[8px] border border-slate-200 bg-white px-5 dark:bg-slate-950 dark:border-slate-800"
               >
-                <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-slate-950">
+                <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-slate-950 dark:text-white">
                   {faq.question}
                   <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition duration-300 data-[state=open]:rotate-180" />
                 </Accordion.Trigger>
-                <Accordion.Content className="overflow-hidden pb-5 text-sm leading-7 text-slate-600">
+                <Accordion.Content className="overflow-hidden pb-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
                   {faq.answer}
                 </Accordion.Content>
               </Accordion.Item>

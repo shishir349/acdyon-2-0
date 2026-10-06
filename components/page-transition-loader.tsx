@@ -1,63 +1,63 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
 export function PageTransitionLoader() {
-  const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
+  const pathname = usePathname()
+  const [visible, setVisible] = useState(false)
+  const prevPath = useRef(pathname)
+  // ponytail: only hide when pathname actually changes — never on a timer
+  // timer-based hide was the bug: it uncovered the old page before the new one was ready
 
   useEffect(() => {
-    const handleStart = () => setIsLoading(true)
-    const handleStop = () => setIsLoading(false)
-
-    // Intercept router navigation
-    const originalPush = router.push
-    router.push = function (...args) {
-      setIsLoading(true)
-      return originalPush.apply(router, args)
+    if (pathname !== prevPath.current) {
+      prevPath.current = pathname
+      setVisible(false)
     }
+  }, [pathname])
 
-    return () => {
-      router.push = originalPush
-    }
-  }, [router])
+  const handleClick = useCallback((e: MouseEvent) => {
+    const a = (e.target as HTMLElement).closest('a')
+    if (!a) return
+    const href = a.getAttribute('href') ?? ''
+    if (
+      !href ||
+      href.startsWith('#') ||
+      href.startsWith('http') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:')
+    ) return
+    if (a.target === '_blank' || a.hasAttribute('download')) return
+    if (href === pathname) return
+    // show immediately — cover the old page so user never sees it "stuck"
+    setVisible(true)
+  }, [pathname])
 
-  // Auto-hide loader after page transition completes
   useEffect(() => {
-    if (isLoading) {
-      const timer = setTimeout(() => setIsLoading(false), 1500)
-      return () => clearTimeout(timer)
-    }
-  }, [isLoading])
+    document.addEventListener('click', handleClick, true)
+    return () => document.removeEventListener('click', handleClick, true)
+  }, [handleClick])
 
-  if (!isLoading) return null
+  if (!visible) return null
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/95 backdrop-blur-sm transition-opacity duration-300 ease-out">
-      <div className="flex flex-col items-center gap-6">
-        {/* AcdyOn Logo */}
-        <div className="relative h-16 w-16 animate-pulse">
-          <Image
-            src="/acdyon-logo.png"
-            alt="AcdyOn"
-            fill
-            className="object-contain"
-            priority
-          />
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white/98 dark:bg-slate-950/98 animate-in fade-in duration-100">
+      <div className="flex flex-col items-center gap-4">
+        <div className="relative h-12 w-12 animate-pulse">
+          <Image src="/acdyon-logo.webp" alt="AcdyOn" fill className="object-contain" priority />
         </div>
-
-        {/* Loading indicator */}
-        <div className="flex gap-2">
-          <div className="h-2 w-2 rounded-full bg-[#1E40FF] animate-bounce" style={{ animationDelay: '0ms' }} />
-          <div className="h-2 w-2 rounded-full bg-[#1E40FF] animate-bounce" style={{ animationDelay: '150ms' }} />
-          <div className="h-2 w-2 rounded-full bg-[#1E40FF] animate-bounce" style={{ animationDelay: '300ms' }} />
+        <div className="h-0.5 w-24 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+          <div className="h-full w-1/2 rounded-full bg-[#1e40ff] animate-[loader-slide_0.7s_ease-in-out_infinite]" />
         </div>
-
-        {/* Premium text */}
-        <p className="text-sm font-medium text-slate-600 tracking-wide">Loading...</p>
       </div>
+      <style>{`
+        @keyframes loader-slide {
+          0%   { transform: translateX(-100%) }
+          100% { transform: translateX(300%) }
+        }
+      `}</style>
     </div>
   )
 }

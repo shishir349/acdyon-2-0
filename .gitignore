@@ -10,6 +10,7 @@ out/
 .pnpm-debug.log*
 
 # local environment and private MCP config
+.mcp.json
 .env
 .env.local
 .env.*.local
@@ -20,3 +21,14 @@ mcp/hostinger/codex-mcp.local.json
 # system
 .DS_Store
 Thumbs.db
+
+# build artifacts
+*.zip
+
+# never ship the CRM relay secret in the static export
+public/api/_config.php
+
+# secrets + deploy artifacts (contain CRM secret)
+public/api/_config.php
+out/api/_config.php
+acdyon-deploy*.tar.gz

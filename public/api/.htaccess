@@ -1,0 +1,4 @@
+# copy to public_html/api/.htaccess — config holds the shared secret
+<Files "_config.php">
+  Require all denied
+</Files>

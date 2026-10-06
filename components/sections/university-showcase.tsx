@@ -40,7 +40,7 @@ export function UniversityShowcase({
   }
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 dark:bg-slate-950">
       <div className="container-premium">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -49,10 +49,10 @@ export function UniversityShowcase({
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="mb-4 font-display text-5xl leading-tight text-slate-950">
+          <h2 className="mb-4 font-display text-5xl leading-tight text-slate-950 dark:text-white">
             Choose Your University
           </h2>
-          <p className="max-w-2xl text-lg text-slate-600">
+          <p className="max-w-2xl text-lg text-slate-600 dark:text-slate-300">
             Premium doctoral programmes from globally recognized institutions. Each pathway offers distinct academic excellence and international positioning.
           </p>
         </motion.div>
@@ -65,9 +65,9 @@ export function UniversityShowcase({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group flex flex-col rounded-[8px] border border-slate-200 bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 luxury-shadow"
+              className="group flex flex-col rounded-[8px] border border-slate-200 bg-white p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 luxury-shadow dark:border-slate-800 dark:bg-slate-900/60"
             >
-              <div className="mb-6 h-24 w-full relative bg-slate-50 rounded-[8px] overflow-hidden flex items-center justify-center">
+              <div className="mb-6 h-24 w-full relative bg-slate-50 rounded-[8px] overflow-hidden flex items-center justify-center dark:bg-slate-900">
                 {university.logo && (
                   <Image
                     src={university.logo}
@@ -80,36 +80,36 @@ export function UniversityShowcase({
               </div>
 
               <div className="mb-4">
-                <h3 className="text-xl font-semibold text-slate-950">
+                <h3 className="text-xl font-semibold text-slate-950 dark:text-white">
                   {university.name}
                 </h3>
-                <p className="mt-1 text-sm font-medium text-slate-500">
+                <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
                   {university.country}
                 </p>
               </div>
 
-              <p className="mb-6 text-sm leading-6 text-slate-600 line-clamp-3">
+              <p className="mb-6 text-sm leading-6 text-slate-600 line-clamp-3 dark:text-slate-300">
                 {programType === 'dba'
                   ? university.dbaDetails?.overview || university.description
                   : university.phdDetails?.overview || university.description}
               </p>
 
-              <div className="mb-6 space-y-3 border-t border-slate-100 pt-6">
+              <div className="mb-6 space-y-3 border-t border-slate-100 pt-6 dark:border-slate-800">
                 <div className="flex items-start justify-between">
-                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                  <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
                     Duration
                   </span>
-                  <span className="text-sm font-semibold text-slate-950">
+                  <span className="text-sm font-semibold text-slate-950 dark:text-white">
                     {getDuration(university)}
                   </span>
                 </div>
 
                 {university.deliveryMode && university.deliveryMode.length > 0 && (
                   <div className="flex items-start justify-between">
-                    <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
                       Learning Format
                     </span>
-                    <span className="text-sm font-semibold text-slate-950">
+                    <span className="text-sm font-semibold text-slate-950 dark:text-white">
                       {university.deliveryMode.slice(0, 2).join(', ')}
                     </span>
                   </div>
@@ -117,10 +117,10 @@ export function UniversityShowcase({
 
                 {university.accreditations && university.accreditations.length > 0 && (
                   <div className="flex items-start justify-between">
-                    <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                    <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
                       Recognition
                     </span>
-                    <span className="text-sm font-semibold text-slate-950">
+                    <span className="text-sm font-semibold text-slate-950 dark:text-white">
                       {university.accreditations.length}+ Bodies
                     </span>
                   </div>

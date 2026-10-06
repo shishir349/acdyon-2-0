@@ -4,7 +4,7 @@ import { featuredAiBullets } from "@/lib/data/site";
 
 export function FeaturedAISection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white py-14 sm:py-24 dark:bg-slate-950">
       <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-[#22D3EE]/12 blur-3xl" />
       <div className="container-premium relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="rounded-[8px] bg-slate-950 p-5 luxury-shadow">
@@ -15,7 +15,7 @@ export function FeaturedAISection() {
               </div>
               <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-200">4 Month Track</span>
             </div>
-            <h2 className="mt-20 font-display text-4xl leading-tight">Agentic AI & Automation Mastery</h2>
+            <h2 className="mt-20 font-display text-2xl sm:text-4xl leading-tight">Agentic AI & Automation Mastery</h2>
             <p className="mt-5 text-sm leading-7 text-slate-300">
               Build AI agents, automate knowledge work, and design business workflows that feel credible in real executive settings.
             </p>
@@ -35,23 +35,23 @@ export function FeaturedAISection() {
         </div>
         <div>
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Featured AI Program</p>
-          <h2 className="font-display text-4xl leading-tight text-slate-950 sm:text-5xl">Practical AI mastery for professionals who need real outcomes</h2>
-          <p className="mt-6 text-lg leading-8 text-slate-600">
+          <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-tight text-slate-950 dark:text-white">Practical AI mastery for professionals who need real outcomes</h2>
+          <p className="mt-6 text-base sm:text-lg leading-8 text-slate-600 dark:text-slate-300">
             A focused program for ambitious learners ready to move beyond prompts into agents, automations, and career-relevant applied projects.
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {featuredAiBullets.map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-4 text-sm font-medium text-slate-700">
+              <div key={item} className="flex items-center gap-3 rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-4 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300">
                 <CheckCircle2 className="h-5 w-5 text-[#1E40FF]" />
                 {item}
               </div>
             ))}
           </div>
-          <div className="mt-8 grid gap-3 rounded-[8px] border border-slate-200 bg-white p-5 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 rounded-[8px] border border-slate-200 bg-white p-5 sm:grid-cols-3 dark:border-slate-800 dark:bg-slate-900/60">
             {["Curriculum", "Mentorship", "Projects"].map((item) => (
               <div key={item}>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#1E40FF]">{item}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">Guided, applied, and outcome-focused.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Guided, applied, and outcome-focused.</p>
               </div>
             ))}
           </div>

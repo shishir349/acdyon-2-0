@@ -1,100 +1,292 @@
-import { BadgeCheck, Bot, BriefcaseBusiness, Globe2, GraduationCap, Landmark, Network, Sparkles } from "lucide-react";
+"use client";
+
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { AnimatePresence, motion } from "framer-motion";
+import RotatingText from "@/components/RotatingText";
+import { TiltedCard } from "@/components/TiltedCard";
 import { CTAButton } from "@/components/ui/button";
-import { heroTrust } from "@/lib/data/site";
+
+const ShapeGrid = dynamic(
+  () => import("@/components/ShapeGrid").then((m) => ({ default: m.ShapeGrid })),
+  { ssr: false, loading: () => null }
+);
+
+const SLIDES = [
+  { src: "/convocation-ceremony.webp", caption: "The moment your investment signals authority" },
+  { src: "/images/site/hero-honorary-graduation.webp", caption: "Honorary doctoral recognition" },
+  { src: "/images/site/hero-dba-executive.webp", caption: "Executive DBA pathway" },
+  { src: "/images/site/hero-phd-library.webp", caption: "PhD research excellence" },
+  { src: "/images/site/hero-global-learners.webp", caption: "Global academic community" },
+];
+
+// pairs/groups shown in the partner strip
+const PARTNER_GROUPS = [
+  ["Kennedy University", "Dunster College"],
+  ["LSMT", "EIMT"],
+  ["Birchwood"],
+];
+
+const ALL_UNIVERSITIES = PARTNER_GROUPS.flat();
+
+const ENROLLEES = [
+  { name: "Rajan M.", location: "India", programme: "DBA" },
+  { name: "Sarah K.", location: "United Kingdom", programme: "Honorary Doctorate" },
+  { name: "Chukwu A.", location: "Nigeria", programme: "PhD" },
+  { name: "Layla H.", location: "UAE", programme: "DBA" },
+  { name: "Marcus T.", location: "Germany", programme: "Executive DBA" },
+  { name: "Priya S.", location: "Singapore", programme: "PhD" },
+];
+
+// subtle floating orbs — pure CSS
+function FloatingOrbs() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="absolute right-[8%]  top-[18%]  h-2   w-2   rounded-full bg-[#1e40ff]/25 dark:bg-[#1e40ff]/35 animate-[orb_6s_ease-in-out_infinite]" />
+      <div className="absolute right-[18%] top-[38%]  h-1.5 w-1.5 rounded-full bg-[#d4af37]/30 dark:bg-[#d4af37]/25 animate-[orb_8s_ease-in-out_1s_infinite]" />
+      <div className="absolute right-[5%]  top-[62%]  h-1   w-1   rounded-full bg-[#22d3ee]/25 dark:bg-[#22d3ee]/30 animate-[orb_7s_ease-in-out_2.5s_infinite]" />
+      <div className="absolute right-[28%] top-[80%]  h-2   w-2   rounded-full bg-[#1e40ff]/15 dark:bg-[#1e40ff]/20 animate-[orb_9s_ease-in-out_0s_infinite]" />
+      <div className="absolute left-[4%]  top-[55%]  h-1.5 w-1.5 rounded-full bg-[#22d3ee]/25 dark:bg-[#22d3ee]/30 animate-[orb_7s_ease-in-out_2s_infinite]" />
+      <div className="absolute left-[12%] top-[30%]  h-1   w-1   rounded-full bg-[#1e40ff]/20 dark:bg-[#1e40ff]/25 animate-[orb_9s_ease-in-out_0.5s_infinite]" />
+      <div className="absolute left-[22%] top-[72%]  h-2   w-2   rounded-full bg-[#d4af37]/20 dark:bg-[#d4af37]/15 animate-[orb_11s_ease-in-out_1.5s_infinite]" />
+      <div className="absolute left-[7%]  top-[15%]  h-1.5 w-1.5 rounded-full bg-[#1e40ff]/15 dark:bg-[#1e40ff]/20 animate-[orb_8s_ease-in-out_3s_infinite]" />
+      <div className="absolute bottom-[12%] right-[42%] h-1  w-1   rounded-full bg-[#d4af37]/25 dark:bg-[#d4af37]/20 animate-[orb_10s_ease-in-out_4s_infinite]" />
+      <div className="absolute bottom-[30%] left-[38%]  h-1.5 w-1.5 rounded-full bg-[#22d3ee]/20 dark:bg-[#22d3ee]/15 animate-[orb_12s_ease-in-out_0.8s_infinite]" />
+      <style>{`
+        @keyframes orb {
+          0%,100% { transform: translateY(0px) translateX(0px) }
+          33%      { transform: translateY(-16px) translateX(5px) }
+          66%      { transform: translateY(-8px) translateX(-4px) }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function PartnerStrip() {
+  const [group, setGroup] = useState(0);
+  const [dir, setDir] = useState<1 | -1>(1); // 1 = next (left-out/right-in), -1 = prev
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setDir(1);
+      setGroup((g) => (g + 1) % PARTNER_GROUPS.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="mt-8 flex items-center gap-3 overflow-hidden">
+      <span className="shrink-0 text-xs font-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
+        Partners
+      </span>
+      <div className="relative h-6 flex-1 overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={group}
+            initial={{ x: dir * 30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: dir * -30, opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="absolute inset-0 flex items-center gap-3"
+          >
+            {PARTNER_GROUPS[group].map((name, i) => (
+              <span key={name} className="flex items-center gap-3">
+                <span className="whitespace-nowrap text-sm font-medium text-slate-500 dark:text-slate-400">
+                  {name}
+                </span>
+                {i < PARTNER_GROUPS[group].length - 1 && (
+                  <span className="select-none text-slate-300 dark:text-slate-700">·</span>
+                )}
+              </span>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
+function EnrolledBadge() {
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % ENROLLEES.length);
+        setVisible(true);
+      }, 400);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  const e = ENROLLEES[idx];
+
+  return (
+    <div
+      className={`mt-6 inline-flex items-center gap-2.5 rounded-full border border-slate-200/60 bg-white/70 px-3.5 py-2 backdrop-blur-sm transition-all duration-400 dark:border-white/10 dark:bg-slate-900/60 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+      }`}
+    >
+      {/* live dot */}
+      <span className="relative flex h-2 w-2 shrink-0">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+      </span>
+      <span className="text-xs text-slate-600 dark:text-slate-300">
+        <span className="font-semibold text-slate-800 dark:text-white">{e.name}</span>
+        {" "}from {e.location} enrolled in{" "}
+        <span className="font-medium text-[#1e40ff] dark:text-[#93b4ff]">{e.programme}</span>
+      </span>
+    </div>
+  );
+}
+
+// Same AnimatePresence pattern as PartnerStrip — perfectly synced fade+slide
+function SlideShow() {
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIdx((i) => (i + 1) % SLIDES.length), 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl dark:shadow-[0_32px_80px_rgba(30,64,255,0.18)]">
+      <div className="aspect-[3/4] w-full sm:aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={idx}
+            initial={{ x: 40, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -40, opacity: 0 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={SLIDES[idx].src}
+              alt={SLIDES[idx].caption}
+              fill
+              priority={idx === 0}
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* scrim */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(15,23,42,0.65)_0%,transparent_50%)] pointer-events-none" />
+
+      {/* caption — synced with slide */}
+      <div className="absolute bottom-5 left-5 right-12 pointer-events-none overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.p
+            key={idx}
+            initial={{ y: 8, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -8, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="text-xs font-semibold text-white/90 leading-snug"
+          >
+            {SLIDES[idx].caption}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+
+      {/* counter */}
+      <div className="absolute top-4 right-4 pointer-events-none">
+        <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
+          {idx + 1} / {SLIDES.length}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function HeroSection() {
+  const { resolvedTheme } = useTheme();
+  const dark = resolvedTheme === "dark";
+
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-[linear-gradient(135deg,#ffffff_0%,#f8fafc_48%,#eaf1ff_100%)] pt-32">
-      <div className="absolute inset-0 subtle-grid opacity-35" />
-      <div className="absolute right-[-12%] top-20 h-96 w-96 rounded-full bg-[#22D3EE]/16 blur-3xl" />
-      <div className="absolute bottom-10 left-[-10%] h-96 w-96 rounded-full bg-[#1E40FF]/12 blur-3xl" />
-      <div className="container-premium relative grid min-h-[calc(100vh-8rem)] items-center gap-12 py-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="animate-hero-left">
-          <p className="mb-5 inline-flex rounded-full border border-[#1E40FF]/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#1E40FF] backdrop-blur">
-            Global Executive Education & Academic Recognition
-          </p>
-          <h1 className="max-w-[780px] font-display text-5xl leading-[1.02] text-slate-950 sm:text-6xl lg:text-7xl">
-            Future-Focused Learning & Global Academic Recognition
+    <section className="relative isolate min-h-screen overflow-hidden bg-white dark:bg-[#0f172a] pt-24 sm:pt-28">
+      {/* ShapeGrid */}
+      <div className="absolute inset-0 opacity-0 dark:opacity-50">
+        <ShapeGrid
+          speed={0.25}
+          squareSize={40}
+          direction="diagonal"
+          borderColor={dark ? "#2F293A" : "#cbd5e1"}
+          hoverFillColor={dark ? "#222" : "#e2e8f0"}
+          shape="square"
+          hoverTrailAmount={0}
+        />
+      </div>
+
+      {/* radial glow */}
+      <div className="absolute inset-0 dark:bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(30,64,255,0.22),transparent)]" />
+
+      {/* subtle floating orbs */}
+      <FloatingOrbs />
+
+      <div className="container-premium relative z-10 flex min-h-[calc(100vh-6rem)] flex-col items-start justify-center gap-12 py-12 lg:grid lg:grid-cols-[1fr_420px] lg:items-center lg:gap-14">
+
+        {/* ── LEFT ── */}
+        <div className="animate-hero-left w-full">
+          {/* rotating eyebrow */}
+          <div className="mb-6 flex items-center gap-2 flex-wrap">
+            <span className="text-sm font-semibold tracking-wide text-slate-500 dark:text-slate-400">
+              Recognized at
+            </span>
+            <RotatingText
+              texts={ALL_UNIVERSITIES}
+              mainClassName="px-3 py-1 bg-[#1e40ff]/10 dark:bg-[#1e40ff]/20 text-[#1e40ff] dark:text-[#93b4ff] font-semibold text-sm rounded-full overflow-hidden"
+              splitLevelClassName="overflow-hidden"
+              staggerFrom="last"
+              initial={{ y: "110%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-110%" }}
+              staggerDuration={0.018}
+              transition={{ type: "spring", damping: 28, stiffness: 380 }}
+              rotationInterval={2200}
+              splitBy="characters"
+              auto
+              loop
+            />
+          </div>
+
+          <h1 className="max-w-[600px] font-display font-bold text-[2.75rem] leading-[1.05] tracking-tight text-slate-950 dark:text-white sm:text-5xl lg:text-[3.75rem] xl:text-[4.5rem]">
+            Your next credential should carry{" "}
+            <span className="bg-gradient-to-r from-[#1e40ff] via-[#2563eb] to-[#22d3ee] bg-clip-text text-transparent dark:from-[#93b4ff] dark:via-[#60a5fa] dark:to-[#67e8f9]">real authority.</span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600">
-            Executive education, AI capability, doctoral advancement, and academic recognition for experienced professionals and senior leaders worldwide.
+
+          <p className="mt-6 max-w-[520px] text-base sm:text-lg leading-[1.8] text-slate-500 dark:text-slate-300">
+            Executive doctoral pathways and academic recognition for leaders who
+            need their investment to signal trust — not just completion.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <CTAButton href="/programs">Explore Programs</CTAButton>
-            <CTAButton href="/book-consultation" variant="secondary">Book Consultation</CTAButton>
+
+          <div className="mt-9">
+            <CTAButton href="/book-consultation">Book Your Eligibility Review →</CTAButton>
           </div>
-          <p className="mt-5 text-sm font-medium text-slate-500">
-            Trusted by executives, founders, educators, and professionals across 18+ countries.
-          </p>
-          <div className="mt-9 grid gap-3 sm:grid-cols-3">
-            {heroTrust.map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm font-medium text-slate-700">
-                <BadgeCheck className="h-4 w-4 text-[#D4AF37]" />
-                {item}
-              </div>
-            ))}
-          </div>
+
+          {/* live enrolled badge */}
+          <EnrolledBadge />
+
+          {/* partner strip with cycling groups */}
+          <PartnerStrip />
         </div>
-        <div className="relative min-h-[540px] animate-hero-right">
-          <div className="absolute inset-0 rounded-[8px] bg-slate-950/95 luxury-shadow" />
-          <div className="absolute inset-4 overflow-hidden rounded-[8px] border border-white/50 bg-white/78 p-5 shadow-2xl backdrop-blur-xl">
-            <div className="relative overflow-hidden rounded-[8px] bg-slate-950 p-6 text-white">
-              <Image
-                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=75"
-                alt="Global academic learners in a premium university setting"
-                fill
-                priority
-                sizes="(min-width: 1024px) 520px, (min-width: 640px) 400px, 320px"
-                className="object-cover opacity-42"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,64,255,0.68)_55%,rgba(34,211,238,0.42))]" />
-              <div className="relative z-10 min-h-[420px]">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-white/12 px-3 py-1 text-xs font-semibold">AcdyOn Ecosystem Dashboard</span>
-                  <Sparkles className="h-5 w-5 text-[#D4AF37]" />
-                </div>
-                <div className="mt-20 max-w-sm">
-                  <h2 className="font-display text-4xl leading-tight">AI, leadership, and recognition in one ecosystem.</h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-200">
-                    A guided platform for executive education, doctoral pathways, and global academic positioning.
-                  </p>
-                </div>
-                <div className="mt-9 grid gap-3 sm:grid-cols-2">
-                  {[
-                    { label: "Programs", value: "25+", icon: GraduationCap },
-                    { label: "AI Learning", value: "Applied", icon: Bot },
-                    { label: "Global Recognition", value: "18+ Countries", icon: Landmark },
-                    { label: "Executive Education", value: "Flexible", icon: BriefcaseBusiness },
-                    { label: "Doctoral Pathways", value: "Guided", icon: BadgeCheck },
-                    { label: "International Reach", value: "Networked", icon: Network },
-                  ].map((item) => (
-                    <div key={item.label} className="rounded-[8px] border border-white/15 bg-white/10 p-4 backdrop-blur">
-                      <div className="flex items-center gap-3">
-                        <item.icon className="h-4 w-4 text-[#22D3EE]" />
-                        <p className="text-xs font-medium text-slate-200">{item.label}</p>
-                      </div>
-                      <p className="mt-3 text-lg font-semibold text-white">{item.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="mt-4 grid gap-4 sm:grid-cols-3">
-              {[
-                { label: "Learners", value: "5000+", icon: GraduationCap },
-                { label: "Countries", value: "18+", icon: Globe2 },
-                { label: "Recognition", value: "Global", icon: BadgeCheck },
-              ].map((item) => (
-                <div key={item.label} className="rounded-[8px] border border-slate-200 bg-white p-4">
-                  <item.icon className="h-5 w-5 text-[#1E40FF]" />
-                  <p className="mt-4 text-2xl font-semibold text-slate-950">{item.value}</p>
-                  <p className="text-xs text-slate-500">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+
+        {/* ── RIGHT ── */}
+        <div className="animate-hero-right w-full">
+          <TiltedCard className="w-full" tiltAmount={10} scale={1.02}>
+            <SlideShow />
+          </TiltedCard>
         </div>
+
       </div>
     </section>
   );

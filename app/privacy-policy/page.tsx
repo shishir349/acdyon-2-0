@@ -99,13 +99,13 @@ REBB Ventures Private Limited, Noida, UP, India`,
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-white">
-      <section className="border-b border-slate-200 bg-[#F8FAFC] pb-12 pt-36">
+    <main className="bg-white dark:bg-slate-950">
+      <section className="border-b border-slate-200 bg-[#F8FAFC] pb-12 pt-36 dark:bg-slate-900/60 dark:border-slate-800">
         <div className="container-premium max-w-4xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Legal</p>
-          <h1 className="font-display text-4xl text-slate-950 sm:text-5xl">Privacy Policy</h1>
-          <p className="mt-4 text-slate-500">Last updated: May 2026</p>
-          <p className="mt-4 max-w-2xl text-slate-600">
+          <h1 className="font-display text-4xl text-slate-950 sm:text-5xl dark:text-white">Privacy Policy</h1>
+          <p className="mt-4 text-slate-500 dark:text-slate-400">Last updated: May 2026</p>
+          <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
             This policy explains how AcdyOn collects, uses, and protects your personal information across our platform and services.
           </p>
         </div>
@@ -116,10 +116,10 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-10">
             {sections.map(({ title, content }) => (
               <div key={title}>
-                <h2 className="mb-4 font-display text-xl font-semibold text-slate-950">{title}</h2>
-                <div className="rounded-[8px] border border-slate-200 bg-white p-6">
+                <h2 className="mb-4 font-display text-xl font-semibold text-slate-950 dark:text-white">{title}</h2>
+                <div className="rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800">
                   {content.split('\n\n').map((para, i) => (
-                    <p key={i} className="mb-4 whitespace-pre-line text-sm leading-7 text-slate-600 last:mb-0">
+                    <p key={i} className="mb-4 whitespace-pre-line text-sm leading-7 text-slate-600 last:mb-0 dark:text-slate-300">
                       {para}
                     </p>
                   ))}
@@ -129,8 +129,8 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="mt-12 rounded-[8px] border border-[#1E40FF]/20 bg-[#1E40FF]/5 p-6">
-            <p className="text-sm font-semibold text-slate-950">Privacy enquiries</p>
-            <p className="mt-1 text-sm text-slate-600">
+            <p className="text-sm font-semibold text-slate-950 dark:text-white">Privacy enquiries</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
               Contact{' '}
               <a href="mailto:privacy@acdyon.com" className="text-[#1E40FF] hover:underline">privacy@acdyon.com</a>
               {' '}for all data protection matters.

@@ -1,8 +1,4 @@
 import { AcdyOnAdvantage } from "@/components/sections/acdyon-advantage";
-import { AudienceSection } from "@/components/sections/audience-section";
-import { AuthorityStrip } from "@/components/sections/authority-strip";
-import { BenefitsSection } from "@/components/sections/benefits-section";
-import { ExecutiveOutcomes } from "@/components/sections/executive-outcomes";
 import { FAQSection } from "@/components/sections/faq-section";
 import { FeaturedAISection } from "@/components/sections/featured-ai-section";
 import { FinalCTA } from "@/components/sections/final-cta";
@@ -14,41 +10,48 @@ import { ProgramCategories } from "@/components/sections/program-categories";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { TimelineSection } from "@/components/sections/timeline-section";
 import { TransformationPaths } from "@/components/sections/transformation-paths";
-import { UniversitySection } from "@/components/sections/university-section";
-import { UniversitySelection } from "@/components/sections/university-selection";
-import { WhyAcdyOnStats } from "@/components/sections/why-acdyon-stats";
+import { Reveal } from "@/components/ui/reveal";
+import { SOCIAL_SAME_AS } from "@/lib/data/social";
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "AcdyOn",
+  url: "https://acdyon.com",
+  logo: "https://acdyon.com/acdyon-logo.webp",
+  description:
+    "Premium executive education, AI mastery, doctoral pathways, and honorary recognition for ambitious professionals and global leaders.",
+  sameAs: SOCIAL_SAME_AS,
+};
 
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       {/* Awareness */}
       <HeroSection />
-      <AuthorityStrip />
       <LogoMarquee />
 
       {/* Interest — what AcdyOn offers */}
-      <ProgramCategories />
-      <TransformationPaths />
-      <PathwaySelector />
+      <Reveal><ProgramCategories /></Reveal>
+      <Reveal><TransformationPaths /></Reveal>
+      <Reveal><PathwaySelector /></Reveal>
 
       {/* Consideration — why AcdyOn & what it delivers */}
-      <BenefitsSection />
-      <AcdyOnAdvantage />
-      <AudienceSection />
-      <ExecutiveOutcomes />
+      <Reveal><AcdyOnAdvantage /></Reveal>
 
       {/* Depth — AI & university network */}
-      <FeaturedAISection />
-      <UniversitySection />
-      <GlobalNetwork />
-      <UniversitySelection />
+      <Reveal><FeaturedAISection /></Reveal>
+      <Reveal><GlobalNetwork /></Reveal>
 
       {/* Trust & conversion */}
-      <TestimonialsSection />
-      <WhyAcdyOnStats />
-      <TimelineSection />
-      <FAQSection />
-      <FinalCTA />
+      <Reveal><TestimonialsSection /></Reveal>
+      <Reveal><TimelineSection /></Reveal>
+      <Reveal><FAQSection /></Reveal>
+      <Reveal><FinalCTA /></Reveal>
     </main>
   );
 }

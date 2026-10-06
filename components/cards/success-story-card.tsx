@@ -28,40 +28,40 @@ export function SuccessStoryCard({
   quote,
 }: SuccessStoryCardProps) {
   const rows = [
-    { label: "Background", value: background, className: "text-slate-600" },
-    ...(objective ? [{ label: "Objective", value: objective, className: "text-slate-700" }] : []),
+    { label: "Background", value: background, className: "text-slate-600 dark:text-slate-300" },
+    ...(objective ? [{ label: "Objective", value: objective, className: "text-slate-700 dark:text-slate-300" }] : []),
     { label: "Outcome", value: outcome, className: "font-medium text-[#1E40FF]" },
-    ...(currentPosition ? [{ label: "Current Position", value: currentPosition, className: "font-semibold text-slate-950" }] : []),
+    ...(currentPosition ? [{ label: "Current Position", value: currentPosition, className: "font-semibold text-slate-950 dark:text-white" }] : []),
   ];
 
   return (
-    <article className="rounded-[8px] border border-slate-200 bg-white p-7 luxury-shadow transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/25">
+    <article className="rounded-[8px] border border-slate-200 bg-white p-7 luxury-shadow transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/25 dark:border-slate-800 dark:bg-slate-950">
       <div className="mb-5 flex items-center gap-4">
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-slate-100">
+        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
           <Image src={image} alt={`${name} profile photo`} fill sizes="56px" className="object-cover" />
         </div>
         <div>
-          <h3 className="font-semibold text-slate-950">{name}</h3>
-          <p className="text-sm text-slate-500">
+          <h3 className="font-semibold text-slate-950 dark:text-white">{name}</h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             {role} · {flag} {country}
           </p>
         </div>
       </div>
 
-      <div className="mb-5 inline-flex rounded-full border border-[#1E40FF]/20 bg-[#EEF4FF] px-3 py-1 text-xs font-semibold text-[#1E40FF]">
+      <div className="mb-5 inline-flex rounded-full border border-[#1E40FF]/20 bg-[#EEF4FF] px-3 py-1 text-xs font-semibold text-[#1E40FF] dark:bg-blue-950/40">
         {program}
       </div>
 
-      <div className="mb-5 divide-y divide-slate-100 overflow-hidden rounded-[8px] bg-[#F8FAFC]">
+      <div className="mb-5 divide-y divide-slate-100 overflow-hidden rounded-[8px] bg-[#F8FAFC] dark:divide-slate-800 dark:bg-slate-900/60">
         {rows.map((row) => (
           <div key={row.label} className="px-4 py-3">
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">{row.label}</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">{row.label}</p>
             <p className={`mt-1 text-xs leading-5 ${row.className}`}>{row.value}</p>
           </div>
         ))}
       </div>
 
-      <p className="text-sm leading-7 text-slate-700">&ldquo;{quote}&rdquo;</p>
+      <p className="text-sm leading-7 text-slate-700 dark:text-slate-300">&ldquo;{quote}&rdquo;</p>
     </article>
   );
 }

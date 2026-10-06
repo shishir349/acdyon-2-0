@@ -17,16 +17,16 @@ const trustSignals = [
 
 export function WhyAcdyOnStats() {
   return (
-    <section className="bg-[#F8FAFC] py-24">
+    <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-950">
       <div className="container-premium">
         <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
           {/* Left: stats */}
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Scale & Trust</p>
-            <h2 className="font-display text-4xl leading-tight text-slate-950 sm:text-5xl">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl leading-tight text-slate-950 dark:text-white">
               Built For Ambitious Professionals
             </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-base sm:text-lg leading-8 text-slate-600 dark:text-slate-300">
               A growing community of senior professionals who trusted AcdyOn to guide the most important academic decision of their career.
             </p>
 
@@ -34,11 +34,11 @@ export function WhyAcdyOnStats() {
               {stats.map(({ value, label, context }) => (
                 <div
                   key={label}
-                  className="rounded-[8px] border border-slate-200 bg-white p-6"
+                  className="rounded-[8px] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/60"
                 >
-                  <p className="font-display text-4xl font-semibold text-slate-950">{value}</p>
+                  <p className="font-display text-3xl sm:text-4xl font-semibold text-slate-950 dark:text-white">{value}</p>
                   <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-[#1E40FF]">{label}</p>
-                  <p className="mt-2 text-sm leading-5 text-slate-500">{context}</p>
+                  <p className="mt-2 text-sm leading-5 text-slate-500 dark:text-slate-400">{context}</p>
                 </div>
               ))}
             </div>
@@ -48,19 +48,19 @@ export function WhyAcdyOnStats() {
           <div className="space-y-5">
             <div className="rounded-[8px] border border-[#D4AF37]/25 bg-[#D4AF37]/8 p-8">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Why Professionals Choose AcdyOn</p>
-              <h3 className="mt-4 font-display text-2xl leading-snug text-slate-950">
+              <h3 className="mt-4 font-display text-2xl leading-snug text-slate-950 dark:text-white">
                 Not an agency. Not a portal. An academic advancement partner.
               </h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">
+              <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 AcdyOn is a premium global education ecosystem — a platform where guidance, institutional relationships, and personalised pathway matching converge to serve professionals who invest in their academic standing with serious intent.
               </p>
             </div>
 
-            <div className="rounded-[8px] border border-slate-200 bg-white p-6">
+            <div className="rounded-[8px] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900/60">
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">Our Commitments</p>
               <ul className="space-y-3">
                 {trustSignals.map((signal) => (
-                  <li key={signal} className="flex gap-3 text-sm text-slate-600">
+                  <li key={signal} className="flex gap-3 text-sm text-slate-600 dark:text-slate-300">
                     <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#1E40FF]" />
                     {signal}
                   </li>

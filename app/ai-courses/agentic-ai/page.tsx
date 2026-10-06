@@ -30,7 +30,7 @@ export default function AgenticAIPage() {
       />
 
       {/* Program Snapshot */}
-      <section className="bg-[#F8FAFC] py-16">
+      <section className="bg-[#F8FAFC] py-16 dark:bg-slate-900/60">
         <div className="container-premium">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -41,12 +41,12 @@ export default function AgenticAIPage() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="rounded-[8px] border border-slate-200 bg-white p-6 text-center"
+                className="rounded-[8px] border border-slate-200 bg-white p-6 text-center dark:bg-slate-950 dark:border-slate-800"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-[8px] bg-slate-950 text-white">
                   <item.icon className="h-5 w-5" />
                 </div>
-                <p className="mt-4 font-semibold text-slate-950">{item.value}</p>
+                <p className="mt-4 font-semibold text-slate-950 dark:text-white">{item.value}</p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">{item.label}</p>
               </div>
             ))}
@@ -55,7 +55,7 @@ export default function AgenticAIPage() {
       </section>
 
       {/* What You'll Master — Curriculum */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Curriculum"
@@ -66,21 +66,21 @@ export default function AgenticAIPage() {
             {agenticAiCurriculum.map((phase) => (
               <article
                 key={phase.phase}
-                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#1E40FF]/30"
+                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#1E40FF]/30 dark:bg-slate-900/60 dark:border-slate-800"
               >
                 <div className="flex items-center justify-between">
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-xs font-bold text-white">
                     {phase.phase.split(" ")[1]}
                   </span>
-                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">
+                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500 dark:bg-slate-950 dark:text-slate-400 dark:border-slate-800">
                     {phase.duration}
                   </span>
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-slate-950">{phase.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{phase.description}</p>
+                <h3 className="mt-5 text-lg font-semibold text-slate-950 dark:text-white">{phase.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{phase.description}</p>
                 <div className="mt-5 grid gap-2">
                   {phase.topics.map((topic) => (
-                    <div key={topic} className="flex items-center gap-2 text-xs text-slate-600">
+                    <div key={topic} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                       <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#1E40FF]" />
                       {topic}
                     </div>
@@ -93,7 +93,7 @@ export default function AgenticAIPage() {
       </section>
 
       {/* Tools & Technologies */}
-      <section className="bg-[#F8FAFC] py-20">
+      <section className="bg-[#F8FAFC] py-20 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Tools Covered"
@@ -104,10 +104,10 @@ export default function AgenticAIPage() {
             {agenticAiTools.map((tool) => (
               <div
                 key={tool.name}
-                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5"
+                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 dark:bg-slate-950 dark:border-slate-800"
               >
-                <span className="text-sm font-semibold text-slate-950">{tool.name}</span>
-                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">
+                <span className="text-sm font-semibold text-slate-950 dark:text-white">{tool.name}</span>
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
                   {tool.category}
                 </span>
               </div>
@@ -150,7 +150,7 @@ export default function AgenticAIPage() {
       </section>
 
       {/* Mentor Support */}
-      <section className="relative overflow-hidden bg-white py-24">
+      <section className="relative overflow-hidden bg-white py-24 dark:bg-slate-950">
         <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-[#22D3EE]/10 blur-3xl" />
         <div className="container-premium relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="rounded-[8px] bg-slate-950 p-8 text-white luxury-shadow">
@@ -172,13 +172,13 @@ export default function AgenticAIPage() {
           </div>
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Why Mentorship Matters</p>
-            <h2 className="font-display text-4xl leading-tight text-slate-950 sm:text-5xl">
+            <h2 className="font-display text-4xl leading-tight text-slate-950 sm:text-5xl dark:text-white">
               AI is learned by doing — not watching
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
+            <p className="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
               Most AI courses give you information. This program gives you someone in your corner while you build. Mentors review your actual projects, give real feedback, and help you make decisions about how to apply AI in your specific professional context.
             </p>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
               The result is not just a completed project — it is a practitioner-level understanding that holds up in client conversations, board presentations, and real operational settings.
             </p>
             <CTAButton href="/book-consultation" className="mt-8">Book Consultation</CTAButton>
@@ -187,7 +187,7 @@ export default function AgenticAIPage() {
       </section>
 
       {/* Outcomes */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
@@ -199,7 +199,7 @@ export default function AgenticAIPage() {
             {agenticAiOutcomes.map((outcome) => (
               <div
                 key={outcome}
-                className="flex items-center gap-4 rounded-[8px] border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700"
+                className="flex items-center gap-4 rounded-[8px] border border-slate-200 bg-white p-4 text-sm font-medium text-slate-700 dark:bg-slate-950 dark:text-slate-300 dark:border-slate-800"
               >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-[#1E40FF]" />
                 {outcome}
@@ -232,7 +232,7 @@ export default function AgenticAIPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium max-w-4xl">
           <SectionHeading eyebrow="FAQ" title="Questions about the Agentic AI program" />
           <Accordion.Root type="single" collapsible className="mt-12 grid gap-3">
@@ -240,13 +240,13 @@ export default function AgenticAIPage() {
               <Accordion.Item
                 key={faq.question}
                 value={faq.question}
-                className="rounded-[8px] border border-slate-200 bg-white px-5"
+                className="rounded-[8px] border border-slate-200 bg-white px-5 dark:bg-slate-950 dark:border-slate-800"
               >
-                <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-slate-950">
+                <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold text-slate-950 dark:text-white">
                   {faq.question}
                   <ChevronDown className="h-5 w-5 shrink-0 text-slate-400 transition duration-300 data-[state=open]:rotate-180" />
                 </Accordion.Trigger>
-                <Accordion.Content className="overflow-hidden pb-5 text-sm leading-7 text-slate-600">
+                <Accordion.Content className="overflow-hidden pb-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
                   {faq.answer}
                 </Accordion.Content>
               </Accordion.Item>

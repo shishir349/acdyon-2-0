@@ -36,7 +36,7 @@ export function UniversityComparison({
   const programme = getProgrammeById(programmeId);
 
   if (!programme) {
-    return <div className="text-red-600">Programme not found</div>;
+    return <div className="text-red-600 dark:text-red-400">Programme not found</div>;
   }
 
   const availableUniversities = universities.filter(u =>
@@ -102,20 +102,20 @@ export function UniversityComparison({
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600">{subtitle}</p>
+        <h3 className="text-2xl font-bold mb-2 dark:text-white">{title}</h3>
+        <p className="text-gray-600 dark:text-slate-300">{subtitle}</p>
       </div>
 
       {/* Controls */}
-      <div className="flex flex-col md:flex-row gap-4 bg-gray-50 p-4 rounded-lg">
+      <div className="flex flex-col md:flex-row gap-4 bg-gray-50 dark:bg-slate-900/60 p-4 rounded-lg">
         <div className="flex-1">
-          <label className="block text-sm font-semibold mb-2">
+          <label className="block text-sm font-semibold mb-2 dark:text-white">
             Filter by Country
           </label>
           <select
             value={filterCountry ?? ''}
             onChange={e => setFilterCountry(e.target.value || null)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
           >
             <option value="">All Countries</option>
             {uniqueCountries.map(country => (
@@ -127,11 +127,11 @@ export function UniversityComparison({
         </div>
 
         <div className="flex-1">
-          <label className="block text-sm font-semibold mb-2">Sort By</label>
+          <label className="block text-sm font-semibold mb-2 dark:text-white">Sort By</label>
           <select
             value={sortBy}
             onChange={e => setSortBy(e.target.value as SortOption)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-slate-900 dark:border-slate-700 dark:text-white"
           >
             <option value="name">University Name</option>
             <option value="country">Country</option>
@@ -143,7 +143,7 @@ export function UniversityComparison({
       </div>
 
       {/* Comparison Table */}
-      <div className="overflow-x-auto border rounded-lg">
+      <div className="overflow-x-auto border rounded-lg dark:border-slate-800">
         <table className="w-full border-collapse text-sm">
           <thead>
             <tr className="bg-navy text-white">
@@ -171,14 +171,14 @@ export function UniversityComparison({
                 <tr
                   key={university.id}
                   className={`${
-                    idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-                  } hover:bg-blue-50 transition`}
+                    idx % 2 === 0 ? 'bg-white dark:bg-slate-950' : 'bg-gray-50 dark:bg-slate-900/60'
+                  } hover:bg-blue-50 dark:hover:bg-blue-950/30 transition`}
                 >
-                  <td className="border-b p-3 font-semibold text-navy">
+                  <td className="border-b p-3 font-semibold text-navy dark:text-white dark:border-slate-800">
                     {linkToDetail ? (
                       <Link
                         href={`${linkToDetail}/${university.slug}`}
-                        className="text-blue-600 underline hover:text-blue-800"
+                        className="text-blue-600 underline hover:text-blue-800 dark:text-cyan-400 dark:hover:text-cyan-300"
                       >
                         {university.name}
                       </Link>
@@ -186,52 +186,52 @@ export function UniversityComparison({
                       university.name
                     )}
                   </td>
-                  <td className="border-b p-3">{university.country}</td>
-                  <td className="border-b p-3">{programme.duration}</td>
-                  <td className="border-b p-3 text-sm">
+                  <td className="border-b p-3 dark:text-slate-300 dark:border-slate-800">{university.country}</td>
+                  <td className="border-b p-3 dark:text-slate-300 dark:border-slate-800">{programme.duration}</td>
+                  <td className="border-b p-3 text-sm dark:text-slate-300 dark:border-slate-800">
                     {university.deliveryMode.slice(0, 2).join(', ')}
                     {university.deliveryMode.length > 2 && '+'}
                   </td>
-                  <td className="border-b p-3 text-right font-semibold">
+                  <td className="border-b p-3 text-right font-semibold dark:text-white dark:border-slate-800">
                     {pricing
                       ? `${pricing.currency} ${pricing.baseTuition.toLocaleString()}`
                       : 'N/A'}
                   </td>
-                  <td className="border-b p-3 text-right text-green-600 font-semibold">
+                  <td className="border-b p-3 text-right text-green-600 dark:text-green-400 font-semibold dark:border-slate-800">
                     {pricing
                       ? `-${pricing.currency} ${pricing.scholarshipAmount.toLocaleString()}`
                       : 'N/A'}
                   </td>
-                  <td className="border-b p-3 text-right font-bold text-blue-600 text-lg">
+                  <td className="border-b p-3 text-right font-bold text-blue-600 dark:text-cyan-400 text-lg dark:border-slate-800">
                     {pricing
                       ? `${pricing.currency} ${pricing.netFee.toLocaleString()}`
                       : 'N/A'}
                   </td>
-                  <td className="border-b p-3">
+                  <td className="border-b p-3 dark:border-slate-800">
                     <div className="flex flex-wrap gap-1">
                       {accreds.slice(0, 2).map(a => (
                         <span
                           key={a.id}
-                          className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold"
+                          className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold dark:bg-blue-900/40 dark:text-blue-300"
                           title={a.fullName}
                         >
                           {a.id.toUpperCase()}
                         </span>
                       ))}
                       {accreds.length > 2 && (
-                        <span className="text-gray-500 text-xs">
+                        <span className="text-gray-500 dark:text-slate-400 text-xs">
                           +{accreds.length - 2}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="border-b p-3 text-center">
+                  <td className="border-b p-3 text-center dark:border-slate-800">
                     <button
                       onClick={() => toggleUniversity(university.id)}
                       className={`px-3 py-1 rounded text-sm font-semibold transition ${
                         isSelected
                           ? 'bg-blue-600 text-white hover:bg-blue-700'
-                          : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50'
+                          : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/30'
                       }`}
                     >
                       {isSelected ? '✓ Selected' : 'Select'}
@@ -246,14 +246,14 @@ export function UniversityComparison({
 
       {/* Selected Summary */}
       {selectedUniversities.size > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 dark:bg-blue-950/40 dark:border-blue-900">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <p className="font-semibold text-navy">
+              <p className="font-semibold text-navy dark:text-white">
                 {selectedUniversities.size} University
                 {selectedUniversities.size !== 1 ? 'ies' : ''} Selected
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-slate-300">
                 {Array.from(selectedUniversities)
                   .map(id => getUniversityById(id)?.name)
                   .filter(Boolean)
@@ -268,7 +268,7 @@ export function UniversityComparison({
       )}
 
       {filteredUniversities.length === 0 && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 dark:text-slate-400">
           <p>No universities found for the selected filters.</p>
         </div>
       )}

@@ -4,6 +4,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTAButton } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { aboutStats, globalRegions } from "@/lib/data/site";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About AcdyOn",
@@ -22,11 +23,11 @@ export default function AboutPage() {
       />
 
       {/* Our Story */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="rounded-[8px] bg-slate-950 p-10 text-white">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Our Story</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight">
+            <h2 className="mt-5 font-display text-2xl sm:text-4xl leading-tight">
               Founded to close the gap between professional achievement and academic recognition
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-300">
@@ -58,9 +59,9 @@ export default function AboutPage() {
                 desc: "Applied AI capability and academic advancement are offered alongside each other — not as separate or competing product categories.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6">
-                <h3 className="font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 dark:text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -68,7 +69,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Purpose"
@@ -76,21 +77,21 @@ export default function AboutPage() {
             description="Two clear statements that define every programme, partnership, and professional conversation at AcdyOn."
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8 lg:p-10">
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 lg:p-10 dark:bg-slate-950 dark:border-slate-800">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Mission</p>
-              <h3 className="mt-5 font-display text-3xl leading-snug text-slate-950">
+              <h3 className="mt-5 font-display text-2xl sm:text-3xl leading-snug text-slate-950 dark:text-white">
                 To guide professionals toward credentials that reflect their actual professional standing
               </h3>
-              <p className="mt-5 text-sm leading-7 text-slate-600">
+              <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 AcdyOn bridges the gap between professional achievement and academic recognition — through personalised guidance, global institutional partnerships, and programmes that respect the learner&apos;s existing expertise, time, and professional identity.
               </p>
             </div>
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8 lg:p-10">
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 lg:p-10 dark:bg-slate-950 dark:border-slate-800">
               <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Vision</p>
-              <h3 className="mt-5 font-display text-3xl leading-snug text-slate-950">
+              <h3 className="mt-5 font-display text-2xl sm:text-3xl leading-snug text-slate-950 dark:text-white">
                 A world where your career becomes the foundation for your credentials
               </h3>
-              <p className="mt-5 text-sm leading-7 text-slate-600">
+              <p className="mt-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 We envision an education landscape where accomplished professionals are not defined by what they studied at 22 — but empowered by pathways aligned with what they have built, led, and contributed across decades of professional life.
               </p>
             </div>
@@ -99,14 +100,14 @@ export default function AboutPage() {
       </section>
 
       {/* Why AcdyOn Exists */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
             eyebrow="Why We Exist"
             title="The traditional academic model was never built for you"
           />
-          <div className="space-y-5 text-sm leading-7 text-slate-600">
+          <div className="space-y-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
             <p>
               Traditional universities were designed for students entering the workforce for the first time. The structure, the timelines, the entry requirements — all of it assumes you are at the beginning of a career, not 20 years into one.
             </p>
@@ -124,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* What Makes AcdyOn Different */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="What Makes Us Different"
@@ -154,10 +155,10 @@ export default function AboutPage() {
                 description: "Academic advancement and applied AI competency are not separate tracks at AcdyOn. A professional pursuing doctoral recognition can simultaneously develop AI practitioner skills — because both are part of the same leadership profile.",
               },
             ].map((item) => (
-              <article key={item.number} className="rounded-[8px] border border-slate-200 bg-white p-8">
-                <p className="font-display text-4xl font-bold text-slate-100">{item.number}</p>
-                <h3 className="mt-3 text-xl font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+              <article key={item.number} className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+                <p className="font-display text-2xl sm:text-4xl font-bold text-slate-100">{item.number}</p>
+                <h3 className="mt-3 text-xl font-semibold text-slate-950 dark:text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
               </article>
             ))}
           </div>
@@ -165,7 +166,7 @@ export default function AboutPage() {
       </section>
 
       {/* Key Statistics */}
-      <section className="bg-slate-950 py-20">
+      <section className="bg-slate-950 py-12 sm:py-20">
         <div className="container-premium">
           <div className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
             {aboutStats.map((stat) => (
@@ -179,7 +180,7 @@ export default function AboutPage() {
       </section>
 
       {/* Global Reach */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Global Reach"
@@ -190,12 +191,12 @@ export default function AboutPage() {
             {globalRegions.map((region) => (
               <article
                 key={region.region}
-                className="rounded-[8px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30"
+                className="rounded-[8px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30 dark:bg-slate-950 dark:border-slate-800"
               >
-                <p className="font-display text-3xl text-slate-950">{region.professionals}</p>
+                <p className="font-display text-2xl sm:text-3xl text-slate-950 dark:text-white">{region.professionals}</p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-[#1E40FF]">{region.region}</p>
                 <p className="mt-3 text-xs leading-6 text-slate-400">{region.countries}</p>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{region.note}</p>
+                <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{region.note}</p>
               </article>
             ))}
           </div>
@@ -203,11 +204,11 @@ export default function AboutPage() {
       </section>
 
       {/* Executive Education Philosophy */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
         <div className="container-premium grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="rounded-[8px] bg-slate-950 p-10 text-white">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Executive Education Philosophy</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight">
+            <h2 className="mt-5 font-display text-2xl sm:text-4xl leading-tight">
               Learning that belongs in your professional life — not apart from it
             </h2>
             <p className="mt-5 text-sm leading-7 text-slate-300">
@@ -232,9 +233,9 @@ export default function AboutPage() {
                 desc: "An academic adviser is involved before enrolment, during the programme, and at completion — not only at the point of sale. Guidance is a structural feature, not an optional add-on.",
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6">
-                <h3 className="font-semibold text-slate-950">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+              <div key={item.title} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 dark:text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -242,14 +243,14 @@ export default function AboutPage() {
       </section>
 
       {/* Academic Advancement Philosophy */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-14 sm:py-24 dark:bg-slate-900/60">
         <div className="container-premium grid gap-12 lg:grid-cols-2 lg:items-center">
           <SectionHeading
             align="left"
             eyebrow="Academic Advancement Philosophy"
             title="Credentials that reflect the professional record, not just the academic one"
           />
-          <div className="space-y-5 text-sm leading-7 text-slate-600">
+          <div className="space-y-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
             <p>
               Academic advancement is not about going back to school. It is about finding the institutional framework that accurately reflects what you have already built — and making that reflection visible in academic and professional contexts.
             </p>
@@ -266,16 +267,79 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Founder Perspective */}
-      <section className="relative overflow-hidden bg-slate-950 py-28">
-        <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-[#1E40FF]/15 blur-3xl" />
-        <div className="container-premium relative max-w-4xl text-center">
-          <p className="mb-8 text-xs font-bold uppercase tracking-[0.24em] text-[#D4AF37]">Founding Perspective</p>
-          <blockquote className="font-display text-3xl leading-relaxed text-white sm:text-4xl">
-            &ldquo;Every conversation starts with listening — not selling. We built AcdyOn because when an executive decides to pursue academic advancement, they deserve clarity, guidance, and a pathway that honours the professional journey they have already built.&rdquo;
-          </blockquote>
-          <p className="mt-10 text-sm font-semibold text-slate-400">The AcdyOn Founding Team</p>
-          <div className="mx-auto mt-5 h-px w-16 bg-[#D4AF37]/40" />
+      {/* Why AcdyOn Exists — Founder Section */}
+      <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
+        <div className="container-premium">
+          <SectionHeading
+            eyebrow="Why AcdyOn Exists"
+            title="A letter from the founder"
+          />
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:items-start">
+            {/* LEFT — Founder Image */}
+            <div className="flex flex-col items-center lg:sticky lg:top-32">
+              <div className="relative h-80 w-64 overflow-hidden rounded-[8px] border border-slate-200 bg-slate-100 sm:h-96 sm:w-72 dark:bg-slate-800/60 dark:border-slate-800">
+                <Image
+                  src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Shishir%20DP.png"
+                  alt="Shishir Singh — Founder, AcdyOn"
+                  fill
+                  className="object-cover object-top"
+                  unoptimized
+                />
+              </div>
+              <p className="mt-4 text-sm font-semibold text-slate-950 dark:text-white">Shishir Singh</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Founder, AcdyOn</p>
+            </div>
+
+            {/* RIGHT — Founder Letter */}
+            <div className="space-y-5 text-sm leading-7 text-slate-600 dark:text-slate-300">
+              <p>
+                AcdyOn was created because I saw the same story repeat itself too many times — accomplished professionals with 15, 20, sometimes 30 years of industry leadership, domain expertise, and measurable impact, yet without the academic credentials that reflected any of it.
+              </p>
+              <p>
+                The gap between professional achievement and academic recognition is real. The education system was designed for people entering the workforce, not for those who have already shaped it. And for most working professionals, the idea of pausing their careers for two or three years to earn a credential that restates what they already know is neither practical nor appealing.
+              </p>
+              <p>
+                I built AcdyOn to offer a different kind of pathway — one that begins with a conversation, not an application form. One that takes your professional record seriously as the primary qualification. And one that connects you with institutions and programmes that are designed around the way you actually work and live.
+              </p>
+              <p>
+                This is not about shortcuts or vanity credentials. It is about giving experienced professionals access to flexible, globally credible pathways for doctoral advancement, executive education, and academic recognition — without asking them to pretend they are 22-year-old students starting from scratch.
+              </p>
+              <p>
+                Every programme, every institutional partnership, and every recommendation at AcdyOn is held to one standard: does this genuinely serve the professional sitting in front of us? If the answer is not clearly yes, we do not recommend it.
+              </p>
+
+              {/* Quote Block */}
+              <div className="mt-8 rounded-[8px] border-l-4 border-[#D4AF37] bg-[#F8FAFC] p-6 sm:p-8 dark:bg-slate-900/60">
+                <blockquote className="font-display text-base leading-relaxed text-slate-950 sm:text-xl dark:text-white">
+                  &ldquo;Every conversation starts with listening — not selling.
+                </blockquote>
+                <blockquote className="mt-3 font-display text-base leading-relaxed text-slate-950 sm:text-xl dark:text-white">
+                  We built AcdyOn because we believe accomplished professionals deserve clarity, guidance, and educational pathways that respect the journey they have already built.&rdquo;
+                </blockquote>
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="h-px w-8 bg-[#D4AF37]" />
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950 dark:text-white">Shishir Singh</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Founder, AcdyOn</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Founder Credibility Strip */}
+          <div className="mt-12 rounded-[8px] border border-slate-200 bg-[#F8FAFC] px-6 py-4 dark:bg-slate-900/60 dark:border-slate-800">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-slate-500 dark:text-slate-400">
+              <span>EdTech Founder</span>
+              <span className="hidden sm:inline text-slate-300">·</span>
+              <span>Executive Education Architect</span>
+              <span className="hidden sm:inline text-slate-300">·</span>
+              <span>Global University Partnerships</span>
+              <span className="hidden sm:inline text-slate-300">·</span>
+              <span>Professional Pathway Design</span>
+            </div>
+          </div>
         </div>
       </section>
 

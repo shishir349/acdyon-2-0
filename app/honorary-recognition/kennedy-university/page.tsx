@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { CheckCircle2, Award, Globe2, Shield, Users, ArrowRight } from 'lucide-react'
+import {
+  CheckCircle2, Award, Globe2, Shield, Users, ArrowRight,
+  BarChart3, Lightbulb, Handshake, BookOpen, ScrollText, FileText,
+  GraduationCap, Globe, ClipboardList, Landmark, MapPin,
+} from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { ConsultationNudge } from '@/components/sections/consultation-nudge'
 import { FAQAccordion } from '@/components/ui/faq-accordion'
+import { ReadMoreText } from '@/components/ui/read-more-text'
+import { BrochureDownloadButton } from '@/components/forms/brochure-download-button'
 
 export const metadata: Metadata = {
   title: 'Honorary Doctorate — Kennedy University | AcdyOn',
@@ -53,14 +58,14 @@ export default function KennedyHonoraryPage() {
   return (
     <main>
       {/* SECTION 1: Hero */}
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff,#f8fafc_50%,#eef4ff)] pb-20 pt-36">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff,#f8fafc_50%,#eef4ff)] dark:bg-[linear-gradient(135deg,#0a1120,#0f172a_50%,#0b1330)] pb-20 pt-36">
         <div className="absolute right-[-10%] top-20 h-80 w-80 rounded-full bg-[#D4AF37]/10 blur-3xl" />
         <div className="container-premium relative">
           <div className="mb-8 flex flex-wrap items-center gap-4">
             <div className="relative h-14 w-44 overflow-hidden rounded-[4px]">
               <Image src={LOGO} alt="Kennedy University" fill className="object-contain object-left" unoptimized />
             </div>
-            <span className="text-2xl" title="USA">🇺🇸</span>
+            <MapPin className="h-5 w-5 text-slate-400" />
             <div className="inline-flex items-center gap-1 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/8 px-3 py-1">
               <Award className="h-3.5 w-3.5 text-[#D4AF37]" />
               <span className="text-xs font-semibold text-[#D4AF37]">Honorary Doctorate</span>
@@ -70,25 +75,27 @@ export default function KennedyHonoraryPage() {
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">
             Kennedy University · USA / France / Multiple Regions
           </p>
-          <h1 className="max-w-4xl font-display text-4xl leading-tight text-slate-950 sm:text-5xl md:text-6xl">
+          <h1 className="max-w-4xl font-display text-4xl leading-tight text-slate-950 sm:text-5xl md:text-6xl dark:text-white">
             Honorary Doctorate Recognition For Global Leaders
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
             A prestigious honorary doctorate from Kennedy University — recognising exceptional professional achievement, leadership, and meaningful contribution across international contexts.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/book-consultation"
-              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:bg-[#c9a030]"
+              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:bg-[#c9a030] dark:text-white"
             >
               Apply Now
             </Link>
-            <Link
-              href="#"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:shadow-md"
+            <BrochureDownloadButton
+              programmeName="Kennedy University Honorary Recognition"
+              fileUrl="/brochures/honorary/kennedy.html"
+              sourcePage="/honorary-recognition/kennedy-university"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:shadow-md dark:bg-slate-950 dark:text-white dark:border-slate-800"
             >
               Download Brochure
-            </Link>
+            </BrochureDownloadButton>
             <Link
               href="/book-consultation"
               className="inline-flex items-center justify-center rounded-full border border-[#1E40FF] px-8 py-4 text-sm font-semibold text-[#1E40FF] transition-all hover:bg-[#1E40FF]/5"
@@ -100,7 +107,7 @@ export default function KennedyHonoraryPage() {
 
         {/* Quick Facts */}
         <div className="container-premium relative mt-14">
-          <div className="grid gap-6 rounded-[8px] border border-slate-200 bg-white p-8 shadow-sm sm:grid-cols-2 md:grid-cols-5">
+          <div className="grid gap-6 rounded-[8px] border border-slate-200 bg-white p-8 shadow-sm sm:grid-cols-2 md:grid-cols-5 dark:bg-slate-950 dark:border-slate-800">
             {[
               { label: 'Award', value: 'Honorary Doctorate' },
               { label: 'Country', value: 'USA / France' },
@@ -110,33 +117,37 @@ export default function KennedyHonoraryPage() {
             ].map(({ label, value }) => (
               <div key={label}>
                 <p className="text-xs font-medium uppercase tracking-wide text-slate-400">{label}</p>
-                <p className="mt-1 font-semibold text-slate-950">{value}</p>
+                <p className="mt-1 font-semibold text-slate-950 dark:text-white">{value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Hero banner photo */}
+      <section className="relative h-56 w-full overflow-hidden sm:h-72">
+        <Image
+          src="/images/site/hero-honorary-graduation.webp"
+          alt="Graduates celebrating academic achievement"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/5 to-transparent dark:from-slate-950 dark:via-slate-950/5" />
+      </section>
+
       {/* SECTION 2: About Kennedy University */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <SectionHeading eyebrow="About Kennedy University" title="Global Academic Institution With International Reach" description="" align="left" />
-              <div className="mt-8 space-y-5 text-slate-600">
-                <p>
-                  Kennedy University is a private higher education institution with a distinguished global presence across the USA, France, and multiple African regions. With over 25 years of academic experience, Kennedy has guided professionals across 18+ countries through doctoral and recognition pathways.
-                </p>
-                <p>
-                  The honorary doctorate programme at Kennedy University is designed for accomplished professionals whose contributions span international contexts — leaders who have created meaningful impact in business, social enterprise, public service, or academic leadership.
-                </p>
-                <p>
-                  Kennedy's approach to honorary recognition is grounded in verified contribution — each candidate is assessed against institutional nomination criteria by an academic board that takes the award seriously.
-                </p>
+              <div className="relative mt-8 h-64 overflow-hidden rounded-[8px] sm:h-80">
+                <Image src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="Kennedy University — Global Academic Institution" fill className="object-cover" unoptimized />
               </div>
             </div>
-            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-              <h3 className="mb-6 font-semibold text-slate-950">Institutional Credentials</h3>
+            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+              <h3 className="mb-6 font-semibold text-slate-950 dark:text-white">Institutional Credentials</h3>
               <ul className="space-y-5">
                 {[
                   { icon: Shield, title: 'QAHE Accreditation', detail: 'International Association for Quality Assurance in Higher Education' },
@@ -147,8 +158,8 @@ export default function KennedyHonoraryPage() {
                   <li key={title} className="flex gap-3">
                     <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#D4AF37]" />
                     <div>
-                      <p className="font-medium text-slate-950">{title}</p>
-                      <p className="text-sm text-slate-500">{detail}</p>
+                      <p className="font-medium text-slate-950 dark:text-white">{title}</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400">{detail}</p>
                     </div>
                   </li>
                 ))}
@@ -159,26 +170,26 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 3: Who Qualifies */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Eligibility"
             title="Who Qualifies for Kennedy University Honorary Recognition"
             description="Kennedy evaluates candidates holistically. These are the key indicators of eligibility."
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: '📊', title: '15+ Years of Excellence', detail: 'A career of sustained exceptional achievement at the highest professional levels.' },
-              { icon: '🌍', title: 'International Impact', detail: 'Contributions recognised or felt across borders, not limited to a single market or region.' },
-              { icon: '💡', title: 'Documented Innovation', detail: 'A verifiable history of advancing a field, creating something new, or transforming a sector.' },
-              { icon: '🤝', title: 'Social or Philanthropic Contribution', detail: 'Meaningful commitment to community, society, or humanitarian causes.' },
-              { icon: '📚', title: 'Public or Published Presence', detail: 'Speaking engagements, published work, media presence, or academic contribution.' },
-              { icon: '✅', title: 'Verifiable Track Record', detail: 'A public, documentable record of achievement that can be independently assessed.' },
-            ].map(({ icon, title, detail }) => (
-              <div key={title} className="rounded-[8px] border border-slate-200 bg-white p-7 transition-all hover:shadow-lg">
-                <div className="mb-3 text-4xl">{icon}</div>
-                <h3 className="mb-2 font-semibold text-slate-950">{title}</h3>
-                <p className="text-sm leading-6 text-slate-600">{detail}</p>
+              { icon: BarChart3, title: '15+ Years of Excellence', detail: 'A career of sustained exceptional achievement at the highest professional levels.' },
+              { icon: Globe2, title: 'International Impact', detail: 'Contributions recognised or felt across borders, not limited to a single market or region.' },
+              { icon: Lightbulb, title: 'Documented Innovation', detail: 'A verifiable history of advancing a field, creating something new, or transforming a sector.' },
+              { icon: Handshake, title: 'Social or Philanthropic Contribution', detail: 'Meaningful commitment to community, society, or humanitarian causes.' },
+              { icon: BookOpen, title: 'Public or Published Presence', detail: 'Speaking engagements, published work, media presence, or academic contribution.' },
+              { icon: CheckCircle2, title: 'Verifiable Track Record', detail: 'A public, documentable record of achievement that can be independently assessed.' },
+            ].map(({ icon: Icon, title, detail }) => (
+              <div key={title} className="rounded-[8px] border border-slate-200 bg-white p-7 transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
+                <div className="mb-3"><Icon className="h-9 w-9 text-[#1E40FF]" /></div>
+                <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{title}</h3>
+                <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">{detail}</p>
               </div>
             ))}
           </div>
@@ -186,14 +197,14 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 4: The Recognition Process */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Step By Step"
             title="The Kennedy University Recognition Process"
             description="A structured, confidential process guided by AcdyOn from initial assessment to formal award."
           />
-          <div className="mx-auto mt-14 max-w-3xl space-y-4">
+          <div className="mt-14 grid gap-3 sm:gap-4 lg:grid-cols-2">
             {[
               { n: '01', title: 'Confidential Eligibility Assessment', detail: 'Submit your professional profile for a private assessment against Kennedy\'s nomination criteria.', accent: '#D4AF37' },
               { n: '02', title: 'Profile Curation', detail: 'AcdyOn helps compile your professional milestones, press features, awards, and impact into a nomination dossier.', accent: '#1E40FF' },
@@ -204,7 +215,7 @@ export default function KennedyHonoraryPage() {
             ].map((step) => (
               <div
                 key={step.n}
-                className="flex gap-5 rounded-[8px] border border-slate-200 bg-white p-6"
+                className="flex gap-5 rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800"
                 style={{ borderLeftColor: step.accent, borderLeftWidth: 4 }}
               >
                 <div
@@ -214,8 +225,8 @@ export default function KennedyHonoraryPage() {
                   {step.n}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-950">{step.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{step.detail}</p>
+                  <h3 className="font-semibold text-slate-950 dark:text-white">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{step.detail}</p>
                 </div>
               </div>
             ))}
@@ -224,29 +235,29 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 5: What Recipients Receive */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Award Package"
             title="What You Receive"
             description="The Kennedy University honorary doctorate is delivered as a comprehensive recognition package."
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: '📜', title: 'Honorary Doctorate Certificate', desc: 'Formally issued, signed and sealed certificate from Kennedy University.' },
-              { icon: '📄', title: 'Recognition Citation', desc: 'Written citation documenting the specific achievements being honoured.' },
-              { icon: '✅', title: 'Academic Record Entry', desc: 'Permanent entry in Kennedy University\'s official institutional records.' },
-              { icon: '🎓', title: 'Ceremonial Recognition', desc: 'Invitation to a virtual or in-person recognition ceremony or convocation.' },
-              { icon: '🌐', title: 'Digital Credentials', desc: 'Professional digital assets confirming the honorary award for online use.' },
-              { icon: '📋', title: 'Verification Letter', desc: 'Official verification documentation for professional and academic use.' },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="flex gap-4 rounded-[8px] border border-slate-200 bg-white p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-slate-950 text-2xl">
-                  {icon}
+              { icon: ScrollText, title: 'Honorary Doctorate Certificate', desc: 'Formally issued, signed and sealed certificate from Kennedy University.' },
+              { icon: FileText, title: 'Recognition Citation', desc: 'Written citation documenting the specific achievements being honoured.' },
+              { icon: CheckCircle2, title: 'Academic Record Entry', desc: 'Permanent entry in Kennedy University\'s official institutional records.' },
+              { icon: GraduationCap, title: 'Ceremonial Recognition', desc: 'Invitation to a virtual or in-person recognition ceremony or convocation.' },
+              { icon: Globe, title: 'Digital Credentials', desc: 'Professional digital assets confirming the honorary award for online use.' },
+              { icon: ClipboardList, title: 'Verification Letter', desc: 'Official verification documentation for professional and academic use.' },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex gap-4 rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[8px] bg-slate-950">
+                  <Icon className="h-6 w-6 text-[#D4AF37]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-950">{title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{desc}</p>
+                  <h3 className="font-semibold text-slate-950 dark:text-white">{title}</h3>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{desc}</p>
                 </div>
               </div>
             ))}
@@ -255,14 +266,14 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 6: Recognition Areas */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Fields of Excellence"
             title="Areas of Honorary Recognition"
             description="Kennedy University awards honorary distinction across a wide spectrum of professional and public achievement."
           />
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 md:grid-cols-4">
             {[
               'Business Administration',
               'Social Impact & Community',
@@ -273,9 +284,9 @@ export default function KennedyHonoraryPage() {
               'International Relations',
               'Humanitarian Contribution',
             ].map((area) => (
-              <div key={area} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-5 text-center transition-all hover:border-[#D4AF37]/40 hover:shadow-md">
+              <div key={area} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-5 text-center transition-all hover:border-[#D4AF37]/40 hover:shadow-md dark:bg-slate-900/60 dark:border-slate-800">
                 <Award className="mx-auto mb-2 h-5 w-5 text-[#D4AF37]" />
-                <p className="text-sm font-semibold text-slate-950">{area}</p>
+                <p className="text-sm font-semibold text-slate-950 dark:text-white">{area}</p>
               </div>
             ))}
           </div>
@@ -283,7 +294,7 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 7: Global Presence */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Institutional Reach"
@@ -296,10 +307,10 @@ export default function KennedyHonoraryPage() {
               { region: 'Europe', note: 'French Ministry of Education Registration · ECLBS Membership · European academic recognition' },
               { region: 'Africa & Beyond', note: 'Galmudug & Hirshabelle recognition · QAHE global accreditation · UN DESA listing' },
             ].map(({ region, note }) => (
-              <div key={region} className="rounded-[8px] border border-slate-200 bg-white p-7">
+              <div key={region} className="rounded-[8px] border border-slate-200 bg-white p-7 dark:bg-slate-950 dark:border-slate-800">
                 <Globe2 className="mb-3 h-6 w-6 text-[#1E40FF]" />
-                <h3 className="mb-2 font-semibold text-slate-950">{region}</h3>
-                <p className="text-sm leading-6 text-slate-500">{note}</p>
+                <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{region}</h3>
+                <p className="text-sm leading-6 text-slate-500 dark:text-slate-400">{note}</p>
               </div>
             ))}
           </div>
@@ -307,30 +318,28 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* SECTION 8: Gallery */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Recognition Environment"
             title="Kennedy University Gallery"
           />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { label: 'Recognition Ceremonies', sub: 'Formal award events', gradient: 'from-[#D4AF37] to-[#f59e0b]', icon: '🏛️' },
-              { label: 'Global Community', sub: '18+ countries', gradient: 'from-[#1E40FF] to-[#22D3EE]', icon: '🌍' },
-              { label: 'Distinguished Recipients', sub: 'Leaders & innovators', gradient: 'from-[#1E40FF] to-[#6366f1]', icon: '🎓' },
-              { label: 'Academic Heritage', sub: '25+ years of excellence', gradient: 'from-[#22D3EE] to-[#0891b2]', icon: '📜' },
-              { label: 'International Network', sub: 'Partnerships worldwide', gradient: 'from-[#6366f1] to-[#1E40FF]', icon: '🤝' },
-              { label: 'Award Documentation', sub: 'Formal certification', gradient: 'from-[#D4AF37] to-[#1E40FF]', icon: '✅' },
-            ].map(({ label, sub, gradient, icon }) => (
-              <div key={label} className="overflow-hidden rounded-[8px] border border-slate-200 transition-all hover:shadow-lg">
-                <div className={`flex h-44 items-center justify-center bg-gradient-to-br ${gradient}`}>
-                  <div className="text-center text-white">
-                    <p className="mb-2 text-4xl">{icon}</p>
-                    <p className="font-semibold">{label}</p>
-                  </div>
+              { label: 'Recognition Ceremonies', sub: 'Formal award events', photo: 'photo-1523580494863-6f3031224c94' },
+              { label: 'Global Community', sub: '18+ countries', photo: 'photo-1531482615713-2afd69097998' },
+              { label: 'Distinguished Recipients', sub: 'Leaders & innovators', photo: 'photo-1560250097-0b93528c311a' },
+              { label: 'Academic Heritage', sub: '25+ years of excellence', photo: 'photo-1541339907198-e08756dedf3f' },
+              { label: 'International Network', sub: 'Partnerships worldwide', photo: 'photo-1522202176988-66273c2fd55f' },
+              { label: 'Award Documentation', sub: 'Formal certification', photo: 'photo-1554224155-8d04cb21cd6c' },
+            ].map(({ label, sub, photo }) => (
+              <div key={label} className="overflow-hidden rounded-[8px] border border-slate-200 transition-all hover:shadow-lg dark:border-slate-800">
+                <div className="relative h-24 w-full overflow-hidden sm:h-44">
+                  <Image src={`https://images.unsplash.com/${photo}?auto=format&fit=crop&w=600&q=75`} alt={label} fill className="object-cover" unoptimized />
                 </div>
-                <div className="bg-white p-4">
-                  <p className="text-sm text-slate-500">{sub}</p>
+                <div className="bg-white p-4 dark:bg-slate-950">
+                  <p className="text-sm font-medium text-slate-950 dark:text-white">{label}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{sub}</p>
                 </div>
               </div>
             ))}
@@ -339,7 +348,7 @@ export default function KennedyHonoraryPage() {
       </section>
 
       {/* ── CERTIFICATE PREVIEW (before FAQ) ─────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Award Documentation"
@@ -348,18 +357,18 @@ export default function KennedyHonoraryPage() {
           />
 
           <div className="mx-auto mt-14 max-w-3xl">
-            <div className="relative flex flex-col items-center justify-center rounded-[8px] border border-slate-200 bg-white p-6 shadow-lg">
-              <div className="relative h-96 w-full overflow-hidden rounded-[8px]">
-                <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/KU%20HD.png" alt="Kennedy University Honorary Doctorate Certificate" fill className="object-contain" unoptimized />
+            <div className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-lg dark:bg-slate-950 dark:border-slate-800" style={{aspectRatio: '1.41/1'}}>
+              <div className="relative h-full w-full">
+                <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/KU%20HD.png" alt="Kennedy University Honorary Doctorate Certificate" fill className="object-contain p-4" unoptimized />
               </div>
-              <p className="mt-6 text-center text-sm text-slate-500">Official Kennedy University Honorary Doctorate Certificate</p>
             </div>
+            <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">Official Kennedy University Honorary Doctorate Certificate</p>
           </div>
         </div>
       </section>
 
       {/* SECTION: FAQ */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Common Questions"
@@ -383,7 +392,7 @@ export default function KennedyHonoraryPage() {
             Submit your credentials for a confidential eligibility assessment. No obligation. No commitment.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/book-consultation" className="inline-flex items-center rounded-full bg-[#D4AF37] px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:bg-[#c9a030]">
+            <Link href="/book-consultation" className="inline-flex items-center rounded-full bg-[#D4AF37] px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:bg-[#c9a030] dark:text-white">
               Apply For Assessment
             </Link>
             <Link href="/book-consultation" className="inline-flex items-center rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">
@@ -393,7 +402,6 @@ export default function KennedyHonoraryPage() {
         </div>
       </section>
 
-      <ConsultationNudge />
     </main>
   )
 }

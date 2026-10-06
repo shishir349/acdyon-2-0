@@ -27,7 +27,7 @@ export function PricingDisplay({
   const programme = getProgrammeById(programmeId);
 
   if (!programme) {
-    return <div className="text-red-600">Programme not found</div>;
+    return <div className="text-red-600 dark:text-red-400">Programme not found</div>;
   }
 
   const pricingOptions = universityId
@@ -43,7 +43,7 @@ export function PricingDisplay({
       {/* Header */}
       <div>
         <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-slate-300">
           Transparent pricing with flexible payment options
         </p>
       </div>
@@ -58,25 +58,25 @@ export function PricingDisplay({
           return (
             <div
               key={`${pricingTier.programme}-${pricingTier.university || 'general'}`}
-              className="border rounded-lg p-6 bg-white shadow-sm hover:shadow-md transition"
+              className="border rounded-lg p-6 bg-white shadow-sm hover:shadow-md transition dark:bg-slate-900 dark:border-slate-800"
             >
               {/* Header */}
-              <h4 className="text-xl font-bold text-navy mb-2">
+              <h4 className="text-xl font-bold text-navy dark:text-white mb-2">
                 {pricingTier.description}
               </h4>
               {uni && (
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-600 dark:text-slate-300 mb-4">
                   {uni.city}, {uni.country}
                 </p>
               )}
 
               {/* Price Summary Grid */}
-              <div className="grid grid-cols-3 gap-4 mb-6 bg-gray-50 p-4 rounded-lg">
+              <div className="grid grid-cols-3 gap-4 mb-6 bg-gray-50 dark:bg-slate-900/60 p-4 rounded-lg">
                 <div>
-                  <p className="text-xs text-gray-600 font-semibold mb-1">
+                  <p className="text-xs text-gray-600 dark:text-slate-400 font-semibold mb-1">
                     Base Tuition
                   </p>
-                  <p className="text-2xl font-bold text-navy">
+                  <p className="text-2xl font-bold text-navy dark:text-white">
                     {pricingTier.currency}
                     <br />
                     {pricingTier.baseTuition.toLocaleString()}
@@ -84,10 +84,10 @@ export function PricingDisplay({
                 </div>
 
                 <div>
-                  <p className="text-xs text-gray-600 font-semibold mb-1">
+                  <p className="text-xs text-gray-600 dark:text-slate-400 font-semibold mb-1">
                     Scholarship
                   </p>
-                  <p className="text-2xl font-bold text-green-600">
+                  <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                     -{pricingTier.currency}
                     <br />
                     {pricingTier.scholarshipAmount.toLocaleString()}
@@ -95,10 +95,10 @@ export function PricingDisplay({
                 </div>
 
                 <div>
-                  <p className="text-xs text-gray-600 font-semibold mb-1">
+                  <p className="text-xs text-gray-600 dark:text-slate-400 font-semibold mb-1">
                     Net Fee
                   </p>
-                  <p className="text-2xl font-bold text-blue-600">
+                  <p className="text-2xl font-bold text-blue-600 dark:text-cyan-400">
                     {pricingTier.currency}
                     <br />
                     {pricingTier.netFee.toLocaleString()}
@@ -108,7 +108,7 @@ export function PricingDisplay({
 
               {/* Installment Plans */}
               <div className="space-y-3">
-                <p className="font-semibold text-navy mb-4">Payment Plans</p>
+                <p className="font-semibold text-navy dark:text-white mb-4">Payment Plans</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
@@ -144,8 +144,8 @@ export function PricingDisplay({
                         key={plan.value}
                         className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition ${
                           isSelected
-                            ? 'border-blue-600 bg-blue-50'
-                            : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                            ? 'border-blue-600 bg-blue-50 dark:bg-blue-950/40'
+                            : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50 dark:border-slate-700 dark:hover:bg-blue-950/30'
                         }`}
                       >
                         <input
@@ -157,21 +157,21 @@ export function PricingDisplay({
                           className="mr-3 w-4 h-4"
                         />
                         <div className="flex-1">
-                          <p className="font-semibold text-navy">
+                          <p className="font-semibold text-navy dark:text-white">
                             {plan.label}
                           </p>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-600 dark:text-slate-300">
                             {plan.value === 1
                               ? `${pricingTier.currency} ${pricingTier.netFee.toLocaleString()}`
                               : `${pricingTier.currency} ${installment.monthlyAmount.toLocaleString()} / month`}
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-gray-500 dark:text-slate-400">
                             {plan.subtext}
                           </p>
                         </div>
                         {plan.value !== 1 && (
                           <div className="text-right">
-                            <p className="text-sm text-gray-600">
+                            <p className="text-sm text-gray-600 dark:text-slate-300">
                               Total: {pricingTier.currency}
                               {(installment.monthlyAmount * plan.value).toLocaleString()}
                             </p>
@@ -190,7 +190,7 @@ export function PricingDisplay({
 
               {/* Additional Info */}
               {pricingTier.scholarshipAmount > 0 && (
-                <p className="text-xs text-gray-500 mt-3 text-center">
+                <p className="text-xs text-gray-500 dark:text-slate-400 mt-3 text-center">
                   💡 Scholarship already applied to net fee
                 </p>
               )}
@@ -200,7 +200,7 @@ export function PricingDisplay({
       </div>
 
       {pricingOptions.length === 0 && (
-        <div className="text-center py-12 text-gray-500">
+        <div className="text-center py-12 text-gray-500 dark:text-slate-400">
           <p>Pricing information not available for this selection.</p>
         </div>
       )}

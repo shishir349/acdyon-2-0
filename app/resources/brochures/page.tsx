@@ -44,7 +44,7 @@ export default function BrochuresPage() {
         title="Detailed guides for every program pathway"
         description="Each brochure contains curriculum structure, outcomes, eligibility criteria, and next steps. Start with the program that matches your goals."
       />
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Available Guides"
@@ -54,11 +54,11 @@ export default function BrochuresPage() {
             {brochures.map((item) => (
               <article
                 key={item.title}
-                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#1E40FF]/30"
+                className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 transition duration-300 hover:border-[#1E40FF]/30 dark:bg-slate-900/60 dark:border-slate-800"
               >
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#1E40FF]">{item.tag}</p>
-                <h2 className="mt-3 text-xl font-semibold text-slate-950">{item.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                <h2 className="mt-3 text-xl font-semibold text-slate-950 dark:text-white">{item.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
                 <CTAButton href={item.href} variant="secondary" className="mt-6">View Program</CTAButton>
               </article>
             ))}

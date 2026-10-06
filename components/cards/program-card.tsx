@@ -12,7 +12,7 @@ export function ProgramCard({ title, description, href, icon: Icon }: ProgramCar
   return (
     <Link
       href={href}
-      className="group relative overflow-hidden rounded-[8px] border border-slate-200 bg-white p-7 luxury-shadow transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30"
+      className="group relative overflow-hidden rounded-[8px] border border-slate-200 bg-white p-7 luxury-shadow transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-[#1E40FF]/30 hover:shadow-2xl dark:border-slate-800 dark:bg-slate-950"
     >
       <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#22D3EE]/10 blur-2xl transition group-hover:bg-[#1E40FF]/15" />
       <div className="mb-8 flex items-center justify-between">
@@ -21,8 +21,8 @@ export function ProgramCard({ title, description, href, icon: Icon }: ProgramCar
         </div>
         <ArrowUpRight className="h-5 w-5 text-slate-400 transition group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#1E40FF]" />
       </div>
-      <h3 className="text-xl font-semibold text-slate-950">{title}</h3>
-      <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
+      <h3 className="text-xl font-semibold text-slate-950 dark:text-white">{title}</h3>
+      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{description}</p>
       <span className="mt-6 inline-flex text-sm font-semibold text-[#1E40FF]">
         Explore pathway
       </span>

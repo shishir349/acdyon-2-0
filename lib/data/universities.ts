@@ -23,6 +23,7 @@ export interface University {
   ranking?: string;
   established: number;
   sampleCertificate?: string;
+  honoraryBrochureUrl?: string;
   dbaDetails?: {
     overview: string;
     eligibility: string[];
@@ -61,7 +62,7 @@ export const universities: University[] = [
     description: 'Pioneering online education with global reach and flexible learning',
     ranking: 'Top 500 Global Universities',
     established: 2003,
-    sampleCertificate: '/certificates/dba-sample.png',
+    sampleCertificate: 'https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/LSMT%20DBA.webp',
     dbaDetails: {
       overview: 'The London School of Management and Technology offers a cutting-edge Doctor of Business Administration programme designed for executive leaders. With a focus on real-world application and strategic decision-making, our DBA combines rigorous academic standards with practical business experience.',
       eligibility: [
@@ -77,6 +78,7 @@ export const universities: University[] = [
         'Global Business Strategy',
         'Original Research Thesis'
       ],
+      brochureUrl: '/brochures/degrees/lsmt-dba.html',
     },
   },
 
@@ -104,7 +106,7 @@ export const universities: University[] = [
     description: 'American accredited institution with 50+ years of excellence in online education',
     ranking: 'Top 300 Global Universities',
     established: 1970,
-    sampleCertificate: '/certificates/phd-sample.png',
+    sampleCertificate: 'https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/KU%20PHD.webp',
     dbaDetails: {
       overview: 'Kennedy University\'s Doctor of Business Administration programme combines rigorous academic scholarship with practical executive experience. Our flexible delivery model allows working executives to advance their careers while completing their doctoral research.',
       eligibility: [
@@ -120,7 +122,9 @@ export const universities: University[] = [
         'Organizational Transformation',
         'Doctoral Research & Publication'
       ],
+      brochureUrl: '/brochures/degrees/kennedy-dba.html',
     },
+    honoraryBrochureUrl: '/brochures/honorary/kennedy.html',
     phdDetails: {
       overview: 'Kennedy University offers a rigorous Doctor of Philosophy programme for researchers seeking original scholarly contribution. Our PhD is designed for individuals with deep expertise who wish to advance knowledge in their field through systematic research.',
       eligibility: [
@@ -136,6 +140,7 @@ export const universities: University[] = [
         'Peer-Reviewed Publication',
         'Dissertation Defense'
       ],
+      brochureUrl: '/brochures/degrees/kennedy-phd.html',
     },
   },
 
@@ -163,7 +168,7 @@ export const universities: University[] = [
     description: 'Premium UK business school with triple accreditation and executive focus',
     ranking: 'Top 200 Global Universities',
     established: 1985,
-    sampleCertificate: '/certificates/dba-dunster.png',
+    sampleCertificate: 'https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/DBS%20PHD.jpeg',
     dbaDetails: {
       overview: 'Dunster Business School\'s Doctor of Business Administration is one of the most respected programmes in the UK, known for its rigorous curriculum and focus on business innovation. Our DBA combines world-class faculty with genuine business transformation.',
       eligibility: [
@@ -179,7 +184,9 @@ export const universities: University[] = [
         'Global Strategic Management',
         'Executive Thesis Project'
       ],
+      brochureUrl: '/brochures/degrees/dunster-dba.html',
     },
+    honoraryBrochureUrl: '/brochures/honorary/dunster.html',
     phdDetails: {
       overview: 'Dunster\'s PhD programme is designed for research scholars committed to original contribution and academic excellence. Our research environment fosters innovation with supervision from leading academics in your field.',
       eligibility: [
@@ -195,6 +202,7 @@ export const universities: University[] = [
         'Academic Publishing',
         'Viva Voce Examination'
       ],
+      brochureUrl: '/brochures/degrees/dunster-phd.html',
     },
   },
 
@@ -237,6 +245,7 @@ export const universities: University[] = [
         'Strategic Innovation Management',
         'Doctoral Research & Publication'
       ],
+      brochureUrl: '/brochures/degrees/eimt-dba.html',
     },
   },
 
@@ -280,6 +289,7 @@ export const universities: University[] = [
         'Data Science & Predictive Analytics',
         'Doctoral Dissertation Research'
       ],
+      brochureUrl: '/brochures/degrees/birchwood-dba.html',
     },
   },
 
@@ -303,6 +313,7 @@ export const universities: University[] = [
     description: 'Prestigious London institution for executive recognition and honorary awards',
     ranking: 'Top 350 Global Universities',
     established: 1988,
+    honoraryBrochureUrl: '/brochures/honorary/london-bs.html',
   },
 
   {
@@ -326,6 +337,7 @@ export const universities: University[] = [
     ranking: 'Top 300 Global Universities',
     established: 1995,
   },
+
 ];
 
 export const getUniversitiesByCountry = (country: string) =>

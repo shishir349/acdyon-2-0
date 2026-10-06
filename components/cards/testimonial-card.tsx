@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ReadMoreText } from '@/components/ui/read-more-text'
 
 interface TestimonialCardProps {
   name: string
@@ -16,13 +17,9 @@ export function TestimonialCard({
   imageUrl,
 }: TestimonialCardProps) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-white p-8">
-      <p className="mb-6 text-lg leading-8 text-slate-950 italic">
-        "{quote}"
-      </p>
-
-      <div className="flex items-center gap-4">
-        <div className="h-14 w-14 relative rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
+    <div className="flex h-full flex-col rounded-[8px] border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+      <div className="flex items-center gap-3">
+        <div className="h-12 w-12 relative rounded-full bg-slate-200 overflow-hidden flex-shrink-0 dark:bg-slate-800">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -41,13 +38,15 @@ export function TestimonialCard({
         </div>
 
         <div>
-          <p className="font-semibold text-slate-950">{name}</p>
-          <p className="text-sm text-slate-600">
+          <p className="font-semibold text-slate-950 dark:text-white">{name}</p>
+          <p className="text-sm text-slate-600 dark:text-slate-300">
             {role}
             {company && `, ${company}`}
           </p>
         </div>
       </div>
+
+      <ReadMoreText text={quote} className="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300" />
     </div>
   )
 }

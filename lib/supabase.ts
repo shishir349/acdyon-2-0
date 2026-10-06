@@ -1,29 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
-import type { ContactFormData, ConsultationData, LeadData, SubmissionResult } from './types/forms'
+import { pushToCrm } from './crm'
+import type { ContactFormData, ConsultationData, EventRSVPData, ScholarshipLeadData, BrochureLeadData, RegistrationData, LeadData, SubmissionResult } from './types/forms'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-
-// Debug logging
-if (typeof window !== 'undefined') {
-  console.log('🔍 Supabase Client Init - Environment Variables:')
-  console.log('URL present:', !!supabaseUrl, supabaseUrl ? `${supabaseUrl.substring(0, 50)}...` : 'MISSING')
-  console.log('Key present:', !!supabaseKey, supabaseKey ? `${supabaseKey.substring(0, 50)}...` : 'MISSING')
-
-  if (supabaseKey) {
-    const parts = supabaseKey.split('.')
-    console.log('Key format: JWT with', parts.length, 'parts (expected 3)')
-    if (parts.length === 3) {
-      try {
-        const payload = JSON.parse(atob(parts[1]))
-        console.log('Key payload:', payload)
-        console.log('Key exp timestamp:', payload.exp, new Date(payload.exp * 1000).toISOString())
-      } catch (e) {
-        console.log('Could not decode key payload')
-      }
-    }
-  }
-}
 
 // Create client - will be ready when env vars are available
 let supabaseInstance: ReturnType<typeof createClient> | null = null
@@ -36,10 +16,6 @@ export const getSupabase = () => {
   }
 
   if (!supabaseInstance) {
-    console.log('🔧 Creating Supabase client with:', {
-      url: supabaseUrl,
-      keyLength: supabaseKey.length,
-    })
     supabaseInstance = createClient(supabaseUrl, supabaseKey)
   }
 
@@ -57,28 +33,6 @@ const validatePhone = (phone: string): boolean => {
   return phoneRegex.test(phone.replace(/\s/g, ''))
 }
 
-// Extract UTM parameters from URL
-export const extractUTMParams = (): Record<string, string | null> => {
-  if (typeof window === 'undefined') {
-    return {
-      utm_source: null,
-      utm_medium: null,
-      utm_campaign: null,
-      utm_term: null,
-      utm_content: null,
-    }
-  }
-
-  const params = new URLSearchParams(window.location.search)
-  return {
-    utm_source: params.get('utm_source'),
-    utm_medium: params.get('utm_medium'),
-    utm_campaign: params.get('utm_campaign'),
-    utm_term: params.get('utm_term'),
-    utm_content: params.get('utm_content'),
-  }
-}
-
 // Create website lead record
 async function createWebsiteLead(leadData: LeadData): Promise<SubmissionResult> {
   try {
@@ -92,16 +46,10 @@ async function createWebsiteLead(leadData: LeadData): Promise<SubmissionResult> 
           email: leadData.email,
           name: leadData.name,
           source_page: leadData.source_page,
-          source_form: leadData.source_form,
-          visitor_country: leadData.visitor_country || null,
-          lead_source: leadData.lead_source || null,
-          utm_source: leadData.utm_source || null,
-          utm_medium: leadData.utm_medium || null,
-          utm_campaign: leadData.utm_campaign || null,
-          utm_term: leadData.utm_term || null,
-          utm_content: leadData.utm_content || null,
-          metadata: leadData.metadata,
-          status: 'pending',
+          phone: leadData.phone || null,
+          country: leadData.country || null,
+          program_type: leadData.program_type || null,
+          status: leadData.status,
         },
       ])
 
@@ -142,6 +90,8 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
     return { success: false, message: 'Please tell us about your goals' }
   }
 
+  pushToCrm({ formType: 'contact', fullName: data.fullName, email: data.email, phone: data.phone, country: data.country, message: data.goals, sourcePage: data.sourcePage, extra: { interest: data.areaOfInterest } })
+
   try {
     const supabase = getSupabase() as any
 
@@ -150,12 +100,12 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
       .from('contact_submissions')
       .insert([
         {
-          full_name: data.fullName,
+          name: data.fullName,
           email: data.email,
           phone: data.phone,
           country: data.country,
-          area_of_interest: data.areaOfInterest,
-          goals: data.goals,
+          subject: data.areaOfInterest,
+          message: data.goals,
           status: 'pending',
         },
       ])
@@ -170,27 +120,15 @@ export async function submitContactForm(data: ContactFormData): Promise<Submissi
     }
 
     // Create lead record
-    const utmParams = extractUTMParams()
     const leadResult = await createWebsiteLead({
       lead_type: 'contact',
       email: data.email,
       name: data.fullName,
       source_page: data.sourcePage || 'contact',
-      source_form: 'contact_form',
-      visitor_country: data.country,
-      lead_source: 'contact_page',
-      utm_source: utmParams.utm_source,
-      utm_medium: utmParams.utm_medium,
-      utm_campaign: utmParams.utm_campaign,
-      utm_term: utmParams.utm_term,
-      utm_content: utmParams.utm_content,
-      metadata: {
-        fullName: data.fullName,
-        phone: data.phone,
-        country: data.country,
-        areaOfInterest: data.areaOfInterest,
-        goals: data.goals,
-      },
+      phone: data.phone,
+      country: data.country,
+      program_type: data.areaOfInterest,
+      status: 'pending',
     })
 
     if (!leadResult.success) {
@@ -230,6 +168,8 @@ export async function submitConsultationRequest(data: ConsultationData): Promise
     return { success: false, message: 'Please tell us your goals' }
   }
 
+  pushToCrm({ formType: 'consultation', fullName: data.fullName, email: data.email, phone: data.phone, country: data.country, message: data.goals, sourcePage: data.sourcePage, extra: { interest: data.areaOfInterest } })
+
   try {
     const supabase = getSupabase() as any
 
@@ -249,8 +189,6 @@ export async function submitConsultationRequest(data: ConsultationData): Promise
     const { error } = await supabase
       .from('consultation_requests')
       .insert([payload])
-
-    console.log('FULL RESPONSE consultation_requests', { error })
 
     if (error) {
       return {
@@ -274,19 +212,217 @@ export async function submitConsultationRequest(data: ConsultationData): Promise
         },
       ])
 
-    console.log('FULL RESPONSE website_leads', { error: leadError })
-
     return {
       success: true,
       message:
         'Thank you for your consultation request! Our team will contact you within 24 hours.',
     }
   } catch (error) {
-    console.log('EXCEPTION', error)
     return {
       success: false,
       message:
         'An error occurred while submitting your request. Please try again.',
     }
+  }
+}
+
+// Submit event RSVP
+export async function submitEventRSVP(data: EventRSVPData): Promise<SubmissionResult> {
+  if (!data.fullName.trim()) {
+    return { success: false, message: 'Full name is required' }
+  }
+  if (!validateEmail(data.email)) {
+    return { success: false, message: 'Please enter a valid email address' }
+  }
+  if (!validatePhone(data.phone)) {
+    return { success: false, message: 'Please enter a valid phone number' }
+  }
+  if (!data.country.trim()) {
+    return { success: false, message: 'Country is required' }
+  }
+
+  try {
+    const supabase = getSupabase() as any
+
+    const { error } = await supabase.from('website_leads').insert([
+      {
+        lead_type: 'event_rsvp',
+        email: data.email,
+        name: data.fullName,
+        source_page: data.sourcePage || 'resources/events',
+        phone: data.phone,
+        country: data.country,
+        program_type: `${data.eventName} (${data.programme}, ${data.guestCount} guest${data.guestCount === 1 ? '' : 's'})`,
+        status: 'pending',
+      },
+    ])
+
+    if (error) {
+      console.error('Event RSVP error:', error)
+      return { success: false, message: 'Failed to submit RSVP. Please try again.' }
+    }
+
+    return {
+      success: true,
+      message: 'RSVP confirmed! We will send full event details to your email.',
+    }
+  } catch (error) {
+    console.error('Event RSVP exception:', error)
+    return { success: false, message: 'An error occurred while submitting your RSVP.' }
+  }
+}
+
+// Submit scholarship calculator lead
+export async function submitScholarshipLead(data: ScholarshipLeadData): Promise<SubmissionResult> {
+  if (!data.fullName.trim()) {
+    return { success: false, message: 'Full name is required' }
+  }
+  if (!validateEmail(data.email)) {
+    return { success: false, message: 'Please enter a valid email address' }
+  }
+  if (!validatePhone(data.phone)) {
+    return { success: false, message: 'Please enter a valid phone number' }
+  }
+  if (!data.country.trim()) {
+    return { success: false, message: 'Country is required' }
+  }
+
+  try {
+    const supabase = getSupabase() as any
+
+    const { error } = await supabase.from('website_leads').insert([
+      {
+        lead_type: 'scholarship_calculator',
+        email: data.email,
+        name: data.fullName,
+        source_page: data.sourcePage || 'scholarship-calculator',
+        phone: data.phone,
+        country: data.country,
+        program_type: `${data.programme} @ ${data.university} — ${data.discountPct}% scholarship, net fee ${data.netFee}`,
+        status: 'pending',
+      },
+    ])
+
+    if (error) {
+      console.error('Scholarship lead error:', error)
+      return { success: false, message: 'Failed to save your details. Please try again.' }
+    }
+
+    return {
+      success: true,
+      message: 'Indicative scholarship revealed below. Our team will confirm eligibility shortly.',
+    }
+  } catch (error) {
+    console.error('Scholarship lead exception:', error)
+    return { success: false, message: 'An error occurred while saving your details.' }
+  }
+}
+
+// Submit brochure download lead
+export async function submitBrochureLead(data: BrochureLeadData): Promise<SubmissionResult> {
+  if (!data.fullName.trim()) {
+    return { success: false, message: 'Full name is required' }
+  }
+  if (!validateEmail(data.email)) {
+    return { success: false, message: 'Please enter a valid email address' }
+  }
+  if (!validatePhone(data.phone)) {
+    return { success: false, message: 'Please enter a valid phone number' }
+  }
+  if (!data.country.trim()) {
+    return { success: false, message: 'Country is required' }
+  }
+
+  pushToCrm({ formType: 'brochure', fullName: data.fullName, email: data.email, phone: data.phone, country: data.country, brochure: data.programmeName, sourcePage: data.sourcePage })
+
+  try {
+    const supabase = getSupabase() as any
+
+    const { error } = await supabase.from('website_leads').insert([
+      {
+        lead_type: 'brochure_download',
+        email: data.email,
+        name: data.fullName,
+        source_page: data.sourcePage || 'brochure_download',
+        phone: data.phone,
+        country: data.country,
+        program_type: data.programmeName,
+        status: 'pending',
+      },
+    ])
+
+    if (error) {
+      console.error('Brochure lead error:', error)
+      return { success: false, message: 'Failed to save your details. Please try again.' }
+    }
+
+    return {
+      success: true,
+      message: 'Thank you! Your brochure download is starting.',
+    }
+  } catch (error) {
+    console.error('Brochure lead exception:', error)
+    return { success: false, message: 'An error occurred while saving your details.' }
+  }
+}
+
+// Programme registration (app/register). Saved before the redirect to the
+// hosted Stripe/Razorpay payment link — those links return no signature we can
+// verify, so payment is reconciled against the provider dashboard afterwards.
+export async function submitRegistration(data: RegistrationData): Promise<SubmissionResult> {
+  if (!data.fullName.trim()) {
+    return { success: false, message: 'Full name is required' }
+  }
+  if (!validateEmail(data.email)) {
+    return { success: false, message: 'Please enter a valid email address' }
+  }
+  if (data.phone && !validatePhone(data.phone)) {
+    return { success: false, message: 'Please enter a valid phone number' }
+  }
+  if (!data.country.trim()) {
+    return { success: false, message: 'Country is required' }
+  }
+
+  try {
+    const supabase = getSupabase() as any
+
+    // Optional resume: upload first so the row carries its URL. A failed upload
+    // must not lose the application, so it only warns.
+    let resumeUrl: string | null = null
+    if (data.resume) {
+      const path = `${Date.now()}-${data.email.replace(/[^a-z0-9]/gi, '_')}.pdf`
+      const { error: upErr } = await supabase.storage
+        .from('resumes')
+        .upload(path, data.resume, { contentType: 'application/pdf', upsert: false })
+      if (upErr) console.error('Resume upload error:', upErr)
+      else resumeUrl = supabase.storage.from('resumes').getPublicUrl(path).data.publicUrl
+    }
+
+    const { error } = await supabase.from('registrations').insert([
+      {
+        full_name: data.fullName,
+        email: data.email,
+        phone: data.phone || null,
+        country: data.country,
+        qualification: data.qualification,
+        experience: data.experience,
+        programme: data.programme,
+        linkedin: data.linkedin || null,
+        subject_area: data.subjectArea,
+        purpose: data.purpose?.trim() || null,
+        resume_url: resumeUrl,
+        status: 'awaiting_payment',
+      },
+    ])
+
+    if (error) {
+      console.error('Registration error:', error)
+      return { success: false, message: 'Failed to save your details. Please try again.' }
+    }
+
+    return { success: true, message: 'Registration saved. Redirecting to payment.' }
+  } catch (error) {
+    console.error('Registration lead exception:', error)
+    return { success: false, message: 'An error occurred while saving your details.' }
   }
 }

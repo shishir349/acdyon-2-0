@@ -63,13 +63,13 @@ Website: www.acdyon.com`,
 
 export default function CookiePolicyPage() {
   return (
-    <main className="bg-white">
-      <section className="border-b border-slate-200 bg-[#F8FAFC] pb-12 pt-36">
+    <main className="bg-white dark:bg-slate-950">
+      <section className="border-b border-slate-200 bg-[#F8FAFC] pb-12 pt-36 dark:bg-slate-900/60 dark:border-slate-800">
         <div className="container-premium max-w-4xl">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">Legal</p>
-          <h1 className="font-display text-4xl text-slate-950 sm:text-5xl">Cookie Policy</h1>
-          <p className="mt-4 text-slate-500">Last updated: May 2026</p>
-          <p className="mt-4 max-w-2xl text-slate-600">
+          <h1 className="font-display text-4xl text-slate-950 sm:text-5xl dark:text-white">Cookie Policy</h1>
+          <p className="mt-4 text-slate-500 dark:text-slate-400">Last updated: May 2026</p>
+          <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
             This policy explains how AcdyOn uses cookies and how you can manage your preferences.
           </p>
         </div>
@@ -80,10 +80,10 @@ export default function CookiePolicyPage() {
           <div className="space-y-10">
             {sections.map(({ title, content }) => (
               <div key={title}>
-                <h2 className="mb-4 font-display text-xl font-semibold text-slate-950">{title}</h2>
-                <div className="rounded-[8px] border border-slate-200 bg-white p-6">
+                <h2 className="mb-4 font-display text-xl font-semibold text-slate-950 dark:text-white">{title}</h2>
+                <div className="rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800">
                   {content.split('\n\n').map((para, i) => (
-                    <p key={i} className="mb-4 whitespace-pre-line text-sm leading-7 text-slate-600 last:mb-0">
+                    <p key={i} className="mb-4 whitespace-pre-line text-sm leading-7 text-slate-600 last:mb-0 dark:text-slate-300">
                       {para}
                     </p>
                   ))}

@@ -1,0 +1,17 @@
+{
+  "name": "acdyon-payments",
+  "version": "1.0.0",
+  "private": true,
+  "main": "payments.js",
+  "scripts": {
+    "start": "node payments.js",
+    "test": "node payments.test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "razorpay": "^2.9.4",
+    "stripe": "^16.12.0"
+  }
+}

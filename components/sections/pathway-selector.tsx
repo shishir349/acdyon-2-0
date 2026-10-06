@@ -1,6 +1,9 @@
+"use client";
+
 import Link from 'next/link'
 import { Award, Bot, GraduationCap, BriefcaseBusiness, ArrowRight } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
+import { Carousel } from '@/components/ui/carousel'
 
 const pathways = [
   {
@@ -49,44 +52,47 @@ const pathways = [
   },
 ]
 
+function PathwayCard({ icon: Icon, goal, description, outcome, cta, href, accent, accentBg, accentBorder }: typeof pathways[number]) {
+  return (
+    <Link
+      href={href}
+      className={`group flex h-full flex-col rounded-[8px] border ${accentBorder} ${accentBg} p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+    >
+      <div
+        className="flex h-12 w-12 items-center justify-center rounded-[8px] text-white"
+        style={{ backgroundColor: accent }}
+      >
+        <Icon className="h-6 w-6" />
+      </div>
+
+      <h3 className="mt-5 font-display text-lg sm:text-xl font-semibold text-slate-950 dark:text-white">{goal}</h3>
+      <p className="mt-3 flex-1 text-sm leading-7 text-slate-600 dark:text-slate-300">{description}</p>
+
+      <div className="mt-5 rounded-[6px] border border-slate-200 bg-white px-4 py-2 dark:border-slate-700 dark:bg-slate-900">
+        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Where this leads</p>
+        <p className="mt-0.5 text-sm font-semibold text-slate-950 dark:text-white">{outcome}</p>
+      </div>
+
+      <div className="mt-5 flex items-center gap-2 text-sm font-semibold" style={{ color: accent }}>
+        {cta}
+        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </div>
+    </Link>
+  )
+}
+
 export function PathwaySelector() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
       <div className="container-premium">
         <SectionHeading
-          eyebrow="Find Your Path"
+          eyebrow="Find your path"
           title="Choose The Path That Matches Your Goals"
           description="Every professional journey is different. Select the pathway that aligns with where you are and where you are going."
         />
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {pathways.map(({ icon: Icon, goal, description, outcome, cta, href, accent, accentBg, accentBorder }) => (
-            <Link
-              key={goal}
-              href={href}
-              className={`group flex flex-col rounded-[8px] border ${accentBorder} ${accentBg} p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
-            >
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-[8px] text-white"
-                style={{ backgroundColor: accent }}
-              >
-                <Icon className="h-6 w-6" />
-              </div>
-
-              <h3 className="mt-5 font-display text-xl font-semibold text-slate-950">{goal}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
-
-              <div className="mt-5 rounded-[6px] border border-slate-200 bg-white px-4 py-2">
-                <p className="text-xs font-medium text-slate-500">Where this leads</p>
-                <p className="mt-0.5 text-sm font-semibold text-slate-950">{outcome}</p>
-              </div>
-
-              <div className="mt-5 flex items-center gap-2 text-sm font-semibold" style={{ color: accent }}>
-                {cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
+        <div className="mt-10 sm:mt-14">
+          <Carousel items={pathways.map((p) => <PathwayCard key={p.goal} {...p} />)} />
         </div>
       </div>
     </section>

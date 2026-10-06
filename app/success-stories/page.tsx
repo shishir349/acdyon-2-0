@@ -36,7 +36,7 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Stories Grid */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Professional Advancement"
@@ -52,7 +52,7 @@ export default function SuccessStoriesPage() {
       </section>
 
       {/* Program Types */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
             eyebrow="Program Coverage"
@@ -88,11 +88,11 @@ export default function SuccessStoriesPage() {
             ].map((item) => (
               <article
                 key={item.type}
-                className="rounded-[8px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30"
+                className="rounded-[8px] border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#1E40FF]/30 dark:bg-slate-950 dark:border-slate-800"
               >
                 <p className={`text-xs font-bold uppercase tracking-[0.2em] ${item.accent}`}>{item.count}</p>
-                <h3 className="mt-3 text-lg font-semibold text-slate-950">{item.type}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-slate-950 dark:text-white">{item.type}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.description}</p>
               </article>
             ))}
           </div>

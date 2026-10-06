@@ -157,12 +157,12 @@ export function ProgrammeRecommendationWizard() {
               <div
                 key={i}
                 className={`flex-1 mx-1 h-2 rounded-full ${
-                  state.step >= i ? 'bg-blue-600' : 'bg-gray-200'
+                  state.step >= i ? 'bg-blue-600' : 'bg-gray-200 dark:bg-slate-700'
                 }`}
               />
             ))}
           </div>
-          <p className="text-sm text-gray-600 text-center">
+          <p className="text-sm text-gray-600 dark:text-slate-300 text-center">
             Step {state.step} of 4
           </p>
         </div>
@@ -172,8 +172,8 @@ export function ProgrammeRecommendationWizard() {
       {state.step === 1 && (
         <div className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">What's Your Goal?</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">What's Your Goal?</h2>
+            <p className="text-gray-600 dark:text-slate-300">
               Help us understand what you're looking to achieve
             </p>
           </div>
@@ -210,15 +210,15 @@ export function ProgrammeRecommendationWizard() {
                 onClick={() =>
                   setState(prev => ({ ...prev, goal: option.value, step: 2 }))
                 }
-                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group"
+                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group dark:border-slate-700 dark:hover:bg-blue-950/30"
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{option.icon}</span>
                   <div>
-                    <p className="font-bold text-navy group-hover:text-blue-600">
+                    <p className="font-bold text-navy dark:text-white group-hover:text-blue-600">
                       {option.label}
                     </p>
-                    <p className="text-sm text-gray-600">{option.desc}</p>
+                    <p className="text-sm text-gray-600 dark:text-slate-300">{option.desc}</p>
                   </div>
                 </div>
               </button>
@@ -231,8 +231,8 @@ export function ProgrammeRecommendationWizard() {
       {state.step === 2 && (
         <div className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">What's Your Budget?</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">What's Your Budget?</h2>
+            <p className="text-gray-600 dark:text-slate-300">
               We'll recommend programmes that fit your investment level
             </p>
           </div>
@@ -263,16 +263,16 @@ export function ProgrammeRecommendationWizard() {
                 onClick={() =>
                   setState(prev => ({ ...prev, budget: option.value, step: 3 }))
                 }
-                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group"
+                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group dark:border-slate-700 dark:hover:bg-blue-950/30"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{option.icon}</span>
                     <div>
-                      <p className="font-bold text-navy group-hover:text-blue-600">
+                      <p className="font-bold text-navy dark:text-white group-hover:text-blue-600">
                         {option.label}
                       </p>
-                      <p className="text-sm text-gray-500">{option.amount}</p>
+                      <p className="text-sm text-gray-500 dark:text-slate-400">{option.amount}</p>
                     </div>
                   </div>
                   <span className="text-xl">→</span>
@@ -283,7 +283,7 @@ export function ProgrammeRecommendationWizard() {
 
           <button
             onClick={() => setState(prev => ({ ...prev, step: 1 }))}
-            className="text-sm text-gray-600 hover:text-gray-800 mt-4"
+            className="text-sm text-gray-600 hover:text-gray-800 mt-4 dark:text-slate-300 dark:hover:text-slate-100"
           >
             ← Back
           </button>
@@ -294,8 +294,8 @@ export function ProgrammeRecommendationWizard() {
       {state.step === 3 && (
         <div className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Preferred Duration?</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">Preferred Duration?</h2>
+            <p className="text-gray-600 dark:text-slate-300">
               How long are you willing to invest?
             </p>
           </div>
@@ -326,16 +326,16 @@ export function ProgrammeRecommendationWizard() {
                 onClick={() =>
                   setState(prev => ({ ...prev, duration: option.value, step: 4 }))
                 }
-                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group"
+                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group dark:border-slate-700 dark:hover:bg-blue-950/30"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{option.icon}</span>
                     <div>
-                      <p className="font-bold text-navy group-hover:text-blue-600">
+                      <p className="font-bold text-navy dark:text-white group-hover:text-blue-600">
                         {option.label}
                       </p>
-                      <p className="text-sm text-gray-500">{option.duration}</p>
+                      <p className="text-sm text-gray-500 dark:text-slate-400">{option.duration}</p>
                     </div>
                   </div>
                   <span className="text-xl">→</span>
@@ -346,7 +346,7 @@ export function ProgrammeRecommendationWizard() {
 
           <button
             onClick={() => setState(prev => ({ ...prev, step: 2 }))}
-            className="text-sm text-gray-600 hover:text-gray-800 mt-4"
+            className="text-sm text-gray-600 hover:text-gray-800 mt-4 dark:text-slate-300 dark:hover:text-slate-100"
           >
             ← Back
           </button>
@@ -357,8 +357,8 @@ export function ProgrammeRecommendationWizard() {
       {state.step === 4 && (
         <div className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">How Do You Prefer to Study?</h2>
-            <p className="text-gray-600">
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">How Do You Prefer to Study?</h2>
+            <p className="text-gray-600 dark:text-slate-300">
               Choose your learning format
             </p>
           </div>
@@ -394,15 +394,15 @@ export function ProgrammeRecommendationWizard() {
                   // Immediately get recommendation
                   setTimeout(() => getRecommendation(), 100);
                 }}
-                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group"
+                className="w-full p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-600 hover:bg-blue-50 transition group dark:border-slate-700 dark:hover:bg-blue-950/30"
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{option.icon}</span>
                   <div className="flex-1">
-                    <p className="font-bold text-navy group-hover:text-blue-600">
+                    <p className="font-bold text-navy dark:text-white group-hover:text-blue-600">
                       {option.label}
                     </p>
-                    <p className="text-sm text-gray-600">{option.desc}</p>
+                    <p className="text-sm text-gray-600 dark:text-slate-300">{option.desc}</p>
                   </div>
                 </div>
               </button>
@@ -411,7 +411,7 @@ export function ProgrammeRecommendationWizard() {
 
           <button
             onClick={() => setState(prev => ({ ...prev, step: 3 }))}
-            className="text-sm text-gray-600 hover:text-gray-800 mt-4"
+            className="text-sm text-gray-600 hover:text-gray-800 mt-4 dark:text-slate-300 dark:hover:text-slate-100"
           >
             ← Back
           </button>
@@ -422,46 +422,46 @@ export function ProgrammeRecommendationWizard() {
       {state.step === 5 && recommendation && (
         <div className="space-y-6">
           <div className="text-center">
-            <p className="text-sm font-semibold text-blue-600 mb-2">
+            <p className="text-sm font-semibold text-blue-600 dark:text-cyan-400 mb-2">
               ✓ Perfect Match Found
             </p>
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-4 dark:text-white">
               {recommendation.programme.name}
             </h2>
-            <p className="text-gray-600">{recommendation.reason}</p>
+            <p className="text-gray-600 dark:text-slate-300">{recommendation.reason}</p>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-6">
-            <p className="text-gray-700 mb-4">
+          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-6 dark:from-blue-950/40 dark:to-cyan-950/40 dark:border-blue-900">
+            <p className="text-gray-700 dark:text-slate-300 mb-4">
               {recommendation.programme.description}
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div>
-                <p className="text-xs text-gray-600 font-semibold mb-1">
+                <p className="text-xs text-gray-600 dark:text-slate-400 font-semibold mb-1">
                   Duration
                 </p>
-                <p className="text-lg font-bold text-navy">
+                <p className="text-lg font-bold text-navy dark:text-white">
                   {recommendation.programme.duration}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-600 font-semibold mb-1">
+                <p className="text-xs text-gray-600 dark:text-slate-400 font-semibold mb-1">
                   Format
                 </p>
-                <p className="text-lg font-bold text-navy">
+                <p className="text-lg font-bold text-navy dark:text-white">
                   {recommendation.programme.deliveryMode[0]}
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="text-sm font-semibold text-navy mb-2">
+              <p className="text-sm font-semibold text-navy dark:text-white mb-2">
                 Key Outcomes
               </p>
               <ul className="text-sm space-y-1">
                 {recommendation.programme.outcomes.slice(0, 3).map((outcome, i) => (
-                  <li key={i} className="text-gray-700">
+                  <li key={i} className="text-gray-700 dark:text-slate-300">
                     ✓ {outcome}
                   </li>
                 ))}
@@ -475,7 +475,7 @@ export function ProgrammeRecommendationWizard() {
             </button>
             <button
               onClick={resetWizard}
-              className="w-full border-2 border-blue-600 text-blue-600 py-3 px-4 rounded-lg font-semibold hover:bg-blue-50 transition"
+              className="w-full border-2 border-blue-600 text-blue-600 dark:text-cyan-400 py-3 px-4 rounded-lg font-semibold hover:bg-blue-50 dark:hover:bg-blue-950/30 transition"
             >
               Try Different Options
             </button>

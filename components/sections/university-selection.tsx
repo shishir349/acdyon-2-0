@@ -1,5 +1,6 @@
 import { CTAButton } from '@/components/ui/button'
 import { SectionHeading } from '@/components/ui/section-heading'
+import { ReadMoreText } from '@/components/ui/read-more-text'
 import { CheckCircle2, XCircle } from 'lucide-react'
 
 const dimensions = [
@@ -27,26 +28,26 @@ const dimensions = [
 
 export function UniversitySelection() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-14 sm:py-24 dark:bg-slate-950">
       <div className="container-premium">
         <SectionHeading
-          eyebrow="Why It Matters"
+          eyebrow="Why it matters"
           title="Not Every Doctoral Pathway Is The Same"
           description="Most professionals assume all doctoral programmes are equivalent. They are not. The differences in university, academic model, and recognition framework determine whether your credential delivers the authority you expect."
         />
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <div className="mt-10 sm:mt-14 grid gap-10 lg:grid-cols-2 lg:items-start">
           {/* Left: dimensions */}
           <div className="space-y-4">
             {dimensions.map(({ dimension, matters }) => (
               <div
                 key={dimension}
-                className="flex gap-4 rounded-[8px] border border-slate-200 bg-white p-5 transition-all hover:border-[#1E40FF]/30"
+                className="flex gap-4 rounded-[8px] border border-slate-200 bg-white p-5 transition-all hover:border-[#1E40FF]/30 dark:border-slate-800 dark:bg-slate-900/60"
               >
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#1E40FF]" />
                 <div>
-                  <p className="font-semibold text-slate-950">{dimension}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{matters}</p>
+                  <p className="font-semibold text-slate-950 dark:text-white">{dimension}</p>
+                  <ReadMoreText text={matters} className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300" />
                 </div>
               </div>
             ))}
@@ -64,7 +65,7 @@ export function UniversitySelection() {
               </p>
             </div>
 
-            <div className="rounded-[8px] border border-red-100 bg-red-50 p-6">
+            <div className="rounded-[8px] border border-red-100 bg-red-50 p-6 dark:border-red-900 dark:bg-red-950/30">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-400">Cost of Getting This Wrong</p>
               <ul className="mt-4 space-y-2">
                 {[
@@ -73,7 +74,7 @@ export function UniversitySelection() {
                   'Selecting an institution without verifiable international standing',
                   'Non-completion due to incompatible delivery or supervision model',
                 ].map((risk) => (
-                  <li key={risk} className="flex gap-3 text-sm text-red-700">
+                  <li key={risk} className="flex gap-3 text-sm text-red-700 dark:text-red-400">
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
                     {risk}
                   </li>

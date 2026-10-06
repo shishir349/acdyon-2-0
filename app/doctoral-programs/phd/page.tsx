@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import * as Accordion from "@radix-ui/react-accordion";
-import { CheckCircle2, ChevronDown, BookOpen } from "lucide-react";
-import { ConsultationNudge } from "@/components/sections/consultation-nudge";
-import { FinalCTA } from "@/components/sections/final-cta";
+import { CheckCircle2, ChevronDown, ArrowDown } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { UniversityShowcase } from "@/components/sections/university-showcase";
@@ -28,10 +27,10 @@ export default function PhDPage() {
       />
 
       {/* SECTION 2: Available PhD Universities */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Global Partnerships"
+            eyebrow="Global partnerships"
             title="Available PhD Universities"
             description="Study with internationally accredited universities recognized across 150+ countries. Research excellence and scholarly support."
           />
@@ -46,27 +45,27 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 3: Why Pursue a PhD */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Academic Excellence"
+            eyebrow="Academic excellence"
             title="The Qualification That Creates Knowledge"
             description="Unlike taught qualifications, a PhD requires you to develop new knowledge, theories, or frameworks that contribute to your field."
           />
           <div className="mt-14 grid gap-8 lg:grid-cols-3">
-            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-              <h3 className="font-semibold text-slate-950 mb-3">Master's Degree</h3>
-              <p className="text-sm text-slate-600 mb-4">Advanced Knowledge & Professional Skills</p>
-              <div className="text-3xl text-slate-300 mb-4">↓</div>
+            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+              <h3 className="font-semibold text-slate-950 mb-3 dark:text-white">Master's Degree</h3>
+              <p className="text-sm text-slate-600 mb-4 dark:text-slate-300">Advanced Knowledge & Professional Skills</p>
+              <ArrowDown className="h-8 w-8 text-slate-300 mb-4" />
             </div>
             <div className="rounded-[8px] border border-[#1E40FF] bg-gradient-to-br from-[#1E40FF]/5 to-transparent p-8">
-              <h3 className="font-semibold text-slate-950 mb-3">PhD Research</h3>
-              <p className="text-sm text-slate-600 mb-4">Creation of New Knowledge & Academic Contribution</p>
-              <div className="text-3xl text-[#1E40FF] mb-4">✓</div>
+              <h3 className="font-semibold text-slate-950 mb-3 dark:text-white">PhD Research</h3>
+              <p className="text-sm text-slate-600 mb-4 dark:text-slate-300">Creation of New Knowledge & Academic Contribution</p>
+              <CheckCircle2 className="h-8 w-8 text-[#1E40FF] mb-4" />
             </div>
-            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-              <h3 className="font-semibold text-slate-950 mb-3">Global Recognition</h3>
-              <p className="text-sm text-slate-600">International Research Community & Scholarly Impact</p>
+            <div className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+              <h3 className="font-semibold text-slate-950 mb-3 dark:text-white">Global Recognition</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300">International Research Community & Scholarly Impact</p>
             </div>
           </div>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -80,7 +79,7 @@ export default function PhDPage() {
             ].map((benefit, idx) => (
               <div key={idx} className="flex gap-3">
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-[#1E40FF] mt-0.5" />
-                <span className="text-sm text-slate-600">{benefit}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{benefit}</span>
               </div>
             ))}
           </div>
@@ -88,14 +87,14 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 4: Who Pursues a PhD */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Academic Profiles"
+            eyebrow="Academic profiles"
             title="Who Pursues a PhD?"
             description="Researchers from diverse backgrounds united by passion for knowledge creation and scholarly contribution."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {[
               { title: "University Faculty", desc: "Strengthen credentials and advance academic careers" },
               { title: "Researchers", desc: "Build expertise in specialized research areas" },
@@ -106,9 +105,9 @@ export default function PhDPage() {
               { title: "Government Officers", desc: "Elevate policy expertise with doctoral research" },
               { title: "Independent Scholars", desc: "Pursue intellectual passion and discovery" },
             ].map((profile, idx) => (
-              <div key={idx} className="rounded-[8px] border border-slate-200 bg-white p-6">
-                <h3 className="font-semibold text-slate-950 mb-2">{profile.title}</h3>
-                <p className="text-sm text-slate-600">{profile.desc}</p>
+              <div key={idx} className="rounded-[8px] border border-slate-200 bg-white p-6 dark:bg-slate-950 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 mb-2 dark:text-white">{profile.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{profile.desc}</p>
               </div>
             ))}
           </div>
@@ -116,18 +115,18 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 5: What You Can Achieve */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Career Outcomes"
+            eyebrow="Career outcomes"
             title="What You Can Achieve"
             description="A PhD opens pathways to academic leadership, research influence, and intellectual contribution."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2">
             {phdCareerOutcomes.map((outcome, idx) => (
-              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-                <h3 className="font-semibold text-slate-950 mb-3">{outcome.title}</h3>
-                <p className="text-sm text-slate-600">{outcome.description}</p>
+              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 mb-3 dark:text-white">{outcome.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{outcome.description}</p>
               </div>
             ))}
           </div>
@@ -135,26 +134,26 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 6: Research Disciplines & Specialisations */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Research Areas"
+            eyebrow="Research areas"
             title="Research Disciplines & Specialisations"
             description="Choose a research area aligned with your intellectual interests and professional goals."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2">
             {phdResearchDisciplines.map((discipline) => (
-              <div key={discipline.id} className="rounded-[8px] border border-slate-200 bg-white p-8">
-                <h3 className="font-semibold text-slate-950 mb-2">{discipline.name}</h3>
-                <p className="text-sm text-slate-600 mb-6">{discipline.description}</p>
+              <div key={discipline.id} className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 mb-2 dark:text-white">{discipline.name}</h3>
+                <p className="text-sm text-slate-600 mb-6 dark:text-slate-300">{discipline.description}</p>
                 <div className="space-y-3 text-xs">
                   <div>
                     <p className="font-bold uppercase tracking-[0.12em] text-slate-400 mb-2">Research Themes</p>
-                    <p className="text-slate-600">{discipline.researchThemes.join(" • ")}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{discipline.researchThemes.join(" • ")}</p>
                   </div>
                   <div>
                     <p className="font-bold uppercase tracking-[0.12em] text-slate-400 mb-2">Outcomes</p>
-                    <p className="text-slate-600">{discipline.careerOutcomes.slice(0, 2).join(" • ")}</p>
+                    <p className="text-slate-600 dark:text-slate-300">{discipline.careerOutcomes.slice(0, 2).join(" • ")}</p>
                   </div>
                 </div>
               </div>
@@ -164,14 +163,14 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 7: PhD Research Process */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Academic Journey"
+            eyebrow="Academic journey"
             title="The PhD Research Process"
             description="A structured pathway from research interest to doctoral graduation."
           />
-          <div className="mt-14 grid gap-4 lg:grid-cols-2">
+          <div className="mt-14 grid gap-3 sm:gap-4 lg:grid-cols-2">
             {[
               { stage: "1", title: "Research Interest Identification", desc: "Explore your scholarly passion" },
               { stage: "2", title: "Supervisor Matching", desc: "Find the right research mentor" },
@@ -184,13 +183,13 @@ export default function PhDPage() {
               { stage: "9", title: "Viva Defence", desc: "Defend before examiners" },
               { stage: "10", title: "Doctoral Award", desc: "Graduation & recognition" },
             ].map((step, idx) => (
-              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 flex gap-4">
+              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 flex gap-4 dark:bg-slate-900/60 dark:border-slate-800">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1E40FF] text-xs font-bold text-white shrink-0">
                   {step.stage}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-950 mb-1">{step.title}</h3>
-                  <p className="text-sm text-slate-600">{step.desc}</p>
+                  <h3 className="font-semibold text-slate-950 mb-1 dark:text-white">{step.title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -199,14 +198,14 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 8: Research Impact & Publication */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Scholarly Contribution"
+            eyebrow="Scholarly contribution"
             title="Research Impact & Publication Opportunities"
             description="Your PhD research contributes to global knowledge through publications and scholarly impact."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
             {[
               { title: "Peer-Reviewed Journals", desc: "Publish in top-tier academic journals" },
               { title: "Academic Conferences", desc: "Present at international research conferences" },
@@ -215,9 +214,9 @@ export default function PhDPage() {
               { title: "Institutional Impact", desc: "Shape your university and field" },
               { title: "Global Research Communities", desc: "Join international scholarly networks" },
             ].map((item, idx) => (
-              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6">
-                <h3 className="font-semibold text-slate-950 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600">{item.desc}</p>
+              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-6 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 mb-2 dark:text-white">{item.title}</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -225,50 +224,52 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 9: Global Academic Recognition */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <AccreditationShowcase programmeId="phd-general" title="Global Academic Recognition" />
         </div>
       </section>
 
-      {/* SECTION 10: Sample Academic Documents */}
-      <section className="bg-white py-24">
+      {/* SECTION 10: Sample PhD Certificates */}
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Documentation"
-            title="Sample Academic Documents"
-            description="Examples of academic credentials and research materials."
+            eyebrow="Credentials"
+            title="PhD Certificate Showcase"
+            description="Official PhD certificates issued by our partner universities upon successful completion of your doctoral research."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { emoji: "📜", title: "PhD Degree Certificate", desc: "Your doctoral credential" },
-              { emoji: "📋", title: "Transcript", desc: "Academic record and grades" },
-              { emoji: "📄", title: "Research Proposal", desc: "Original research plan" },
-              { emoji: "📎", title: "Enrollment Letter", desc: "Doctoral candidacy proof" },
-              { emoji: "📊", title: "Progress Review", desc: "Research milestone documentation" },
-              { emoji: "🎓", title: "Convocation", desc: "Graduation ceremony credentials" },
-            ].map((item, idx) => (
-              <div key={idx} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 text-center">
-                <div className="text-6xl mb-4">{item.emoji}</div>
-                <h3 className="font-semibold text-slate-950 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600">{item.desc}</p>
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            <div>
+              <div className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-lg dark:bg-slate-950 dark:border-slate-800" style={{aspectRatio: '1.41/1'}}>
+                <div className="relative h-full w-full">
+                  <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/KU%20PHD.webp" alt="Kennedy University PhD Certificate" fill className="object-contain p-4" unoptimized />
+                </div>
               </div>
-            ))}
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">Official Kennedy University PhD Certificate</p>
+            </div>
+            <div>
+              <div className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-lg dark:bg-slate-950 dark:border-slate-800" style={{aspectRatio: '1.41/1'}}>
+                <div className="relative h-full w-full">
+                  <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/DBS%20PHD.jpeg" alt="Dunster Business School PhD Certificate" fill className="object-contain p-4" unoptimized />
+                </div>
+              </div>
+              <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">Official Dunster Business School PhD Certificate</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 11: Academic Career Pathways */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Career Progression"
+            eyebrow="Career progression"
             title="Academic Career Pathways"
             description="Multiple pathways for PhD graduates to advance their scholarly careers."
           />
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8">
-              <h3 className="font-semibold text-slate-950 mb-6">Traditional Academic Path</h3>
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+              <h3 className="font-semibold text-slate-950 mb-6 dark:text-white">Traditional Academic Path</h3>
               <div className="space-y-3">
                 {[
                   "Postdoctoral Fellow",
@@ -279,14 +280,14 @@ export default function PhDPage() {
                 ].map((role, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#1E40FF]" />
-                    <span className="text-sm text-slate-600">{role}</span>
-                    {idx < 4 && <div className="ml-auto text-slate-400">↓</div>}
+                    <span className="text-sm text-slate-600 dark:text-slate-300">{role}</span>
+                    {idx < 4 && <ArrowDown className="ml-auto h-4 w-4 text-slate-400" />}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8">
-              <h3 className="font-semibold text-slate-950 mb-6">Research Leadership Path</h3>
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+              <h3 className="font-semibold text-slate-950 mb-6 dark:text-white">Research Leadership Path</h3>
               <div className="space-y-3">
                 {[
                   "Research Director",
@@ -297,8 +298,8 @@ export default function PhDPage() {
                 ].map((role, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#1E40FF]" />
-                    <span className="text-sm text-slate-600">{role}</span>
-                    {idx < 4 && <div className="ml-auto text-slate-400">↓</div>}
+                    <span className="text-sm text-slate-600 dark:text-slate-300">{role}</span>
+                    {idx < 4 && <ArrowDown className="ml-auto h-4 w-4 text-slate-400" />}
                   </div>
                 ))}
               </div>
@@ -308,23 +309,23 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 12: Doctoral Success Profiles */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Scholar Journeys"
+            eyebrow="Scholar journeys"
             title="Doctoral Success Profiles"
             description="Real academic transformations through doctoral research."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2">
             {phdSuccessProfiles.map((profile) => (
-              <div key={profile.id} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-                <h3 className="font-semibold text-slate-950 mb-4">{profile.title}</h3>
-                <p className="text-sm text-slate-600 mb-6">{profile.description}</p>
+              <div key={profile.id} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+                <h3 className="font-semibold text-slate-950 mb-4 dark:text-white">{profile.title}</h3>
+                <p className="text-sm text-slate-600 mb-6 dark:text-slate-300">{profile.description}</p>
                 <ul className="space-y-2">
                   {profile.outcomes.map((outcome, idx) => (
                     <li key={idx} className="flex gap-2">
                       <CheckCircle2 className="h-4 w-4 shrink-0 text-[#1E40FF] mt-0.5" />
-                      <span className="text-sm text-slate-600">{outcome}</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-300">{outcome}</span>
                     </li>
                   ))}
                 </ul>
@@ -335,16 +336,16 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 13: Eligibility Requirements */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Entry Criteria"
+            eyebrow="Entry criteria"
             title="Eligibility Requirements"
             description="What we look for in PhD candidates."
           />
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
             <div>
-              <h3 className="font-semibold text-slate-950 mb-6">Core Requirements</h3>
+              <h3 className="font-semibold text-slate-950 mb-6 dark:text-white">Core Requirements</h3>
               <div className="space-y-3">
                 {[
                   "Master's degree or equivalent professional qualification",
@@ -356,17 +357,17 @@ export default function PhDPage() {
                 ].map((req, idx) => (
                   <div key={idx} className="flex gap-3">
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-[#1E40FF] mt-0.5" />
-                    <span className="text-sm text-slate-600">{req}</span>
+                    <span className="text-sm text-slate-600 dark:text-slate-300">{req}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8">
-              <h3 className="font-semibold text-slate-950 mb-4">Academic Readiness</h3>
-              <p className="text-sm text-slate-600 mb-4">
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+              <h3 className="font-semibold text-slate-950 mb-4 dark:text-white">Academic Readiness</h3>
+              <p className="text-sm text-slate-600 mb-4 dark:text-slate-300">
                 We assess your ability to conduct independent research at doctoral level:
               </p>
-              <ul className="space-y-2 text-sm text-slate-600">
+              <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
                 <li>• Research question development</li>
                 <li>• Literature review capability</li>
                 <li>• Methodological understanding</li>
@@ -379,14 +380,14 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 14: Application Journey */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Getting Started"
+            eyebrow="Getting started"
             title="Application Journey"
             description="Your pathway from enquiry to doctoral research."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-7">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-7">
             {[
               { step: "1", title: "Consultation", desc: "Discuss your research interests" },
               { step: "2", title: "Evaluation", desc: "Academic background review" },
@@ -395,14 +396,13 @@ export default function PhDPage() {
               { step: "5", title: "University Select", desc: "Choose your institution" },
               { step: "6", title: "Admission", desc: "Formal offer and acceptance" },
               { step: "7", title: "Research Begins", desc: "Start your doctoral journey" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center">
+            ].map((item) => (
+              <div key={item.step} className="flex flex-col items-center rounded-[8px] border border-slate-200 p-3 dark:border-slate-800">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1E40FF] text-xs font-bold text-white mb-2">
                   {item.step}
                 </div>
-                <h3 className="font-semibold text-slate-950 text-center text-xs mb-1">{item.title}</h3>
-                <p className="text-xs text-slate-600 text-center">{item.desc}</p>
-                {idx < 6 && <div className="text-slate-300 mt-2">↓</div>}
+                <h3 className="font-semibold text-slate-950 text-center text-xs mb-1 dark:text-white">{item.title}</h3>
+                <p className="text-xs text-slate-600 text-center dark:text-slate-300">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -410,10 +410,10 @@ export default function PhDPage() {
       </section>
 
       {/* SECTION 15: Expanded FAQ */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Questions Answered"
+            eyebrow="Questions answered"
             title="PhD Frequently Asked Questions"
             description="Comprehensive answers about pursuing a Doctor of Philosophy."
           />
@@ -423,15 +423,15 @@ export default function PhDPage() {
                 <Accordion.Item
                   key={idx}
                   value={`faq-${idx}`}
-                  className="rounded-[8px] border border-slate-200 bg-white"
+                  className="rounded-[8px] border border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800"
                 >
                   <Accordion.Trigger className="flex w-full items-center justify-between px-6 py-4 text-left hover:bg-slate-50">
-                    <span className="font-semibold text-slate-950">
+                    <span className="font-semibold text-slate-950 dark:text-white">
                       {faq.question}
                     </span>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-slate-600 transition-transform duration-200" />
+                    <ChevronDown className="h-5 w-5 shrink-0 text-slate-600 transition-transform duration-200 dark:text-slate-300" />
                   </Accordion.Trigger>
-                  <Accordion.Content className="border-t border-slate-200 px-6 py-4 text-sm leading-6 text-slate-600">
+                  <Accordion.Content className="border-t border-slate-200 px-6 py-4 text-sm leading-6 text-slate-600 dark:text-slate-300 dark:border-slate-800">
                     {faq.answer}
                   </Accordion.Content>
                 </Accordion.Item>
@@ -441,50 +441,20 @@ export default function PhDPage() {
         </div>
       </section>
 
-      <ConsultationNudge />
 
-      {/* FINAL CTA */}
-      <section className="bg-slate-950 py-24">
+      <section className="bg-[#0f172a] py-20">
         <div className="container-premium text-center">
-          <h2 className="text-3xl sm:text-4xl font-display text-white">
-            Ready to Contribute New Knowledge to the World?
-          </h2>
-          <p className="mt-4 text-base text-slate-300 max-w-2xl mx-auto">
-            Speak with an AcdyOn doctoral advisor to explore research pathways, academic opportunities, and globally recognized PhD programmes.
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#22d3ee]">Expert guidance</p>
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">Speak with an Academic Adviser</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
+            Explore research pathways, supervisor matching, and globally recognised PhD programmes — speak with one of our doctoral advisers at no obligation.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <a
-              href="/book-consultation"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1E40FF] px-8 py-4 text-base font-semibold text-white hover:bg-[#1937dd] transition-colors shadow-[0_18px_40px_rgba(30,64,255,0.22)]"
-            >
-              Book Consultation
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-colors"
-            >
-              Download PhD Guide
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-colors"
-            >
-              Research Assessment
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <a href="/book-consultation" className="inline-flex items-center justify-center rounded-full bg-[#1e40ff] px-8 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(30,64,255,0.25)] transition-all hover:bg-[#1937dd]">Book a Free Consultation</a>
+            <a href="/doctoral-programs" className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5">Explore All Doctoral Pathways</a>
           </div>
         </div>
       </section>
-
-      <FinalCTA />
     </main>
   );
 }

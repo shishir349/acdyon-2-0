@@ -14,22 +14,22 @@ export function CTAButton({ href, children, variant = "primary", className }: CT
     primary:
       "bg-[#1E40FF] text-white shadow-[0_18px_40px_rgba(30,64,255,0.22)] hover:bg-[#1937dd]",
     secondary:
-      "border border-slate-200 bg-white/85 text-slate-950 hover:border-[#1E40FF]/30 hover:bg-white",
+      "border border-slate-200 bg-white/85 text-slate-950 hover:border-[#1E40FF]/30 hover:bg-white dark:border-slate-700 dark:bg-slate-900/85 dark:text-white dark:hover:bg-slate-900",
     dark: "bg-white text-slate-950 hover:bg-slate-100",
-    ghost: "text-slate-700 hover:bg-slate-100",
+    ghost: "text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800",
   };
 
   return (
     <Link
       href={href}
       className={cn(
-        "inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5",
+        "group inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.97] active:duration-150",
         variants[variant],
         className,
       )}
     >
       {children}
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
     </Link>
   );
 }

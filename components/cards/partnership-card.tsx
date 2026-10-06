@@ -14,9 +14,9 @@ export function PartnershipCard({
   logoUrl,
 }: PartnershipCardProps) {
   return (
-    <div className="rounded-[8px] border border-slate-200 bg-white p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <div className="rounded-[8px] border border-slate-200 bg-white p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 dark:border-slate-800 dark:bg-slate-950">
       {logoUrl && (
-        <div className="mb-4 h-16 w-full relative bg-slate-50 rounded-[8px] overflow-hidden flex items-center justify-center">
+        <div className="mb-4 h-16 w-full relative bg-slate-50 rounded-[8px] overflow-hidden flex items-center justify-center dark:bg-slate-900/60">
           <Image
             src={logoUrl}
             alt={institution}
@@ -26,13 +26,13 @@ export function PartnershipCard({
         </div>
       )}
 
-      <h3 className="mb-1 font-semibold text-slate-950">{institution}</h3>
+      <h3 className="mb-1 font-semibold text-slate-950 dark:text-white">{institution}</h3>
 
-      <p className="mb-3 text-xs font-medium uppercase tracking-wide text-slate-500">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
         {country}
       </p>
 
-      <p className="text-sm leading-6 text-slate-600">{collaboration}</p>
+      <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">{collaboration}</p>
     </div>
   )
 }

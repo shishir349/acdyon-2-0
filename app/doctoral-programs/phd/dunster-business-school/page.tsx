@@ -2,14 +2,19 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import {
   CheckCircle2, Award, BookOpen, Globe2, Target, Zap,
-  Users2, TrendingUp, Shield, Lightbulb, Building2, Star
+  Users2, TrendingUp, Shield, Lightbulb, Building2, Star,
+  UserRound, Compass, Rocket, Smartphone, Globe, Settings, Construction,
+  Briefcase, BarChart3, GraduationCap, Landmark, Microscope, Cloud, Ruler,
+  Laptop, Users, PenLine, FileText, MapPin,
 } from 'lucide-react'
+import { DataTabs } from '@/components/ui/data-tabs'
 import { PageHero } from '@/components/sections/page-hero'
 import { SectionHeading } from '@/components/ui/section-heading'
 import { TestimonialCard } from '@/components/cards/testimonial-card'
-import { ConsultationNudge } from '@/components/sections/consultation-nudge'
 import { FAQAccordion } from '@/components/ui/faq-accordion'
 import { RecognitionTiers } from '@/components/ui/recognition-tiers'
+import { ReadMoreText } from '@/components/ui/read-more-text'
+import { BrochureDownloadButton } from '@/components/forms/brochure-download-button'
 
 export const metadata: Metadata = {
   title: 'Doctor of Philosophy (PhD) — Dunster Business School, Switzerland | AcdyOn',
@@ -25,7 +30,7 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 1 · Premium Hero
       ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff,#f8fafc_50%,#eef4ff)] pb-20 pt-36">
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#ffffff,#f8fafc_50%,#eef4ff)] dark:bg-[linear-gradient(135deg,#0a1120,#0f172a_50%,#0b1330)] pb-20 pt-36">
         <div className="absolute right-[-10%] top-20 h-80 w-80 rounded-full bg-[#1E40FF]/10 blur-3xl" />
         <div className="container-premium relative">
 
@@ -34,7 +39,7 @@ export default function DunsterPhDPage() {
             <div className="relative h-14 w-40 overflow-hidden rounded-[4px]">
               <Image src={LOGO} alt="Dunster Business School" fill className="object-contain object-left" />
             </div>
-            <span className="text-2xl" title="Switzerland">🇨🇭</span>
+            <MapPin className="h-5 w-5 text-slate-400" />
             <div className="flex items-center gap-1 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/8 px-3 py-1">
               {[...Array(4)].map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-[#d4af37] text-[#d4af37]" />
@@ -46,10 +51,10 @@ export default function DunsterPhDPage() {
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#1E40FF]">
             Dunster Business School · Zug, Switzerland
           </p>
-          <h1 className="max-w-4xl font-display text-4xl leading-tight text-slate-950 sm:text-5xl md:text-6xl">
+          <h1 className="max-w-4xl font-display text-4xl leading-tight text-slate-950 sm:text-5xl md:text-6xl dark:text-white">
             Swiss Doctoral Research for the World's Next Thought Leaders
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
             A PhD pathway designed for scholars and senior professionals committed to original knowledge contribution,
             academic distinction, and global intellectual impact — anchored in the Swiss tradition of precision and rigour.
           </p>
@@ -60,12 +65,14 @@ export default function DunsterPhDPage() {
             >
               Apply Now
             </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:border-slate-300 hover:shadow-md"
+            <BrochureDownloadButton
+              programmeName="Dunster Business School PhD"
+              fileUrl="/brochures/degrees/dunster-phd.html"
+              sourcePage="/doctoral-programs/phd/dunster-business-school"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-sm font-semibold text-slate-950 transition-all hover:border-slate-300 hover:shadow-md dark:bg-slate-950 dark:text-white dark:border-slate-800"
             >
               Download Brochure
-            </a>
+            </BrochureDownloadButton>
             <a
               href="/book-consultation"
               className="inline-flex items-center justify-center rounded-full border border-[#1E40FF] px-8 py-4 text-sm font-semibold text-[#1E40FF] transition-all hover:bg-[#1E40FF]/5"
@@ -77,7 +84,7 @@ export default function DunsterPhDPage() {
 
         {/* Quick facts bar */}
         <div className="container-premium relative mt-16">
-          <div className="grid gap-6 rounded-[8px] border border-slate-200 bg-white p-8 shadow-sm sm:grid-cols-2 md:grid-cols-5">
+          <div className="grid gap-6 rounded-[8px] border border-slate-200 bg-white p-8 shadow-sm sm:grid-cols-2 md:grid-cols-5 dark:bg-slate-950 dark:border-slate-800">
             {[
               { label: 'Country', value: 'Switzerland' },
               { label: 'Location', value: 'Zug' },
@@ -87,25 +94,37 @@ export default function DunsterPhDPage() {
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-xs font-medium uppercase tracking-wide text-slate-400">{item.label}</p>
-                <p className="mt-1 font-semibold text-slate-950">{item.value}</p>
+                <p className="mt-1 font-semibold text-slate-950 dark:text-white">{item.value}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Hero banner photo */}
+      <section className="relative h-56 w-full overflow-hidden sm:h-72">
+        <Image
+          src="/images/site/hero-phd-library.webp"
+          alt="A university library symbolising doctoral research"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/5 to-transparent dark:from-slate-950 dark:via-slate-950/5" />
+      </section>
+
       {/* ─────────────────────────────────────────────
           SECTION 2 · Why Switzerland
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="The Swiss Advantage"
+            eyebrow="The Swiss advantage"
             title="Why Switzerland Changes Everything"
             description="Switzerland consistently ranks among the world's top nations for research output, academic rigour, and innovation — for reasons that define a doctoral credential's long-term value."
           />
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: Shield,
@@ -132,17 +151,17 @@ export default function DunsterPhDPage() {
                 body: 'Home to ETH Zurich, IMD, University of Zurich, and a thriving private research ecosystem — Switzerland commands serious academic credibility globally.',
               },
             ].map(({ icon: Icon, stat, label, body }) => (
-              <div key={label} className="rounded-[8px] border border-slate-200 bg-white p-8 transition-all hover:shadow-lg">
+              <div key={label} className="rounded-[8px] border border-slate-200 bg-white p-8 transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
                 <Icon className="mb-4 h-8 w-8 text-[#1E40FF]" />
                 <p className="font-display text-4xl font-bold text-[#1E40FF]">{stat}</p>
                 <p className="mb-3 mt-1 text-xs font-bold uppercase tracking-wide text-slate-400">{label}</p>
-                <p className="text-sm leading-6 text-slate-600">{body}</p>
+                <ReadMoreText text={body} className="text-sm leading-6 text-slate-600 dark:text-slate-300" />
               </div>
             ))}
           </div>
 
-          <div className="mt-12 rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-10 text-center">
-            <p className="mx-auto max-w-3xl font-display text-2xl leading-snug text-slate-950 sm:text-3xl">
+          <div className="mt-12 rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-10 text-center dark:bg-slate-900/60 dark:border-slate-800">
+            <p className="mx-auto max-w-3xl font-display text-2xl leading-snug text-slate-950 sm:text-3xl dark:text-white">
               "A Swiss doctoral credential signals precision, rigour, and global intellectual standing — values that define how the world's leading institutions measure academic excellence."
             </p>
           </div>
@@ -152,17 +171,17 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 3 · The Dunster Difference
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="The Swiss Private Model"
+            eyebrow="The Swiss private model"
             title="The Dunster Difference"
             description="Why senior researchers and executives increasingly choose private Swiss business schools for doctoral study over traditional public institutions."
           />
 
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[8px] border border-slate-200 bg-white p-8">
-              <div className="mb-6 inline-block rounded-full bg-slate-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-500">
+            <div className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
+              <div className="mb-6 inline-block rounded-full bg-slate-100 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-slate-500 dark:bg-slate-800/60 dark:text-slate-400">
                 Public University
               </div>
               <div className="space-y-5">
@@ -174,11 +193,11 @@ export default function DunsterPhDPage() {
                   { dim: 'Industry Integration', val: 'Faculty primarily academic — limited current industry exposure' },
                   { dim: 'Candidate Profile', val: 'Predominantly full-time students or early-career researchers' },
                 ].map(({ dim, val }) => (
-                  <div key={dim} className="flex gap-3 border-b border-slate-100 pb-4 last:border-0 last:pb-0">
+                  <div key={dim} className="flex gap-3 border-b border-slate-100 pb-4 last:border-0 last:pb-0 dark:border-slate-800">
                     <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-slate-300" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wide text-slate-400">{dim}</p>
-                      <p className="mt-0.5 text-sm text-slate-600">{val}</p>
+                      <p className="mt-0.5 text-sm text-slate-600 dark:text-slate-300">{val}</p>
                     </div>
                   </div>
                 ))}
@@ -202,7 +221,7 @@ export default function DunsterPhDPage() {
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1E40FF]" />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wide text-[#1E40FF]">{dim}</p>
-                      <p className="mt-0.5 text-sm text-slate-700">{val}</p>
+                      <p className="mt-0.5 text-sm text-slate-700 dark:text-slate-300">{val}</p>
                     </div>
                   </div>
                 ))}
@@ -215,40 +234,19 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 4 · About Dunster Business School
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <SectionHeading eyebrow="About Dunster" title="A Swiss Institution Built for Intellectual Ambition" description="" align="left" />
-              <div className="mt-8 space-y-5 text-slate-600">
-                <p>
-                  Dunster Business School is a private higher education institution incorporated in Switzerland
-                  (ID: CHE-206.619.191), headquartered in Zug — one of Europe's most prestigious business
-                  cantons and home to a thriving international research and executive community.
-                </p>
-                <p>
-                  The school's doctoral programme is built on a singular premise: that original scholarship
-                  should connect rigorous academic standards with the complexity of the real world. Research at
-                  Dunster produces not just dissertations, but frameworks, methodologies, and insights with
-                  lasting professional and intellectual impact.
-                </p>
-                <p>
-                  PhD candidates come from the UAE, Saudi Arabia, Qatar, Mauritius, India, and across Europe —
-                  creating a scholarly community as diverse as the problems worth researching. Supervisors
-                  combine deep academic expertise with current professional relevance.
-                </p>
+              <div className="relative mt-8 h-64 overflow-hidden rounded-[8px] sm:h-80">
+                <Image src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Dunster Business School — Executive Education Environment" fill className="object-cover" unoptimized />
               </div>
             </div>
 
             <div className="space-y-4">
-              <div className="relative h-56 overflow-hidden rounded-[8px] bg-gradient-to-br from-[#1E40FF] to-[#22D3EE]">
-                <div className="flex h-full items-center justify-center text-white">
-                  <div className="text-center">
-                    <p className="mb-2 text-5xl">🏔️</p>
-                    <p className="font-semibold">Zug, Switzerland</p>
-                    <p className="text-sm opacity-75">Europe's Research & Business Capital</p>
-                  </div>
-                </div>
+              <div className="relative h-56 overflow-hidden rounded-[8px]">
+                <Image src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Dunster Business School — Academic Institution" fill className="object-cover" unoptimized />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {[
@@ -256,9 +254,9 @@ export default function DunsterPhDPage() {
                   { stat: '18+', label: 'Nationalities' },
                   { stat: 'Zug', label: 'Canton' },
                 ].map(({ stat, label }) => (
-                  <div key={label} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-4 text-center">
+                  <div key={label} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-4 text-center dark:bg-slate-900/60 dark:border-slate-800">
                     <p className="font-display text-2xl font-bold text-[#1E40FF]">{stat}</p>
-                    <p className="mt-1 text-xs text-slate-500">{label}</p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{label}</p>
                   </div>
                 ))}
               </div>
@@ -270,14 +268,14 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 5 · Why Scholars Choose Dunster
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Programme Advantages"
+            eyebrow="Programme advantages"
             title="Why Scholars Choose Dunster"
             description="Six reasons researchers and senior professionals select a Swiss PhD over other doctoral pathways"
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 Icon: Shield,
@@ -310,10 +308,10 @@ export default function DunsterPhDPage() {
                 description: 'QS 4-Star, EAHEA, QAHE, and ACBSP candidacy create a verifiable recognition profile respected by employers and institutions globally.',
               },
             ].map(({ Icon, title, description }) => (
-              <div key={title} className="rounded-[8px] border border-slate-200 bg-white p-8 transition-all hover:shadow-lg">
+              <div key={title} className="rounded-[8px] border border-slate-200 bg-white p-8 transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
                 <Icon className="mb-4 h-8 w-8 text-[#1E40FF]" />
-                <h3 className="mb-2 font-semibold text-slate-950">{title}</h3>
-                <p className="text-sm leading-6 text-slate-600">{description}</p>
+                <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{title}</h3>
+                <ReadMoreText text={description} className="text-sm leading-6 text-slate-600 dark:text-slate-300" />
               </div>
             ))}
           </div>
@@ -323,53 +321,33 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 6 · Recognition & Academic Standing
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Accreditation & Recognition"
+            eyebrow="Accreditation & recognition"
             title="Recognition & Academic Standing"
             description="A tiered framework of international quality assurance that validates your Dunster PhD credential across institutions and industries"
           />
           <div className="mt-14">
             <RecognitionTiers
               tier1={[
-                {
-                  emoji: '⭐',
-                  title: 'QS 4-Star Rating',
-                  detail: 'Awarded by Quacquarelli Symonds — one of the most prestigious global university rating systems, recognising teaching quality, research, and internationalisation.',
-                },
-                {
-                  emoji: '🏆',
-                  title: 'EAHEA Accreditation',
-                  detail: 'European Association for Higher Education Advancement — full institutional accreditation and quality certification confirming Dunster meets the highest European academic standards.',
-                },
-                {
-                  emoji: '✅',
-                  title: 'QAHE Accreditation',
-                  detail: 'Full accreditation from the International Association for Quality Assurance in Pre-Tertiary & Higher Education — globally recognised across universities, research institutions, and professional bodies.',
-                },
+                { icon: 'star', title: 'QS 4-Star Rating', detail: 'Awarded by Quacquarelli Symonds — one of the most prestigious global university rating systems, recognising teaching quality, research, and internationalisation.' },
+                { icon: 'award', title: 'EAHEA Accreditation', detail: 'European Association for Higher Education Advancement — full institutional accreditation and quality certification confirming Dunster meets the highest European academic standards.' },
+                { icon: 'check', title: 'QAHE Accreditation', detail: 'Full accreditation from the International Association for Quality Assurance in Pre-Tertiary & Higher Education — globally recognised across universities, research institutions, and professional bodies.' },
               ]}
               tier2={[
-                {
-                  emoji: '📘',
-                  title: 'ACBSP Candidate for Accreditation',
-                  detail: 'Recognised candidacy from the Accreditation Council for Business Schools and Programs — validating the business and management doctoral programme against internationally respected standards.',
-                },
-                {
-                  emoji: '🎓',
-                  title: 'AACSB Business Education Alliance Member',
-                  detail: 'The gold standard in business school accreditation, reflecting Dunster\'s commitment to quality research, faculty excellence, and doctoral student outcomes.',
-                },
+                { icon: 'book', title: 'ACBSP Candidate for Accreditation', detail: 'Recognised candidacy from the Accreditation Council for Business Schools and Programs — validating the business and management doctoral programme against internationally respected standards.' },
+                { icon: 'graduation', title: 'AACSB Business Education Alliance Member', detail: "The gold standard in business school accreditation, reflecting Dunster's commitment to quality research, faculty excellence, and doctoral student outcomes." },
               ]}
               tier3={[
-                { emoji: '🌍', title: 'AROQA', detail: 'Arab Organisation for Quality Assurance in Education — through QAHE affiliation' },
-                { emoji: '🏛️', title: 'CONIES, Austria', detail: 'Council on International Higher Education Supervision — institutional membership' },
-                { emoji: '🇮🇩', title: 'ACE Indonesia', detail: 'Accreditation Council for Education — through QAHE association' },
-                { emoji: '🇮🇳', title: 'TCODL India', detail: 'Tamilnadu Council for Open and Distance Learning — through QAHE MOU' },
-                { emoji: '📊', title: 'International Education Board', detail: 'Asia-Pacific Quality Network associate — through QAHE' },
-                { emoji: '🇬🇧', title: 'UKAF CB-035', detail: 'UK Akkreditering Forum — ISO certification body accreditation' },
-                { emoji: '📋', title: 'UKcert', detail: 'UK-based independent certification body affirming international standards compliance' },
-                { emoji: '📈', title: 'Dun & Bradstreet', detail: 'Global business data affiliation — institutional credibility and trust framework' },
+                { icon: 'globe', title: 'AROQA', detail: 'Arab Organisation for Quality Assurance in Education — through QAHE affiliation' },
+                { icon: 'landmark', title: 'CONIES, Austria', detail: 'Council on International Higher Education Supervision — institutional membership' },
+                { icon: 'globe', title: 'ACE Indonesia', detail: 'Accreditation Council for Education — through QAHE association' },
+                { icon: 'globe', title: 'TCODL India', detail: 'Tamilnadu Council for Open and Distance Learning — through QAHE MOU' },
+                { icon: 'chart', title: 'International Education Board', detail: 'Asia-Pacific Quality Network associate — through QAHE' },
+                { icon: 'globe', title: 'UKAF CB-035', detail: 'UK Akkreditering Forum — ISO certification body accreditation' },
+                { icon: 'file', title: 'UKcert', detail: 'UK-based independent certification body affirming international standards compliance' },
+                { icon: 'trending', title: 'Dun & Bradstreet', detail: 'Global business data affiliation — institutional credibility and trust framework' },
               ]}
             />
           </div>
@@ -379,14 +357,14 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 7 · Global Quality Framework
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="What Accreditation Means For You"
+            eyebrow="What accreditation means for you"
             title="Global Quality Framework"
             description="Each body plays a distinct role in ensuring your PhD carries lasting academic and professional credibility"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 body: 'EAHEA',
@@ -415,12 +393,12 @@ export default function DunsterPhDPage() {
             ].map(({ body, benefit, what, color }) => (
               <div
                 key={body}
-                className="rounded-[8px] border border-slate-200 bg-white p-8"
+                className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800"
                 style={{ borderTopColor: color, borderTopWidth: 3 }}
               >
                 <p className="mb-1 text-xs font-bold uppercase tracking-wide text-slate-400">{body}</p>
-                <h3 className="mb-3 font-semibold text-slate-950">{benefit}</h3>
-                <p className="text-sm leading-6 text-slate-600">{what}</p>
+                <h3 className="mb-3 font-semibold text-slate-950 dark:text-white">{benefit}</h3>
+                <ReadMoreText text={what} className="text-sm leading-6 text-slate-600 dark:text-slate-300" />
               </div>
             ))}
           </div>
@@ -430,30 +408,30 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 8 · Research Areas
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Research Specialisations"
+            eyebrow="Research specialisations"
             title="PhD Research Areas"
             description="Choose a research domain where your professional expertise enables original scholarly contribution"
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 sm:grid-cols-2 md:grid-cols-4">
             {[
-              { area: 'Leadership & Organisational Theory', icon: '👔' },
-              { area: 'Business Strategy & Competitive Intelligence', icon: '♟️' },
-              { area: 'Innovation, Technology & Society', icon: '💡' },
-              { area: 'Entrepreneurship & New Venture Research', icon: '🚀' },
-              { area: 'Digital Transformation & AI Governance', icon: '📱' },
-              { area: 'Global & Cross-Cultural Management', icon: '🌍' },
-              { area: 'Operations Research & Systems Thinking', icon: '⚙️' },
-              { area: 'Organisational Behaviour & Change', icon: '🏗️' },
-            ].map(({ area, icon }) => (
+              { area: 'Leadership & Organisational Theory', icon: UserRound },
+              { area: 'Business Strategy & Competitive Intelligence', icon: Compass },
+              { area: 'Innovation, Technology & Society', icon: Lightbulb },
+              { area: 'Entrepreneurship & New Venture Research', icon: Rocket },
+              { area: 'Digital Transformation & AI Governance', icon: Smartphone },
+              { area: 'Global & Cross-Cultural Management', icon: Globe },
+              { area: 'Operations Research & Systems Thinking', icon: Settings },
+              { area: 'Organisational Behaviour & Change', icon: Construction },
+            ].map(({ area, icon: Icon }) => (
               <div
                 key={area}
-                className="rounded-[8px] border border-slate-200 bg-white p-6 text-center transition-all hover:border-[#1E40FF]/30 hover:shadow-lg"
+                className="rounded-[8px] border border-slate-200 bg-white p-6 text-center transition-all hover:border-[#1E40FF]/30 hover:shadow-lg dark:bg-slate-950 dark:border-slate-800"
               >
-                <div className="mb-3 text-3xl">{icon}</div>
-                <h3 className="text-sm font-semibold text-slate-950">{area}</h3>
+                <div className="mb-3"><Icon className="h-7 w-7 text-[#1E40FF]" /></div>
+                <h3 className="text-sm font-semibold text-slate-950 dark:text-white">{area}</h3>
               </div>
             ))}
           </div>
@@ -463,14 +441,14 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 9 · Doctoral Journey
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="From Application to Award"
+            eyebrow="From application to award"
             title="Your Doctoral Journey"
             description="A structured, supervised pathway from first contact to doctoral graduation"
           />
-          <div className="mt-14 mx-auto max-w-3xl space-y-3">
+          <div className="mt-14 mx-auto max-w-3xl flex flex-col gap-3">
             {[
               { n: '01', title: 'Application & Eligibility Review', detail: 'Submit your academic credentials and professional background. Initial assessment and programme fit evaluation within 5 business days.', accent: '#1E40FF' },
               { n: '02', title: 'Research Proposal Development', detail: 'Develop a structured research proposal including research questions, theoretical framework, and proposed methodology — supported by admissions faculty.', accent: '#22D3EE' },
@@ -482,7 +460,7 @@ export default function DunsterPhDPage() {
             ].map((phase) => (
               <div
                 key={phase.n}
-                className="flex gap-5 rounded-[8px] border border-slate-200 bg-white p-5"
+                className="flex gap-5 rounded-[8px] border border-slate-200 bg-white p-5 dark:bg-slate-950 dark:border-slate-800"
                 style={{ borderLeftColor: phase.accent, borderLeftWidth: 4 }}
               >
                 <div
@@ -492,8 +470,8 @@ export default function DunsterPhDPage() {
                   {phase.n}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-950">{phase.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{phase.detail}</p>
+                  <h3 className="font-semibold text-slate-950 dark:text-white">{phase.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{phase.detail}</p>
                 </div>
               </div>
             ))}
@@ -504,85 +482,125 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 10 · Who This Programme Is For
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Ideal Candidates"
+            eyebrow="Ideal candidates"
             title="Who This Programme Is For"
             description="The Dunster PhD is designed for those who seek to make a lasting intellectual contribution — in academia, practice, or policy"
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {[
-              { role: 'Founder & Entrepreneur', icon: '🚀', description: 'Transform proprietary business insights into original research that defines your industry and academic field' },
-              { role: 'Chief Executive', icon: '👔', description: 'Add the highest academic credential to your executive profile — board, advisory, and thought leadership positions' },
-              { role: 'Director / Senior VP', icon: '📊', description: 'Develop doctoral research capability that elevates strategic decision-making and executive positioning' },
-              { role: 'Management Consultant', icon: '💼', description: 'Build intellectual authority through published research — command premium positioning in competitive markets' },
-              { role: 'Academic Professional', icon: '🎓', description: 'Progress to senior faculty, research directorship, or professorial positions with a Swiss doctoral credential' },
-              { role: 'Government Official', icon: '🏛️', description: 'Apply doctoral-level research methodology to public policy — contribute to nationally and globally significant decisions' },
-              { role: 'Research Scholar', icon: '🔬', description: 'Pursue original scholarship in a flexible environment that supports independent, rigorous academic inquiry' },
-            ].map((audience) => (
-              <div key={audience.role} className="rounded-[8px] border border-slate-200 bg-white p-7 text-center transition-all hover:shadow-lg">
-                <div className="mb-4 text-4xl">{audience.icon}</div>
-                <h3 className="mb-2 font-semibold text-slate-950">{audience.role}</h3>
-                <p className="text-sm leading-5 text-slate-500">{audience.description}</p>
-              </div>
-            ))}
-          </div>
+          <DataTabs
+            className="mt-14"
+            tabs={[
+              {
+                label: 'Researchers & academics',
+                panel: (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {[
+                      { role: 'Research scholar', icon: Microscope, description: 'Pursue original scholarship in a flexible environment that supports independent, rigorous academic inquiry' },
+                      { role: 'Academic professional', icon: GraduationCap, description: 'Progress to senior faculty, research directorship, or professorial positions with a Swiss doctoral credential' },
+                    ].map((a) => (
+                      <div key={a.role} className="rounded-[8px] border border-slate-200 bg-white p-7 text-center transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
+                        <div className="mb-4"><a.icon className="h-9 w-9 text-[#1E40FF]" /></div>
+                        <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{a.role}</h3>
+                        <p className="text-sm leading-5 text-slate-500 dark:text-slate-400">{a.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                ),
+              },
+              {
+                label: 'Senior professionals',
+                panel: (
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    {[
+                      { role: 'Chief executive', icon: Briefcase, description: 'Add the highest academic credential to your executive profile — board, advisory, and thought leadership positions' },
+                      { role: 'Director / Senior VP', icon: BarChart3, description: 'Develop doctoral research capability that elevates strategic decision-making and executive positioning' },
+                      { role: 'Management consultant', icon: UserRound, description: 'Build intellectual authority through published research — command premium positioning in competitive markets' },
+                    ].map((a) => (
+                      <div key={a.role} className="rounded-[8px] border border-slate-200 bg-white p-7 text-center transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
+                        <div className="mb-4"><a.icon className="h-9 w-9 text-[#1E40FF]" /></div>
+                        <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{a.role}</h3>
+                        <p className="text-sm leading-5 text-slate-500 dark:text-slate-400">{a.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                ),
+              },
+              {
+                label: 'Entrepreneurs & public sector',
+                panel: (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {[
+                      { role: 'Founder & entrepreneur', icon: Rocket, description: 'Transform proprietary business insights into original research that defines your industry and academic field' },
+                      { role: 'Government official', icon: Landmark, description: 'Apply doctoral-level research methodology to public policy — contribute to nationally and globally significant decisions' },
+                    ].map((a) => (
+                      <div key={a.role} className="rounded-[8px] border border-slate-200 bg-white p-7 text-center transition-all hover:shadow-lg dark:bg-slate-950 dark:border-slate-800">
+                        <div className="mb-4"><a.icon className="h-9 w-9 text-[#1E40FF]" /></div>
+                        <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{a.role}</h3>
+                        <p className="text-sm leading-5 text-slate-500 dark:text-slate-400">{a.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                ),
+              },
+            ]}
+          />
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────
           SECTION 11 · Industry & Professional Ecosystem
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Professional Affiliations"
+            eyebrow="Professional affiliations"
             title="Industry & Professional Ecosystem"
             description="Dunster's professional affiliations ensure PhD research stays relevant to the industries that shape the modern world"
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: 'ACCA',
                 full: 'Association of Chartered Certified Accountants',
                 benefit: 'Silver Learning Partner status. Financial governance and accountability frameworks enrich research in organisational strategy and management.',
-                icon: '📊',
+                icon: BarChart3,
               },
               {
                 name: 'AWS',
                 full: 'Amazon Web Services',
                 benefit: 'Cloud computing and AI ecosystem. Grounds technology management research in the infrastructure and platforms transforming every industry.',
-                icon: '☁️',
+                icon: Cloud,
               },
               {
                 name: 'PMI',
                 full: 'Project Management Institute',
                 benefit: 'Global standards for programme and project research. Adds methodological structure to research in change management and complex systems.',
-                icon: '📐',
+                icon: Ruler,
               },
               {
                 name: 'CompTIA',
                 full: 'Computing Technology Industry Association',
                 benefit: 'Technology industry validation. Supports doctoral research in digital transformation, cybersecurity, and information governance.',
-                icon: '💻',
+                icon: Laptop,
               },
               {
                 name: 'HRCI',
                 full: 'Human Resource Certification Institute',
                 benefit: 'Global HR excellence standards. Provides professional validation for research into talent strategy, organisational behaviour, and people leadership.',
-                icon: '👥',
+                icon: Users,
               },
-            ].map(({ name, full, benefit, icon }) => (
-              <div key={name} className="rounded-[8px] border border-slate-200 bg-white p-8">
+            ].map(({ name, full, benefit, icon: Icon }) => (
+              <div key={name} className="rounded-[8px] border border-slate-200 bg-white p-8 dark:bg-slate-950 dark:border-slate-800">
                 <div className="mb-3 flex items-center gap-3">
-                  <span className="text-3xl">{icon}</span>
+                  <Icon className="h-7 w-7 text-[#1E40FF]" />
                   <div>
-                    <p className="font-bold text-slate-950">{name}</p>
+                    <p className="font-bold text-slate-950 dark:text-white">{name}</p>
                     <p className="text-xs text-slate-400">{full}</p>
                   </div>
                 </div>
-                <p className="text-sm leading-6 text-slate-600">{benefit}</p>
+                <ReadMoreText text={benefit} className="text-sm leading-6 text-slate-600 dark:text-slate-300" />
               </div>
             ))}
           </div>
@@ -592,61 +610,26 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 12 · Graduate Outcomes
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="After Your PhD"
+            eyebrow="After your PhD"
             title="Graduate Outcomes"
             description="What a Dunster PhD enables — in academic, professional, and thought leadership terms"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { outcome: 'Thought Leadership', detail: 'Publish research, deliver keynotes, and become the definitive academic voice in your professional domain.', icon: '🖊️' },
-              { outcome: 'Academic Advancement', detail: 'Qualify for professorial, associate professor, and research director roles at business schools worldwide.', icon: '🎓' },
-              { outcome: 'Consulting Authority', detail: 'Command premium engagements as an advisor, researcher, and independent scholar with doctoral standing.', icon: '💡' },
-              { outcome: 'Board-Level Credibility', detail: 'The PhD increasingly commands respect in board advisory and governance contexts, particularly in regulated industries.', icon: '🏛️' },
-              { outcome: 'Research Capability', detail: 'Design rigorous research programmes that influence strategy, policy, and industry practice at the highest level.', icon: '🔬' },
-              { outcome: 'Global Influence', detail: 'Contribute to the international scholarly conversation — publications, citations, and collaborative research networks.', icon: '🌍' },
-            ].map(({ outcome, detail, icon }) => (
-              <div key={outcome} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8">
-                <div className="mb-4 text-4xl">{icon}</div>
-                <h3 className="mb-2 font-semibold text-slate-950">{outcome}</h3>
-                <p className="text-sm leading-6 text-slate-600">{detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────
-          SECTION 13 · Swiss Education Gallery
-      ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
-        <div className="container-premium">
-          <SectionHeading
-            eyebrow="Swiss Academic Environment"
-            title="Swiss Education Gallery"
-            description="The environment that shapes every Dunster doctoral scholar"
-          />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              { label: 'Zug Research District', sub: 'Switzerland\'s premier business and research canton', gradient: 'from-[#1E40FF] to-[#22D3EE]', icon: '🏔️' },
-              { label: 'Doctoral Research Culture', sub: 'Rigorous, original, applied scholarship', gradient: 'from-[#1E40FF] to-[#6366f1]', icon: '🔬' },
-              { label: 'PhD Graduation Ceremonies', sub: 'Swiss academic tradition and excellence', gradient: 'from-[#d4af37] to-[#f59e0b]', icon: '🎓' },
-              { label: 'International Scholar Community', sub: '18+ nationalities in collaborative research', gradient: 'from-[#22D3EE] to-[#0891b2]', icon: '🌍' },
-              { label: 'Expert Supervision', sub: 'Specialist supervisors across all research domains', gradient: 'from-[#1E40FF] to-[#1d4ed8]', icon: '👔' },
-              { label: 'Global Alumni Network', sub: 'PhD graduates driving impact across 5 continents', gradient: 'from-[#6366f1] to-[#1E40FF]', icon: '🤝' },
-            ].map(({ label, sub, gradient, icon }) => (
-              <div key={label} className="overflow-hidden rounded-[8px] border border-slate-200 transition-all hover:shadow-lg">
-                <div className={`flex h-52 items-center justify-center bg-gradient-to-br ${gradient}`}>
-                  <div className="text-center text-white">
-                    <p className="mb-2 text-5xl">{icon}</p>
-                    <p className="font-semibold">{label}</p>
-                  </div>
-                </div>
-                <div className="bg-white p-4">
-                  <p className="text-sm text-slate-500">{sub}</p>
-                </div>
+              { outcome: 'Thought Leadership', detail: 'Publish research, deliver keynotes, and become the definitive academic voice in your professional domain.', icon: PenLine },
+              { outcome: 'Academic Advancement', detail: 'Qualify for professorial, associate professor, and research director roles at business schools worldwide.', icon: GraduationCap },
+              { outcome: 'Consulting Authority', detail: 'Command premium engagements as an advisor, researcher, and independent scholar with doctoral standing.', icon: Lightbulb },
+              { outcome: 'Board-Level Credibility', detail: 'The PhD increasingly commands respect in board advisory and governance contexts, particularly in regulated industries.', icon: Landmark },
+              { outcome: 'Research Capability', detail: 'Design rigorous research programmes that influence strategy, policy, and industry practice at the highest level.', icon: Microscope },
+              { outcome: 'Global Influence', detail: 'Contribute to the international scholarly conversation — publications, citations, and collaborative research networks.', icon: Globe },
+            ].map(({ outcome, detail, icon: Icon }) => (
+              <div key={outcome} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-8 dark:bg-slate-900/60 dark:border-slate-800">
+                <div className="mb-4"><Icon className="h-9 w-9 text-[#1E40FF]" /></div>
+                <h3 className="mb-2 font-semibold text-slate-950 dark:text-white">{outcome}</h3>
+                <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">{detail}</p>
               </div>
             ))}
           </div>
@@ -656,61 +639,91 @@ export default function DunsterPhDPage() {
       {/* ─────────────────────────────────────────────
           SECTION 14 · Alumni Voices
       ───────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Alumni Voices"
+            eyebrow="Alumni voices"
             title="What Dunster Graduates Say"
             description="Researchers and executives who transformed their intellectual standing through Swiss doctoral education"
           />
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             <TestimonialCard
               name="Dr. Laksh Narayanan G."
               role="Research Director"
               company="India"
               quote="The Swiss credential changed how academic institutions and clients engage with my work. The rigour of the PhD process gave me tools I use every day in research."
+              imageUrl="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80"
             />
             <TestimonialCard
               name="Dr. Gautam Kumar"
               role="Associate Professor"
               company="Business University"
               quote="Dunster's supervision model is exceptional. My supervisor challenged every assumption in my research — producing scholarship I'm genuinely proud of."
+              imageUrl="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
             />
             <TestimonialCard
               name="Dr. Shiv Kumar Dadar"
               role="Senior Policy Advisor"
               company="Government"
               quote="My PhD research directly influenced national policy decisions. Dunster's applied research model made that possible in a way a purely theoretical programme never could have."
+              imageUrl="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80"
             />
             <TestimonialCard
               name="Dr. Jeegnesh Trivedi"
               role="Executive Consultant"
               company="Management Consulting"
               quote="The international cohort was an education in itself. Collaborating with researchers from the Gulf, Africa, and Europe reshaped how I think about business problems."
+              imageUrl="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=150&q=80"
             />
             <TestimonialCard
               name="Dr. Asmed BOOLAKY"
               role="Dean of Research"
               company="Business School, Mauritius"
               quote="I chose Dunster because of the QS rating and the EAHEA accreditation. Both are immediately recognised by the institutions I collaborate with globally."
+              imageUrl="https://images.unsplash.com/photo-1484515991647-c5760fcecfc7?auto=format&fit=crop&w=150&q=80"
             />
             <TestimonialCard
               name="Dr. Hariraj Chouhan"
               role="Founder & CEO"
               company="Technology Ventures"
               quote="My dissertation became the foundation of our company's R&D strategy. The Swiss private model gave me freedom to research what actually matters — not just what gets published."
+              imageUrl="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
             />
           </div>
         </div>
       </section>
 
       {/* ─────────────────────────────────────────────
-          SECTION 15 · FAQs
+          SECTION 15 · Certificate Showcase
       ───────────────────────────────────────────── */}
-      <section className="bg-[#F8FAFC] py-24">
+      <section className="bg-white py-24 dark:bg-slate-950">
+        <div className="container-premium">
+          <SectionHeading eyebrow="Credentials" title="Your Doctoral Achievement" description="Official PhD credentials recognised globally for academic and professional advancement." />
+          <div className="mx-auto mt-14 max-w-3xl">
+            <div className="overflow-hidden rounded-[8px] border border-slate-200 bg-white shadow-lg dark:bg-slate-950 dark:border-slate-800" style={{aspectRatio: '1.41/1'}}>
+              <div className="relative h-full w-full">
+                <Image src="https://sohhmxayptiosflmlxuu.supabase.co/storage/v1/object/public/brochures/Certificates/DBS%20PHD.jpeg" alt="Dunster Business School PhD Certificate" fill className="object-contain p-4" unoptimized />
+              </div>
+            </div>
+            <p className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">Official Dunster Business School PhD Certificate</p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+              {['Doctor of Philosophy Degree', 'Academic Transcript', 'Thesis Completion Record', 'Research Supervision Record', 'Alumni Membership', 'Graduation Eligibility'].map((item) => (
+                <div key={item} className="rounded-[8px] border border-slate-200 bg-[#F8FAFC] p-4 text-center dark:bg-slate-900/60 dark:border-slate-800">
+                  <p className="text-sm font-semibold text-slate-950 dark:text-white">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          SECTION 16 · FAQs
+      ───────────────────────────────────────────── */}
+      <section className="bg-[#F8FAFC] py-24 dark:bg-slate-900/60">
         <div className="container-premium">
           <SectionHeading
-            eyebrow="Common Questions"
+            eyebrow="Common questions"
             title="Frequently Asked Questions"
             description="Everything you need to know before beginning your Dunster PhD journey"
           />
@@ -772,44 +785,32 @@ export default function DunsterPhDPage() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          FINAL CTA
+          ADVISER CTA
       ───────────────────────────────────────────── */}
-      <section className="bg-slate-950 py-24">
+      <section className="bg-[#0f172a] py-20">
         <div className="container-premium text-center">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#d4af37]">
-            Your Intellectual Legacy
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#22d3ee]">Expert guidance</p>
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">Speak with an Academic Adviser</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
+            Discuss your research interests, career goals, and eligibility for the Dunster PhD — your path to Swiss doctoral standing starts with a conversation.
           </p>
-          <h2 className="mx-auto max-w-3xl font-display text-4xl leading-tight text-white sm:text-5xl">
-            Advance Your Professional Legacy Through Swiss Doctoral Education
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
-            Join a community of doctoral scholars earning their PhD from one of Switzerland's
-            most internationally recognised private business schools.
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <a
               href="/book-consultation"
-              className="inline-flex items-center rounded-full bg-[#1E40FF] px-8 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(30,64,255,0.22)] transition-all hover:bg-[#1937dd]"
+              className="inline-flex items-center justify-center rounded-full bg-[#1e40ff] px-8 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(30,64,255,0.25)] transition-all hover:bg-[#1937dd]"
             >
-              Apply Now
+              Book a Free Consultation
             </a>
             <a
-              href="/book-consultation"
-              className="inline-flex items-center rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
+              href="/doctoral-programs/phd"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white/40 hover:bg-white/5"
             >
-              Book Consultation
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center rounded-full border border-[#d4af37]/40 px-8 py-4 text-sm font-semibold text-[#d4af37] transition-all hover:border-[#d4af37]/60 hover:bg-[#d4af37]/5"
-            >
-              Download Brochure
+              Explore All PhD Programmes
             </a>
           </div>
         </div>
       </section>
 
-      <ConsultationNudge />
     </main>
   )
 }
