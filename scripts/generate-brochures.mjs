@@ -189,7 +189,7 @@ const automationHtml = pageShell({
   universities: SHARED_UNIVERSITIES,
   sections: [
     { title: "Who This Programme Is For", body: "Executives, consultants, and working professionals who want applied AI skills without becoming engineers. No prior coding experience required — the programme starts with no-code automation tools and introduces Python basics only where directly useful for agent development." },
-    { title: "Time Commitment", body: "10–15 hours per week, including live mentorship sessions, structured async modules, and project work. A 30-day money-back guarantee applies from enrolment." },
+    { title: "Time Commitment", body: "10–15 hours per week, including live mentorship sessions, structured async modules, and project work. Payments are covered by our Refund Policy." },
   ],
 });
 

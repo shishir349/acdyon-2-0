@@ -46,7 +46,7 @@ const faqs = [
   { q: 'What career roles does this programme prepare me for?', a: 'Graduates are prepared for roles including SOC Analyst, Security Analyst, Cybersecurity Associate, Cloud Security Associate, Junior Penetration Tester, Security Operations Specialist, and AI Security Analyst.' },
   { q: 'What is the time commitment per week?', a: 'Expect to commit 15–20 hours per week, including live sessions, lab work, and self-study. The programme is structured for working professionals who can dedicate focused time to skill-building.' },
   { q: 'What upgrade pathways are available after completion?', a: 'Graduates can upgrade to a Microsoft AI-900 certification (USD 200 additional) or pursue a Master\'s Degree Progression Path through partner universities like Kennedy University and Dunster Business School (USD 3,000 additional, 6 more months).' },
-  { q: 'Is there a refund policy?', a: 'Yes. Students may request a full refund within 30 calendar days from the date of enrolment or first payment. After the initial 30-day period, no refunds shall be issued.' },
+  { q: 'Is there a refund policy?', a: 'Yes. Refund requests are considered within a 48-hour cooling-off window from payment, before institutional submission begins. See our Refund Policy for full terms and eligibility.' },
 ]
 
 export default function CybersecurityMasteryPage() {
@@ -59,12 +59,7 @@ export default function CybersecurityMasteryPage() {
         <div className="absolute left-[-6%] bottom-0 h-64 w-64 rounded-full bg-[#22D3EE]/15 blur-3xl" />
 
         <div className="container-premium relative pb-16">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-5 py-2.5 shadow-[0_0_20px_rgba(212,175,55,0.15)]">
-            <Shield className="h-4 w-4 text-[#D4AF37]" />
-            <span className="text-sm font-bold text-[#D4AF37]">30-Day Money Back Guarantee</span>
-          </div>
-
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 px-4 py-2 ml-3">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 px-4 py-2">
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#22D3EE]">Industry-Focused Cybersecurity Training</span>
           </div>
 
@@ -121,7 +116,7 @@ export default function CybersecurityMasteryPage() {
           </div>
 
           <p className="mt-6 max-w-2xl text-xs leading-5 text-slate-500 dark:text-slate-400">
-            Try the programme risk-free. If you decide it is not the right fit within the first 30 days of enrolment, you may request a refund in accordance with our refund policy.
+            Payments are covered by our Refund Policy, including a 48-hour cooling-off window before institutional submission begins.
           </p>
         </div>
       </section>
