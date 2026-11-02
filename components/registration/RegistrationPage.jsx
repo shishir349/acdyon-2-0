@@ -20,6 +20,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { submitRegistration } from "@/lib/supabase";
+import { trackRegistrationCompleted } from "@/lib/oai-conversion";
 import { partnerUniversities } from "@/lib/data/site";
 
 /* ────────────────────────────────────────────────────────────
@@ -221,6 +222,7 @@ export default function RegistrationPage({ showThemeToggle = false }) {
     }
 
     track("payment_redirect", { provider: country.provider });
+    trackRegistrationCompleted();
     window.location.href = country.link;
   }
 

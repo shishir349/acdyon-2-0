@@ -32,3 +32,7 @@ public/api/_config.php
 public/api/_config.php
 out/api/_config.php
 acdyon-deploy*.tar.gz
+
+# OpenAI Ads conversions API key
+public/api/_oai_config.php
+out/api/_oai_config.php

@@ -52,6 +52,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* OpenAI Ads (ChatGPT Ads) conversion pixel */}
+        <Script
+          id="oai-pixel-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.oaiq=window.oaiq||function(){(window.oaiq.q=window.oaiq.q||[]).push(arguments)};oaiq("init",{pixelId:"TxB1TEZZJHeLYnpYBMgsC7"});`,
+          }}
+        />
+        <Script
+          id="oai-pixel-sdk"
+          src="https://bzrcdn.openai.com/sdk/oaiq.min.js"
+          strategy="afterInteractive"
+        />
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
