@@ -57,7 +57,7 @@ export default function RootLayout({
           id="oai-pixel-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `window.oaiq=window.oaiq||function(){(window.oaiq.q=window.oaiq.q||[]).push(arguments)};oaiq("init",{pixelId:"TxB1TEZZJHeLYnpYBMgsC7"});`,
+            __html: `window.oaiq=window.oaiq||function(){(window.oaiq.q=window.oaiq.q||[]).push(arguments)};oaiq("init",{pixelId:"4uRTuWmMGu1HFxdvQkTKmu"});`,
           }}
         />
         <Script
