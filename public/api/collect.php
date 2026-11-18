@@ -9,7 +9,7 @@
 //   ['url' => 'https://<ref>.supabase.co/functions/v1/website-leads-webhook', 'secret' => '<WEBSITE_LEADS_SECRET>']
 // Never blocks the visitor: CRM failure is logged and still answers 200.
 
-const ALLOWED_ORIGINS = ['https://acdyon.com', 'https://www.acdyon.com'];
+const ALLOWED_ORIGINS = ['https://acdyon.com', 'https://www.acdyon.com', 'https://ads.acdyon.com'];
 const MAX_BODY = 20000;
 const RATE_MAX = 20;      // requests per IP per window
 const RATE_WINDOW = 60;   // seconds

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { CalendarCheck, ChevronDown, Search } from 'lucide-react'
 import { submitConsultationRequest } from '@/lib/supabase'
 import type { ConsultationData } from '@/lib/types/forms'
@@ -143,6 +144,7 @@ export function ConsultationForm({ sourcePage }: ConsultationFormProps) {
     country: '',
     areaOfInterest: 'Doctoral Programs (DBA / PhD)',
     goals: '',
+    smsConsent: false,
     sourcePage: sourcePage || 'book-consultation',
   })
 
@@ -229,6 +231,24 @@ export function ConsultationForm({ sourcePage }: ConsultationFormProps) {
             required
           />
         </label>
+        <label className="flex items-start gap-3 sm:col-span-2 text-sm text-slate-600 dark:text-slate-300">
+          <input
+            type="checkbox"
+            name="smsConsent"
+            checked={formData.smsConsent}
+            onChange={(e) => {
+              setFormData((prev) => ({ ...prev, smsConsent: e.target.checked }))
+              setError('')
+            }}
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-[#1E40FF] focus:ring-[#1E40FF] dark:border-slate-600"
+          />
+          <span>
+            I agree to receive SMS messages from AcdyOn regarding appointment reminders, customer
+            support, service notifications, delivery notifications, and educational updates.
+            Message frequency varies. Message and data rates may apply. Reply STOP to opt out and
+            HELP for assistance.
+          </span>
+        </label>
         <div className="grid gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
           Country
           <CountryDropdown
@@ -271,6 +291,18 @@ export function ConsultationForm({ sourcePage }: ConsultationFormProps) {
           required
         />
       </label>
+
+      <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
+        By submitting this form, you agree to our{' '}
+        <Link href="/privacy-policy" className="text-[#1E40FF] hover:underline">
+          Privacy Policy
+        </Link>{' '}
+        and{' '}
+        <Link href="/terms-and-conditions" className="text-[#1E40FF] hover:underline">
+          Terms &amp; Conditions
+        </Link>
+        .
+      </p>
 
       <button
         type="submit"

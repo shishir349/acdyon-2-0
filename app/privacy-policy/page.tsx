@@ -69,23 +69,31 @@ Application data is typically retained for the duration of the academic programm
 To exercise these rights, contact us at: privacy@acdyon.com`,
   },
   {
-    title: '7. Cookies',
+    title: '7. SMS Communications',
+    content: `If you opt in to SMS messages on our forms, AcdyOn may text you regarding appointment reminders, customer support, service notifications, delivery notifications, and educational updates.
+
+Message frequency varies. Message and data rates may apply. Reply STOP at any time to opt out of SMS messages, or HELP for assistance.
+
+Mobile opt-in data and consent are never sold or shared with third parties for marketing purposes.`,
+  },
+  {
+    title: '8. Cookies',
     content: `We use cookies and similar tracking technologies to enhance your experience on our website. Please refer to our Cookie Policy for detailed information on the types of cookies used and how to manage your preferences.`,
   },
   {
-    title: '8. Security',
+    title: '9. Security',
     content: `We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction. However, no method of transmission over the internet is completely secure and we cannot guarantee absolute security.`,
   },
   {
-    title: '9. International Transfers',
+    title: '10. International Transfers',
     content: `AcdyOn operates globally. Your information may be transferred to and processed in countries other than your country of residence, including the United States and India. We take steps to ensure such transfers comply with applicable data protection laws.`,
   },
   {
-    title: '10. Changes to This Policy',
+    title: '11. Changes to This Policy',
     content: `We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. Continued use of our services after changes are posted constitutes acceptance of the revised policy.`,
   },
   {
-    title: '11. Contact Us',
+    title: '12. Contact Us',
     content: `For privacy-related questions or requests:
 
 Email: privacy@acdyon.com

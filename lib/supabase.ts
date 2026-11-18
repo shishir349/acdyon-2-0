@@ -168,7 +168,7 @@ export async function submitConsultationRequest(data: ConsultationData): Promise
     return { success: false, message: 'Please tell us your goals' }
   }
 
-  pushToCrm({ formType: 'consultation', fullName: data.fullName, email: data.email, phone: data.phone, country: data.country, message: data.goals, sourcePage: data.sourcePage, extra: { interest: data.areaOfInterest } })
+  pushToCrm({ formType: 'consultation', fullName: data.fullName, email: data.email, phone: data.phone, country: data.country, message: data.goals, sourcePage: data.sourcePage, extra: { interest: data.areaOfInterest, sms_consent: String(data.smsConsent) } })
 
   try {
     const supabase = getSupabase() as any

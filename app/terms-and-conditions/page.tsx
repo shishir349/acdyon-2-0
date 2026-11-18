@@ -71,13 +71,19 @@ You may not reproduce, copy, distribute, or create derivative works from our con
 Our total liability in connection with any service shall not exceed the fees paid by you for that specific service engagement.`,
   },
   {
-    title: '9. Confidentiality',
+    title: '9. SMS Program',
+    content: `AcdyOn may offer SMS messaging for appointment reminders, customer support, service notifications, delivery notifications, and educational updates. You opt in by checking the SMS consent box on our forms — opt-in is never required or preselected.
+
+Message frequency varies. Message and data rates may apply. Reply STOP to opt out of SMS messages at any time, or HELP for assistance.`,
+  },
+  {
+    title: '10. Confidentiality',
     content: `AcdyOn treats all applicant information with strict confidentiality. Profile documents, application materials, and correspondence are shared with partner institutions only as necessary for the service being provided.
 
 We do not sell, rent, or commercially exploit your personal or professional information.`,
   },
   {
-    title: '10. Termination',
+    title: '11. Termination',
     content: `AcdyOn reserves the right to suspend or terminate services in cases involving:
 
 • Provision of false or misleading information
@@ -88,13 +94,13 @@ We do not sell, rent, or commercially exploit your personal or professional info
 Termination does not automatically entitle the applicant to a refund. Refund eligibility in such cases is governed by our Refund Policy.`,
   },
   {
-    title: '11. Governing Law',
+    title: '12. Governing Law',
     content: `These Terms and Conditions are governed by the laws of the State of Wyoming, United States, without regard to conflict of law principles.
 
 For services delivered through REBB Ventures Private Limited, the laws of India may apply to the extent relevant to the service engagement. The applicable jurisdiction will be specified in your service agreement.`,
   },
   {
-    title: '12. Contact',
+    title: '13. Contact',
     content: `For questions about these Terms and Conditions:
 
 Email: admissions@acdyon.com

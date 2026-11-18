@@ -5,6 +5,7 @@ export interface ContactFormData {
   country: string
   areaOfInterest: string
   goals: string
+  smsConsent: boolean
   sourcePage?: string
 }
 
